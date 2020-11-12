@@ -1,0 +1,62 @@
+.material-theme-creator {
+    height: 100%;
+}
+
+.material-theme-drawer {
+    width: clamp(400px, 30%, 600px);
+    
+    .material-theme-header {
+        padding: 24px;       
+    }
+
+    .drawer-content {
+        padding: 24px;
+    }
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    color: #0009;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.75rem;
+    line-height: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.16667em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    .material-icons {
+        font-size: 1rem;
+        padding: 8px;
+        height: auto;
+        width: auto;
+    }
+}
+
+.component-content {
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .component-section {
+        flex: 0 1 30%;
+        margin: 16px 20px 40px 20px;
+        // background-color: cornflowerblue;
+
+        &.narrow {
+            flex: 0 1 15%;
+        }
+
+        .component-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 16px 0;
+        }
+    }
+}
