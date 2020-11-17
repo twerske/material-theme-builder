@@ -1,0 +1,239 @@
+@import '~@angular/material/theming';
+
+$mat-color-themes: (
+    'red': $mat-red,
+    'pink': $mat-pink,
+    'purple': $mat-purple,
+    'deep-purple': $mat-deep-purple,
+    'indigo': $mat-indigo,
+    'blue': $mat-blue,
+    'light-blue': $mat-light-blue,
+    'cyan': $mat-cyan,
+    'teal': $mat-teal,
+    'green': $mat-green,
+    'light-green': $mat-light-green,
+    'lime': $mat-lime,
+    'yellow': $mat-yellow,
+    'amber': $mat-amber,
+    'orange': $mat-orange,
+    'deep-orange': $mat-deep-orange,
+    'brown': $mat-brown,
+    'grey': $mat-grey,
+    'blue-grey': $mat-blue-grey
+);
+
+// Background palette for light themes.}}
+$mat-light-theme-background: (
+  status-bar: map-get($mat-grey, 300),
+  app-bar:    map-get($mat-grey, 100),
+  background: map-get($mat-grey, 50),
+  hover:      rgba(black, 0.04), // TODO(kara): check style with mat Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: $dark-focused,
+  selected-button: map-get($mat-grey, 300),
+  selected-disabled-button: map-get($mat-grey, 400),
+  disabled-button-toggle: map-get($mat-grey, 200),
+  unselected-chip: map-get($mat-grey, 300),
+  disabled-list-option: map-get($mat-grey, 200),
+  tooltip: map-get($mat-grey, 700),
+);
+
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+  status-bar: black,
+  app-bar:    map-get($mat-grey, 900),
+  background: #303030,
+  hover:      rgba(white, 0.04), // TODO(kara): check style with mat Design UX
+  card:       map-get($mat-grey, 800),
+  dialog:     map-get($mat-grey, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $light-focused,
+  selected-button: map-get($mat-grey, 900),
+  selected-disabled-button: map-get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map-get($mat-grey, 700),
+  disabled-list-option: black,
+  tooltip: map-get($mat-grey, 700),
+);
+
+// Foreground palette for light themes.
+$mat-light-theme-foreground: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         black,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(black, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+// Foreground palette for dark themes.
+$mat-dark-theme-foreground: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+$mat-palette-keys: 'primary', 'accent', 'warn';
+$mat-color-keys: 'default', 'lighter', 'darker', 'text';
+
+$mat-foreground-keys: 'base', 'divider', 'dividers', 'disabled', 'disabled-button', 
+  'disabled-text', 'elevation', 'hint-text', 'secondary-text', 'icon', 'icons', 'text', 
+  'slider-min', 'slider-off', 'slider-off-active';
+$mat-background-keys: 'status-bar', 'app-bar', 'background', 'hover', 'card', 
+  'dialog', 'disabled-button', 'raised-button', 'focused-button', 'selected-button', 
+  'selected-disabled-button', 'disabled-button-toggle', 
+  'unselected-chip', 'disabled-list-option', 'tooltip';
+
+$mat-custom-periwinkle: (
+  50: #f5f5ff,
+  100: #ebebff,
+  200: #e0e0ff,
+  300: #dbdbff,
+  400: #d6d6ff,
+  500: #d1d1ff,
+  600: #ccccff,
+  700: #b8b8e6,
+  800: #a3a3cc,
+  900: #8f8fb3,
+  A100: #a4b1fb,
+  A200: #8d9eff,
+  A400: #6a80ff,
+  A700: #5770ff,
+  contrast: (
+    50: #782b80,
+    100: #782b80,
+    200: #782b80,
+    300: #782b80,
+    400: #782b80,
+    500: #782b80,
+    600: #782b80,
+    700: #782b80,
+    800: #782b80,
+    900: #b443c0,
+    A100: #782b80,
+    A200: #782b80,
+    A400: #782b80,
+    A700: #782b80,
+  )
+);
+
+// Define the palettes for your theme using the mat Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://mat.io/design/color/
+
+$mat-primary-color: 'blue';
+$mat-primary-palette: map-get($mat-color-themes, $mat-primary-color);
+$mat-primary-default: 200;
+$mat-primary-lighter: 100;
+$mat-primary-darker: 600;
+$mat-primary-text: A200;
+
+$mat-theme-primary: mat-palette(
+  $mat-primary-palette, 
+  $default: $mat-primary-default, 
+  $lighter: $mat-primary-lighter, 
+  $darker: $mat-primary-darker, 
+  $text: $mat-primary-text
+);
+
+$mat-accent-color: 'custom-periwinkle';
+$mat-accent-palette: $mat-custom-periwinkle;
+$mat-accent-default: 700;
+$mat-accent-lighter: 600;
+$mat-accent-darker: 900;
+$mat-accent-text: 600;
+
+$mat-theme-accent: mat-palette(
+  $mat-accent-palette, 
+  $default: $mat-accent-default, 
+  $lighter: $mat-accent-lighter, 
+  $darker: $mat-accent-darker, 
+  $text: $mat-accent-text
+);
+
+$mat-warn-color: 'orange';
+$mat-warn-palette: map-get($mat-color-themes, $mat-warn-color);
+$mat-warn-default: 700;
+$mat-warn-lighter: 700;
+$mat-warn-darker: 700;
+$mat-warn-text: 700;
+
+$mat-theme-warn: mat-palette(
+  $mat-warn-palette, 
+  $default: $mat-warn-default, 
+  $lighter: $mat-warn-lighter, 
+  $darker: $mat-warn-darker, 
+  $text: $mat-warn-text
+);
+
+// Dark theme palettes
+
+$mat-dark-primary-color: 'pink';
+$mat-dark-primary-palette: map-get($mat-color-themes, $mat-dark-primary-color);
+$mat-dark-primary-default: 200;
+$mat-dark-primary-lighter: 100;
+$mat-dark-primary-darker: 500;
+$mat-dark-primary-text: A200;
+
+$mat-dark-theme-primary: mat-palette(
+  $mat-dark-primary-palette, 
+  $default: $mat-dark-primary-default, 
+  $lighter: $mat-dark-primary-lighter, 
+  $darker: $mat-dark-primary-darker, 
+  $text: $mat-dark-primary-text
+);
+
+$mat-dark-accent-color: 'custom-periwinkle';
+$mat-dark-accent-palette: $mat-custom-periwinkle;
+$mat-dark-accent-default: 400;
+$mat-dark-accent-lighter: 200;
+$mat-dark-accent-darker: 600;
+$mat-dark-accent-text: 500;
+
+$mat-dark-theme-accent: mat-palette(
+  $mat-dark-accent-palette, 
+  $default: $mat-dark-accent-default, 
+  $lighter: $mat-dark-accent-lighter, 
+  $darker: $mat-dark-accent-darker, 
+  $text: $mat-dark-accent-text
+);
+
+$mat-dark-warn-color: 'yellow';
+$mat-dark-warn-palette: map-get($mat-color-themes, $mat-dark-warn-color);
+$mat-dark-warn-default: 300;
+$mat-dark-warn-lighter: 300;
+$mat-dark-warn-darker: 300;
+$mat-dark-warn-text: 300;
+
+$mat-dark-theme-warn: mat-palette(
+  $mat-dark-warn-palette, 
+  $default: $mat-dark-warn-default, 
+  $lighter: $mat-dark-warn-lighter, 
+  $darker: $mat-dark-warn-darker, 
+  $text: $mat-dark-warn-text
+);

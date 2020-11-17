@@ -3,37 +3,103 @@
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
+@import './material-color-theme.scss';
+@import './material-typography-theme.scss';
+@import './material-shape-theme.scss';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$material-theme-creator-primary: mat-palette($mat-indigo);
-$material-theme-creator-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$material-theme-creator-warn: mat-palette($mat-red);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$material-theme-creator-theme: mat-light-theme((
+$mat-light-theme: mat-light-theme((
   color: (
-    primary: $material-theme-creator-primary,
-    accent: $material-theme-creator-accent,
-    warn: $material-theme-creator-warn,
-  )
+    primary: $mat-theme-primary,
+    accent: $mat-theme-accent,
+    warn: $mat-theme-warn
+  ),
+  typography: $mat-typography,
+  density: $mat-density
+));
+
+$mat-dark-theme: mat-dark-theme((
+  color: (
+    primary: $mat-dark-theme-primary,
+    accent: $mat-dark-theme-accent,
+    warn: $mat-dark-theme-warn,
+  ),
+  typography: $mat-typography,
+  density: $mat-density
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($material-theme-creator-theme);
+
+// @include angular-material-color(_mat-create-light-color-config(
+//   $primary: $mat-theme-primary,
+//   $accent: $mat-theme-accent,
+//   $warn: $mat-theme-warn,
+// ));
+// @include mat-core-theme($mat-light-theme);
+// @include mat-core-color($mat-light-theme);
+
+@include angular-material-theme($mat-light-theme);
+
+.dark-theme {
+  @include angular-material-color($mat-dark-theme);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 
 /* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --primary-color:#{$mat-primary-color};
+  --primary-default:#{$mat-primary-default};
+  --primary-lighter:#{$mat-primary-lighter};
+  --primary-darker:#{$mat-primary-darker};
+  --primary-text:#{$mat-primary-text};
+  --dark-primary-color:#{$mat-dark-primary-color};
+  --dark-primary-default:#{$mat-dark-primary-default};
+  --dark-primary-lighter:#{$mat-dark-primary-lighter};
+  --dark-primary-darker:#{$mat-dark-primary-darker};
+  --dark-primary-text:#{$mat-dark-primary-text};
+
+  --accent-color:#{$mat-accent-color};
+  --accent-default:#{$mat-accent-default};
+  --accent-lighter:#{$mat-accent-lighter};
+  --accent-darker:#{$mat-accent-darker};
+  --accent-text:#{$mat-accent-text};
+  --dark-accent-color:#{$mat-dark-accent-color};
+  --dark-accent-default:#{$mat-dark-accent-default};
+  --dark-accent-lighter:#{$mat-dark-accent-lighter};
+  --dark-accent-darker:#{$mat-dark-accent-darker};
+  --dark-accent-text:#{$mat-dark-accent-text};
+
+  --warn-color:#{$mat-warn-color};
+  --warn-default:#{$mat-warn-default};
+  --warn-lighter:#{$mat-warn-lighter};
+  --warn-darker:#{$mat-warn-darker};
+  --warn-text:#{$mat-warn-text};
+  --dark-warn-color:#{$mat-dark-warn-color};
+  --dark-warn-default:#{$mat-dark-warn-default};
+  --dark-warn-lighter:#{$mat-dark-warn-lighter};
+  --dark-warn-darker:#{$mat-dark-warn-darker};
+  --dark-warn-text:#{$mat-dark-warn-text};
+
+  --font-family:#{$mat-font-family};
+  --density:#{$mat-density};
+
+  @each $key in $mat-foreground-keys {
+    --foreground-#{$key}: #{map-get($mat-light-theme-foreground, $key)};
+    --dark-foreground-#{$key}: #{map-get($mat-dark-theme-foreground, $key)};
+  }
+
+  @each $key in $mat-background-keys {
+    --background-#{$key}: #{map-get($mat-light-theme-background, $key)};
+    --dark-background-#{$key}: #{map-get($mat-dark-theme-background, $key)};
+  }
+}

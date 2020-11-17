@@ -1,251 +1,828 @@
-<mat-drawer-container class="material-theme-creator">
-  <mat-drawer class="material-theme-drawer" mode="side" opened>
-    <div class="material-theme-header">
-      <h1>Build an Angular Material Theme</h1>
-      <h2>links and/or name</h2>
-    </div>
-    <mat-tab-group mat-stretch-tabs>
-      <mat-tab label="Instructions" class="drawer-content">
-        <div class="drawer-content">
-          <h4 class="section-header">HOW TO BUILD A THEME</h4>
-          <p>Build your own custom Material theme by remixing and styling these themeable components.</p>
-          <p>Modify the variables in the Theme Variables tab, then use 'ng add @angular/material' and apply to your app's styles.scss file</p>
+<div [class.dark-theme]="isDark" >
+  <mat-drawer-container class="mat-theme-creator">
+    <mat-drawer class="mat-theme-drawer" mode="side" opened>
+      <div class="mat-theme-header">
+        <h1>Build an Angular Material Theme</h1>
+        <!-- <h2>@twerske</h2> -->
+        <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme" class="theme-button">
+          <mat-icon>
+            brightness_6
+          </mat-icon>
+        </button>
+        <!-- <button mat-mini-fab (click)="setTheme('deeppurple-amber')" matTooltip="Deep purple amber theme" class="theme-button deeppurple-amber">
+          <mat-icon>
+            palette
+          </mat-icon>
+        </button>
+        <button mat-mini-fab (click)="setTheme('indigo-pink')" matTooltip="Indigo pink theme" class="theme-button indigo-pink">
+          <mat-icon>
+            palette
+          </mat-icon>
+        </button>
+        <button mat-mini-fab (click)="setTheme('pink-bluegrey')" matTooltip="Pink blue grey theme" class="theme-button pink-bluegrey">
+          <mat-icon>
+            palette
+          </mat-icon>
+        </button>
+        <button mat-mini-fab (click)="setTheme('purple-green')" matTooltip="Purple green theme" class="theme-button purple-green">
+          <mat-icon>
+            palette
+          </mat-icon>
+        </button> -->
+      </div>
+      <mat-tab-group mat-stretch-tabs>
+        <!-- <mat-tab label="Instructions" class="drawer-content">
+          <div class="drawer-content">
+            <h4 class="section-header">HOW TO BUILD A THEME</h4>
+            <p>Build your own custom Material theme by remixing and styling these themeable components.</p>
+            <p>Modify the variables in the Theme Variables tab, then use 'ng add @angular/material' and apply to your app's styles.scss file</p>
+          </div>
+        </mat-tab> -->
+        <mat-tab label="Color">
+          <div class="drawer-content">
+            <a class="section-header">
+              <mat-icon>colorize</mat-icon>
+              COLOR SCHEME
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class='light' *ngIf="!isDark">
+              <div class='primary'>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--primary-color') }}</span></p>
+                  <figure class="color-swatch primary-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-default: <span>{{ bodyStyles.getPropertyValue('--primary-default') }}</span></p>
+                  <figure class="color-swatch primary-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-lighter: <span>{{ bodyStyles.getPropertyValue('--primary-lighter') }}</span></p>
+                  <figure class="color-swatch primary-lighter"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-darker: <span>{{ bodyStyles.getPropertyValue('--primary-darker') }}</span></p>
+                  <figure class="color-swatch primary-darker"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-text: <span>{{ bodyStyles.getPropertyValue('--primary-text') }}</span></p>
+                  <figure class="color-swatch primary-text"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='accent'>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--accent-color') }}</span></p>
+                  <figure class="color-swatch accent-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-default: <span>{{ bodyStyles.getPropertyValue('--accent-default') }}</span></p>
+                  <figure class="color-swatch accent-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-lighter: <span>{{ bodyStyles.getPropertyValue('--accent-lighter') }}</span></p>
+                  <figure class="color-swatch accent-lighter"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-darker: <span>{{ bodyStyles.getPropertyValue('--accent-darker') }}</span></p>
+                  <figure class="color-swatch accent-darker"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-text: <span>{{ bodyStyles.getPropertyValue('--accent-text') }}</span></p>
+                  <figure class="color-swatch accent-text"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='warn'>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--warn-color') }}</span></p>
+                  <figure class="color-swatch warn-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-default: <span>{{ bodyStyles.getPropertyValue('--warn-default') }}</span></p>
+                  <figure class="color-swatch warn-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-lighter: <span>{{ bodyStyles.getPropertyValue('--warn-lighter') }}</span></p>
+                  <figure class="color-swatch warn-lighter"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-darker: <span>{{ bodyStyles.getPropertyValue('--warn-darker') }}</span></p>
+                  <figure class="color-swatch warn-darker"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-text: <span>{{ bodyStyles.getPropertyValue('--warn-text') }}</span></p>
+                  <figure class="color-swatch warn-text"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='foreground'>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-base: <span>{{ bodyStyles.getPropertyValue('--foreground-base') }}</span></p>
+                  <figure class="color-swatch foreground-base"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-divider: <span>{{ bodyStyles.getPropertyValue('--foreground-divider') }}</span></p>
+                  <figure class="color-swatch foreground-divider"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-dividers: <span>{{ bodyStyles.getPropertyValue('--foreground-dividers') }}</span></p>
+                  <figure class="color-swatch foreground-dividers"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-disabled: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled') }}</span></p>
+                  <figure class="color-swatch foreground-disabled"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-disabled-button: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled-button') }}</span></p>
+                  <figure class="color-swatch foreground-disabled-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-disabled-text: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled-text') }}</span></p>
+                  <figure class="color-swatch foreground-disabled-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-elevation: <span>{{ bodyStyles.getPropertyValue('--foreground-elevation') }}</span></p>
+                  <figure class="color-swatch foreground-elevation"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-hint-text: <span>{{ bodyStyles.getPropertyValue('--foreground-hint-text') }}</span></p>
+                  <figure class="color-swatch foreground-hint-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-secondary-text: <span>{{ bodyStyles.getPropertyValue('--foreground-secondary-text') }}</span></p>
+                  <figure class="color-swatch foreground-secondary-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-icon: <span>{{ bodyStyles.getPropertyValue('--foreground-icon') }}</span></p>
+                  <figure class="color-swatch foreground-icon"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-icons: <span>{{ bodyStyles.getPropertyValue('--foreground-icons') }}</span></p>
+                  <figure class="color-swatch foreground-icons"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-text: <span>{{ bodyStyles.getPropertyValue('--foreground-text') }}</span></p>
+                  <figure class="color-swatch foreground-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-slider-min: <span>{{ bodyStyles.getPropertyValue('--foreground-slider-min') }}</span></p>
+                  <figure class="color-swatch foreground-slider-min"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-slider-off: <span>{{ bodyStyles.getPropertyValue('--foreground-slider-off') }}</span></p>
+                  <figure class="color-swatch foreground-slider-off"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-foreground-slider-off-active: <span>{{ bodyStyles.getPropertyValue('--foreground-slider-off-active') }}</span></p>
+                  <figure class="color-swatch foreground-slider-off-active"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='background'>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-status-bar: <span>{{ bodyStyles.getPropertyValue('--background-status-bar') }}</span></p>
+                  <figure class="color-swatch background-status-bar"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-app-bar: <span>{{ bodyStyles.getPropertyValue('--background-app-bar') }}</span></p>
+                  <figure class="color-swatch background-app-bar"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-background: <span>{{ bodyStyles.getPropertyValue('--background-background') }}</span></p>
+                  <figure class="color-swatch background-background"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-hover: <span>{{ bodyStyles.getPropertyValue('--background-hover') }}</span></p>
+                  <figure class="color-swatch background-hover"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code" [ngClass]="{'elongated': bodyStyles.getPropertyValue('--background-card').length >= 25}">
+                    $mat-background-card: <span>{{ bodyStyles.getPropertyValue('--background-card') }}</span></p>
+                  <figure class="color-swatch background-card"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-dialog: <span>{{ bodyStyles.getPropertyValue('--background-dialog') }}</span></p>
+                  <figure class="color-swatch background-dialog"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-disabled-button: <span>{{ bodyStyles.getPropertyValue('--background-disabled-button') }}</span></p>
+                  <figure class="color-swatch background-disabled-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-raised-button: <span>{{ bodyStyles.getPropertyValue('--background-raised-button') }}</span></p>
+                  <figure class="color-swatch background-raised-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-focused-button: <span>{{ bodyStyles.getPropertyValue('--background-focused-button') }}</span></p>
+                  <figure class="color-swatch background-focused-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-selected-button: <span>{{ bodyStyles.getPropertyValue('--background-selected-button') }}</span></p>
+                  <figure class="color-swatch background-selected-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-selected-disabled-button: <span>{{ bodyStyles.getPropertyValue('--background-selected-disabled-button') }}</span></p>
+                  <figure class="color-swatch background-selected-disabled-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-disabled-button-toggle: <span>{{ bodyStyles.getPropertyValue('--background-disabled-button-toggle') }}</span></p>
+                  <figure class="color-swatch background-disabled-button-toggle"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-unselected-chip: <span>{{ bodyStyles.getPropertyValue('--background-unselected-chip') }}</span></p>
+                  <figure class="color-swatch background-unselected-chip"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-disabled-list-option: <span>{{ bodyStyles.getPropertyValue('--background-disabled-list-option') }}</span></p>
+                  <figure class="color-swatch background-disabled-list-option"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-background-tooltip: <span>{{ bodyStyles.getPropertyValue('--background-tooltip') }}</span></p>
+                  <figure class="color-swatch background-tooltip"></figure>
+                </div>
+              </div>
+            </div>
+            <div class='dark' *ngIf="isDark">
+              <div class='primary'>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-primary-color') }}</span></p>
+                  <figure class="color-swatch primary-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-default: <span>{{ bodyStyles.getPropertyValue('--dark-primary-default') }}</span></p>
+                  <figure class="color-swatch primary-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-lighter: <span>{{ bodyStyles.getPropertyValue('--dark-primary-lighter') }}</span></p>
+                  <figure class="color-swatch primary-lighter"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-darker: <span>{{ bodyStyles.getPropertyValue('--dark-primary-darker') }}</span></p>
+                  <figure class="color-swatch primary-darker"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-text: <span>{{ bodyStyles.getPropertyValue('--dark-primary-text') }}</span></p>
+                  <figure class="color-swatch primary-text"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='accent'>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-accent-color') }}</span></p>
+                  <figure class="color-swatch accent-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-default: <span>{{ bodyStyles.getPropertyValue('--dark-accent-default') }}</span></p>
+                  <figure class="color-swatch accent-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-lighter: <span>{{ bodyStyles.getPropertyValue('--dark-accent-lighter') }}</span></p>
+                  <figure class="color-swatch accent-lighter"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-darker: <span>{{ bodyStyles.getPropertyValue('--dark-accent-darker') }}</span></p>
+                  <figure class="color-swatch accent-darker"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-text: <span>{{ bodyStyles.getPropertyValue('--dark-accent-text') }}</span></p>
+                  <figure class="color-swatch accent-text"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='warn'>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-warn-color') }}</span></p>
+                  <figure class="color-swatch warn-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-default: <span>{{ bodyStyles.getPropertyValue('--dark-warn-default') }}</span></p>
+                  <figure class="color-swatch warn-default"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-lighter: <span>{{ bodyStyles.getPropertyValue('--dark-warn-lighter') }}</span></p>
+                  <figure class="color-swatch warn-lighter"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-darker: <span>{{ bodyStyles.getPropertyValue('--dark-warn-darker') }}</span></p>
+                  <figure class="color-swatch warn-darker"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-text: <span>{{ bodyStyles.getPropertyValue('--dark-warn-text') }}</span></p>
+                  <figure class="color-swatch warn-text"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='foreground'>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-base: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-base') }}</span></p>
+                  <figure class="color-swatch foreground-base"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-divider: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-divider') }}</span></p>
+                  <figure class="color-swatch foreground-divider"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-dividers: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-dividers') }}</span></p>
+                  <figure class="color-swatch foreground-dividers"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-disabled: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-disabled') }}</span></p>
+                  <figure class="color-swatch foreground-disabled"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-disabled-button: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-disabled-button') }}</span></p>
+                  <figure class="color-swatch foreground-disabled-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-disabled-text: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled-text') }}</span></p>
+                  <figure class="color-swatch foreground-disabled-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-elevation: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-elevation') }}</span></p>
+                  <figure class="color-swatch foreground-elevation"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-hint-text: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-hint-text') }}</span></p>
+                  <figure class="color-swatch foreground-hint-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-secondary-text: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-secondary-text') }}</span></p>
+                  <figure class="color-swatch foreground-secondary-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-icon: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-icon') }}</span></p>
+                  <figure class="color-swatch foreground-icon"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-icons: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-icons') }}</span></p>
+                  <figure class="color-swatch foreground-icons"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-text: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-text') }}</span></p>
+                  <figure class="color-swatch foreground-text"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-slider-min: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-slider-min') }}</span></p>
+                  <figure class="color-swatch foreground-slider-min"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-slider-off: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-slider-off') }}</span></p>
+                  <figure class="color-swatch foreground-slider-off"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-foreground-slider-off-active: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-slider-off-active') }}</span></p>
+                  <figure class="color-swatch foreground-slider-off-active"></figure>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div class='background'>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-status-bar: <span>{{ bodyStyles.getPropertyValue('--dark-background-status-bar') }}</span></p>
+                  <figure class="color-swatch background-status-bar"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-app-bar: <span>{{ bodyStyles.getPropertyValue('--dark-background-app-bar') }}</span></p>
+                  <figure class="color-swatch background-app-bar"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-background: <span>{{ bodyStyles.getPropertyValue('--dark-background-background') }}</span></p>
+                  <figure class="color-swatch background-background"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-hover: <span>{{ bodyStyles.getPropertyValue('--dark-background-hover') }}</span></p>
+                  <figure class="color-swatch background-hover"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-card: <span>{{ bodyStyles.getPropertyValue('--dark-background-card') }}</span></p>
+                  <figure class="color-swatch background-card"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-dialog: <span>{{ bodyStyles.getPropertyValue('--dark-background-dialog') }}</span></p>
+                  <figure class="color-swatch background-dialog"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-disabled-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-disabled-button') }}</span></p>
+                  <figure class="color-swatch background-disabled-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-raised-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-raised-button') }}</span></p>
+                  <figure class="color-swatch background-raised-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-focused-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-focused-button') }}</span></p>
+                  <figure class="color-swatch background-focused-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-selected-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-selected-button') }}</span></p>
+                  <figure class="color-swatch background-selected-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-selected-disabled-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-selected-disabled-button') }}</span></p>
+                  <figure class="color-swatch background-selected-disabled-button"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-disabled-button-toggle: <span>{{ bodyStyles.getPropertyValue('--dark-background-disabled-button-toggle') }}</span></p>
+                  <figure class="color-swatch background-disabled-button-toggle"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-unselected-chip: <span>{{ bodyStyles.getPropertyValue('--dark-background-unselected-chip') }}</span></p>
+                  <figure class="color-swatch background-unselected-chip"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-disabled-list-option: <span>{{ bodyStyles.getPropertyValue('--dark-background-disabled-list-option') }}</span></p>
+                  <figure class="color-swatch background-disabled-list-option"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-background-tooltip: <span>{{ bodyStyles.getPropertyValue('--dark-background-tooltip') }}</span></p>
+                  <figure class="color-swatch background-tooltip"></figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Typography">
+          <div class="drawer-content">
+            <a class="section-header">
+              <mat-icon>text_fields</mat-icon>
+              TYPOGRAPHY SCALE
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div>
+              <div class='theme-line'>
+                <p class="code">$mat-font-family: <span>"{{ bodyStyles.getPropertyValue('--font-family') }}"</span></p>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-display-4:</p>
+                <h1 class="mat-display-4 typography">H1</h1>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-display-3:</p>
+                <h1 class="mat-display-3 typography">H1</h1>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-display-2:</p>
+                <h1 class="mat-display-2 typography">H1</h1>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-display-1:</p>
+                <h1 class="mat-display-1 typography">H1</h1>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-headline:</p>
+                <h1 class="typography">H1</h1>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-title:</p>
+                <h2 class="typography">H2</h2>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-subheading-2:</p>
+                <h3 class="typography">H3</h3>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-subheading-1:</p>
+                <h4 class="typography">H4</h4>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-body-2:</p>
+                <body class="typography">Body 2</body>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-body-1:</p>
+                <h6 class="typography">Body 1</h6>
+              </div>
+              <div class='theme-line'>
+                <p class="code">$mat-caption:</p>
+                <caption class="typography">caption</caption>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Density">
+          <div class="drawer-content">
+            <a class="section-header">
+              <mat-icon>border_style</mat-icon>
+              DENSITY SYSTEM
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class='theme-line'>
+              <p class="code">$mat-density: <span>{{ bodyStyles.getPropertyValue('--density') }}</span></p>
+              <h2 class="typography">{{ bodyStyles.getPropertyValue('--density') }}</h2>
+            </div>
+            More density system coming soon...
+          </div>
+        </mat-tab>
+        <mat-tab label="Sass" class="drawer-content">
+          <div class="drawer-content">
+            <h4 class="section-header">GENERATED SASS</h4>
+            <p>Sass will be here...</p>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="component-content">
+        <div class="column first-column">
+          <div class="component-section">
+            <a class="section-header">
+              BUTTONS
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <button mat-raised-button color="primary">BUTTON</button>
+              <button mat-button color="accent">BUTTON</button>
+              <button mat-stroked-button color="warn">BUTTON</button>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              TOOLBAR
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-toolbar color="primary">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                  <mat-icon>menu</mat-icon>
+                </button>
+                <span>My App</span>
+                <span class="example-spacer"></span>
+                <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                  <mat-icon>favorite</mat-icon>
+                </button>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                  <mat-icon>share</mat-icon>
+                </button>
+              </mat-toolbar>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              SIDENAV
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-drawer-container class="sidenav-example">
+                <mat-drawer mode="side" opened>
+                  <h3>Header</h3>
+                  <p>Body 2</p>
+                  <mat-divider></mat-divider>
+                  <mat-selection-list [multiple]="false">
+                    <mat-list-option *ngFor="let fruit of fruits" [value]="fruit">
+                      {{fruit}}
+                    </mat-list-option>
+                  </mat-selection-list>
+                </mat-drawer>
+              </mat-drawer-container>
+            </div>
+          </div>
+          <!-- <div class="component-section">
+            <a class="section-header">
+              SHORT APP BAR
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+            </div>
+          </div> -->
+          <div class="component-section">
+            <a class="section-header">
+              MENU
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              PROGRESS BAR
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              PROGRESS SPINNER
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+            </div>
+          </div>
+          <div class="component-section two-column">
+            <div class="narrow">
+              <a class="section-header">
+                SWITCH
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+              <div class="narrow">
+                <mat-slide-toggle color="accent" checked=true></mat-slide-toggle>
+                <mat-slide-toggle color="accent"></mat-slide-toggle>
+              </div>
+            </div>
+            <div class="narrow">
+              <a class="section-header">
+                CHECKBOX
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+              <div class="component-wrapper">
+                <mat-checkbox color="accent"></mat-checkbox>
+                <mat-checkbox color="accent" indeterminate=true></mat-checkbox>
+                <mat-checkbox color="accent" checked=true></mat-checkbox>
+              </div>
+            </div>
+          </div>
+          <div class="component-section two-column">
+            <div class="narrow">
+              <a class="section-header">
+                RADIO BUTTON
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+              <div class="component-wrapper">
+                <mat-radio-button></mat-radio-button>
+                <mat-radio-button></mat-radio-button>
+                <mat-radio-button checked="true"></mat-radio-button>
+              </div>
+            </div>
+            <div class="narrow">
+              <a class="section-header">
+                ICON BUTTON
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+              <div class="component-wrapper">
+                <button mat-icon-button color="accent" aria-label="Example icon button with a heart icon">
+                  <mat-icon>favorite</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              CHIPS
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-chip-list aria-label="Pie selection">
+                <mat-chip>Cherry</mat-chip>
+                <mat-chip>Apple</mat-chip>
+                <mat-chip>Blueberry</mat-chip>
+                <mat-chip color="primary" selected>Rhubarb</mat-chip>
+                <mat-chip color="accent" selected>Marionberry</mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              SELECT
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-form-field appearance="fill">
+                <mat-label>Label</mat-label>
+                <mat-select required>
+                  <mat-option *ngFor="let fruit of fruits" [value]="fruit">{{ fruit }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Label</mat-label>
+                <mat-select multiple>
+                  <mat-option *ngFor="let fruit of fruits" [value]="fruit">{{ fruit }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              LIST
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-selection-list [multiple]="false">
+                <mat-list-option *ngFor="let fruit of fruits" [value]="fruit">
+                  {{fruit}}
+                </mat-list-option>
+              </mat-selection-list>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              DATA TABLE
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+            </div>
+          </div>
         </div>
-      </mat-tab>
-      <mat-tab label="Theme Variables">
-        <div class="drawer-content">
-          <a class="section-header">
-            <mat-icon>colorize</mat-icon>
-            COLOR SCHEME
-            <mat-icon>open_in_new</mat-icon>
-          </a>
-          <a class="section-header">
-            <mat-icon>border_style</mat-icon>
-            SHAPE SYSTEM
-            <mat-icon>open_in_new</mat-icon>
-          </a>
-          <a class="section-header">
-            <mat-icon>text_fields</mat-icon>
-            header SCALE
-            <mat-icon>open_in_new</mat-icon>
-          </a>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-drawer>
-  <mat-drawer-content>
-    <div class="component-content">
-      <div class="component-section">
-        <a class="section-header">
-          BUTTONS
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <button mat-raised-button color="primary">BUTTON</button>
-          <button mat-button color="accent">BUTTON</button>
-          <button mat-stroked-button color="warn">BUTTON</button>
+        <div class="column second-column">
+          <div class="component-section">
+            <a class="section-header">
+              FAB
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <button mat-fab color="primary" aria-label="Example icon button with a edit icon">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-fab color="accent" aria-label="Example icon button with a favorite icon">
+                <mat-icon>favorite</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" aria-label="Example icon button with an add icon">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              CARD
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Shiba Inu</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://cdn.glitch.com/9c389208-b279-4e96-bcbc-e5f8712d8706%2Fplaceholder-landscape-short.png?1553629848209" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              INPUT
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-form-field>
+                <mat-label>Label</mat-label>
+                <input matInput type="text" placeholder="Hint" autocomplete="off">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              TABS
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-tab-group color="primary" backgroundColor="primary">
+                <mat-tab label="FIRST"></mat-tab>
+                <mat-tab label="SECOND"></mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              SLIDER
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-slider
+                class="slider-example"
+                max="10"
+                min="0"
+                step="1"
+                tickInterval="1">
+              </mat-slider>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              SNACKBAR
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              DIALOG
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              IMAGE LIST
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="component-section">
-        <a class="section-header">
-          TOP APP BAR
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          DRAWER
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          SHORT APP BAR
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          MENU
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          PROGRESS BAR
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          PROGRESS SPINNER
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-        </div>
-      </div>
-      <div class="component-section narrow">
-        <a class="section-header">
-          SWITCH
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <mat-slide-toggle color="accent" checked=true></mat-slide-toggle>
-          <mat-slide-toggle color="accent"></mat-slide-toggle>
-        </div>
-      </div>
-      <div class="component-section narrow">
-        <a class="section-header">
-          CHECKBOX
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <mat-checkbox color="accent"></mat-checkbox>
-          <mat-checkbox color="accent" indeterminate=true></mat-checkbox>
-          <mat-checkbox color="accent" checked=true></mat-checkbox>
-        </div>
-      </div>
-      <div class="component-section narrow">
-        <a class="section-header">
-          RADIO BUTTON
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <mat-radio-button></mat-radio-button>
-          <mat-radio-button></mat-radio-button>
-          <mat-radio-button checked="true"></mat-radio-button>
-        </div>
-      </div>
-      <div class="component-section narrow">
-        <a class="section-header">
-          ICON BUTTON
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <button mat-icon-button color="accent" aria-label="Example icon button with a heart icon">
-            <mat-icon>favorite</mat-icon>
-          </button>
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          CHIPS
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <mat-chip-list aria-label="Pie selection">
-            <mat-chip>Cherry</mat-chip>
-            <mat-chip>Apple</mat-chip>
-            <mat-chip>Blueberry</mat-chip>
-            <mat-chip color="primary" selected>Rhubarb</mat-chip>
-            <mat-chip color="accent" selected>Marionberry</mat-chip>
-          </mat-chip-list>
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          SELECT
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-          <mat-form-field appearance="fill">
-            <mat-label>fruits</mat-label>
-            <mat-select [formControl]="fruits" multiple>
-              <mat-select-trigger>
-                {{fruits.value ? fruits.value[0] : ''}}
-                <span *ngIf="fruits.value?.length > 1" class="example-additional-selection">
-                  (+{{fruits.value.length - 1}} {{fruits.value?.length === 2 ? 'other' : 'others'}})
-                </span>
-              </mat-select-trigger>
-              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          LIST
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          DATA TABLE
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          FAB
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          INPUT//TEXT FEILD
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          TABS
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          SLIDER
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          SNACKBAR
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          DIALOG
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-      <div class="component-section">
-        <a class="section-header">
-          IMAGE LIST
-          <mat-icon>open_in_new</mat-icon>
-        </a>
-        <div class="component-wrapper">
-        </div>
-      </div>
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+$mat-density: 0;
+
+// Applies the correct css rules to an element to give it the elevation specified by $zValue.
+// The $zValue must be between 0 and 24.
+// @include mat-elevation(
+//   $zValue: 12, 
+//   $color: $mat-elevation-color, 
+//   $opacity: 0.5
+// );
+
+// Applies the elevation to an element in a manner that allows
+// consumers to override it via the Material elevation classes.
+// @include mat-overridable-elevation(
+//   $zValue: 12,
+//   $color: $mat-elevation-color,
+//   $opacity: $mat-elevation-opacity
+// );
+
