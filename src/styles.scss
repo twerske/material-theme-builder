@@ -57,41 +57,42 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
+
   --primary-color:#{$mat-primary-color};
-  --primary-default:#{$mat-primary-default};
-  --primary-lighter:#{$mat-primary-lighter};
-  --primary-darker:#{$mat-primary-darker};
-  --primary-text:#{$mat-primary-text};
+  @each $key, $color in $mat-primary {
+    --primary-#{$key}:#{$color};
+    --primary-#{$key}-contrast:#{mat-contrast($mat-theme-primary, $color)};
+  }
+
   --dark-primary-color:#{$mat-dark-primary-color};
-  --dark-primary-default:#{$mat-dark-primary-default};
-  --dark-primary-lighter:#{$mat-dark-primary-lighter};
-  --dark-primary-darker:#{$mat-dark-primary-darker};
-  --dark-primary-text:#{$mat-dark-primary-text};
+  @each $key, $color in $mat-dark-primary {
+    --dark-primary-#{$key}:#{$color};
+    --dark-primary-#{$key}-contrast:#{mat-contrast($mat-theme-primary, $color)};
+  }
 
   --accent-color:#{$mat-accent-color};
-  --accent-default:#{$mat-accent-default};
-  --accent-lighter:#{$mat-accent-lighter};
-  --accent-darker:#{$mat-accent-darker};
-  --accent-text:#{$mat-accent-text};
+  @each $key, $color in $mat-accent {
+    --accent-#{$key}:#{$color};
+    --accent-#{$key}-contrast:#{mat-contrast($mat-theme-accent, $color)};
+  }
+
   --dark-accent-color:#{$mat-dark-accent-color};
-  --dark-accent-default:#{$mat-dark-accent-default};
-  --dark-accent-lighter:#{$mat-dark-accent-lighter};
-  --dark-accent-darker:#{$mat-dark-accent-darker};
-  --dark-accent-text:#{$mat-dark-accent-text};
-
+  @each $key, $color in $mat-dark-accent {
+    --dark-accent-#{$key}:#{$color};
+    --dark-accent-#{$key}-contrast:#{mat-contrast($mat-theme-accent, $color)};
+  }
+  
   --warn-color:#{$mat-warn-color};
-  --warn-default:#{$mat-warn-default};
-  --warn-lighter:#{$mat-warn-lighter};
-  --warn-darker:#{$mat-warn-darker};
-  --warn-text:#{$mat-warn-text};
-  --dark-warn-color:#{$mat-dark-warn-color};
-  --dark-warn-default:#{$mat-dark-warn-default};
-  --dark-warn-lighter:#{$mat-dark-warn-lighter};
-  --dark-warn-darker:#{$mat-dark-warn-darker};
-  --dark-warn-text:#{$mat-dark-warn-text};
+  @each $key, $color in $mat-warn {
+    --warn-#{$key}:#{$color};
+    --warn-#{$key}-contrast:#{mat-contrast($mat-theme-warn, $color)};
+  }
 
-  --font-family:#{$mat-font-family};
-  --density:#{$mat-density};
+  --dark-warn-color:#{$mat-dark-warn-color};
+  @each $key, $color in $mat-dark-warn {
+    --dark-warn-#{$key}:#{$color};
+    --dark-warn-#{$key}-contrast:#{mat-contrast($mat-theme-warn, $color)};
+  }
 
   @each $key in $mat-foreground-keys {
     --foreground-#{$key}: #{map-get($mat-light-theme-foreground, $key)};
@@ -102,4 +103,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --background-#{$key}: #{map-get($mat-light-theme-background, $key)};
     --dark-background-#{$key}: #{map-get($mat-dark-theme-background, $key)};
   }
+
+  --font-family:#{$mat-font-family};
+  --density:#{$mat-density};
 }

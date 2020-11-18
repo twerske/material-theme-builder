@@ -4,12 +4,12 @@
       <div class="mat-theme-header">
         <h1>Build an Angular Material Theme</h1>
         <!-- <h2>@twerske</h2> -->
-        <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme" class="theme-button">
+        <button mat-mini-fab (click)="toggleTheme()" matTooltip="Toggle dark theme" class="theme-button dark-mode">
           <mat-icon>
             brightness_6
           </mat-icon>
         </button>
-        <!-- <button mat-mini-fab (click)="setTheme('deeppurple-amber')" matTooltip="Deep purple amber theme" class="theme-button deeppurple-amber">
+        <button mat-mini-fab (click)="setTheme('deeppurple-amber')" matTooltip="Deep purple amber theme" class="theme-button deeppurple-amber">
           <mat-icon>
             palette
           </mat-icon>
@@ -28,7 +28,7 @@
           <mat-icon>
             palette
           </mat-icon>
-        </button> -->
+        </button>
       </div>
       <mat-tab-group mat-stretch-tabs>
         <!-- <mat-tab label="Instructions" class="drawer-content">
@@ -67,8 +67,21 @@
                   <p class="code">$mat-primary-text: <span>{{ bodyStyles.getPropertyValue('--primary-text') }}</span></p>
                   <figure class="color-swatch primary-text"></figure>
                 </div>
+                <mat-divider></mat-divider>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-default-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-default-contrast') }}</span></p>
+                  <figure class="color-swatch primary-default-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-lighter-contrast') }}</span></p>
+                  <figure class="color-swatch primary-lighter-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-primary-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-darker-contrast') }}</span></p>
+                  <figure class="color-swatch primary-darker-contrast"></figure>
+                </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='accent'>
                 <div class='theme-line'>
                   <p class="code">$mat-accent-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--accent-color') }}</span></p>
@@ -90,8 +103,21 @@
                   <p class="code">$mat-accent-text: <span>{{ bodyStyles.getPropertyValue('--accent-text') }}</span></p>
                   <figure class="color-swatch accent-text"></figure>
                 </div>
+                <mat-divider></mat-divider>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-default-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-default-contrast') }}</span></p>
+                  <figure class="color-swatch accent-default-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-lighter-contrast') }}</span></p>
+                  <figure class="color-swatch accent-lighter-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-accent-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-darker-contrast') }}</span></p>
+                  <figure class="color-swatch accent-darker-contrast"></figure>
+                </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='warn'>
                 <div class='theme-line'>
                   <p class="code">$mat-warn-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--warn-color') }}</span></p>
@@ -113,8 +139,21 @@
                   <p class="code">$mat-warn-text: <span>{{ bodyStyles.getPropertyValue('--warn-text') }}</span></p>
                   <figure class="color-swatch warn-text"></figure>
                 </div>
+                <mat-divider></mat-divider>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-default-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-default-contrast') }}</span></p>
+                  <figure class="color-swatch warn-default-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-lighter-contrast') }}</span></p>
+                  <figure class="color-swatch warn-lighter-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-warn-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-darker-contrast') }}</span></p>
+                  <figure class="color-swatch warn-darker-contrast"></figure>
+                </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='foreground'>
                 <div class='theme-line'>
                   <p class="code">$mat-foreground-base: <span>{{ bodyStyles.getPropertyValue('--foreground-base') }}</span></p>
@@ -177,7 +216,7 @@
                   <figure class="color-swatch foreground-slider-off-active"></figure>
                 </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='background'>
                 <div class='theme-line'>
                   <p class="code">$mat-background-status-bar: <span>{{ bodyStyles.getPropertyValue('--background-status-bar') }}</span></p>
@@ -264,8 +303,21 @@
                   <p class="code">$mat-dark-primary-text: <span>{{ bodyStyles.getPropertyValue('--dark-primary-text') }}</span></p>
                   <figure class="color-swatch primary-text"></figure>
                 </div>
+                <mat-divider></mat-divider>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-default-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-primary-default-contrast') }}</span></p>
+                  <figure class="color-swatch primary-default-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-primary-lighter-contrast') }}</span></p>
+                  <figure class="color-swatch primary-lighter-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-primary-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-primary-darker-contrast') }}</span></p>
+                  <figure class="color-swatch primary-darker-contrast"></figure>
+                </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='accent'>
                 <div class='theme-line'>
                   <p class="code">$mat-dark-accent-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-accent-color') }}</span></p>
@@ -287,8 +339,21 @@
                   <p class="code">$mat-dark-accent-text: <span>{{ bodyStyles.getPropertyValue('--dark-accent-text') }}</span></p>
                   <figure class="color-swatch accent-text"></figure>
                 </div>
+                <mat-divider></mat-divider>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-default-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-accent-default-contrast') }}</span></p>
+                  <figure class="color-swatch accent-default-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-accent-lighter-contrast') }}</span></p>
+                  <figure class="color-swatch accent-lighter-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-accent-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-accent-darker-contrast') }}</span></p>
+                  <figure class="color-swatch accent-darker-contrast"></figure>
+                </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='warn'>
                 <div class='theme-line'>
                   <p class="code">$mat-dark-warn-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-warn-color') }}</span></p>
@@ -310,8 +375,21 @@
                   <p class="code">$mat-dark-warn-text: <span>{{ bodyStyles.getPropertyValue('--dark-warn-text') }}</span></p>
                   <figure class="color-swatch warn-text"></figure>
                 </div>
+                <mat-divider></mat-divider>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-default-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-warn-default-contrast') }}</span></p>
+                  <figure class="color-swatch warn-default-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-warn-lighter-contrast') }}</span></p>
+                  <figure class="color-swatch warn-lighter-contrast"></figure>
+                </div>
+                <div class='theme-line'>
+                  <p class="code">$mat-dark-warn-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-warn-darker-contrast') }}</span></p>
+                  <figure class="color-swatch warn-darker-contrast"></figure>
+                </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='foreground'>
                 <div class='theme-line'>
                   <p class="code">$mat-dark-foreground-base: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-base') }}</span></p>
@@ -374,7 +452,7 @@
                   <figure class="color-swatch foreground-slider-off-active"></figure>
                 </div>
               </div>
-              <mat-divider></mat-divider>
+              <mat-divider class="content-divider"></mat-divider>
               <div class='background'>
                 <div class='theme-line'>
                   <p class="code">$mat-dark-background-status-bar: <span>{{ bodyStyles.getPropertyValue('--dark-background-status-bar') }}</span></p>
@@ -583,14 +661,14 @@
             <div class="component-wrapper">
             </div>
           </div> -->
-          <div class="component-section">
+          <!-- <div class="component-section">
             <a class="section-header">
               MENU
               <mat-icon>open_in_new</mat-icon>
             </a>
             <div class="component-wrapper">
             </div>
-          </div>
+          </div> -->
           <div class="component-section">
             <a class="section-header">
               PROGRESS BAR
@@ -615,7 +693,7 @@
                 SWITCH
                 <mat-icon>open_in_new</mat-icon>
               </a>
-              <div class="narrow">
+              <div class="component-wrapper">
                 <mat-slide-toggle color="accent" checked=true></mat-slide-toggle>
                 <mat-slide-toggle color="accent"></mat-slide-toggle>
               </div>
@@ -673,26 +751,6 @@
           </div>
           <div class="component-section">
             <a class="section-header">
-              SELECT
-              <mat-icon>open_in_new</mat-icon>
-            </a>
-            <div class="component-wrapper">
-              <mat-form-field appearance="fill">
-                <mat-label>Label</mat-label>
-                <mat-select required>
-                  <mat-option *ngFor="let fruit of fruits" [value]="fruit">{{ fruit }}</mat-option>
-                </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance="outline">
-                <mat-label>Label</mat-label>
-                <mat-select multiple>
-                  <mat-option *ngFor="let fruit of fruits" [value]="fruit">{{ fruit }}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="component-section">
-            <a class="section-header">
               LIST
               <mat-icon>open_in_new</mat-icon>
             </a>
@@ -704,14 +762,14 @@
               </mat-selection-list>
             </div>
           </div>
-          <div class="component-section">
+          <!-- <div class="component-section">
             <a class="section-header">
               DATA TABLE
               <mat-icon>open_in_new</mat-icon>
             </a>
             <div class="component-wrapper">
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="column second-column">
           <div class="component-section">
@@ -739,11 +797,16 @@
             <div class="component-wrapper">
               <mat-card class="example-card">
                 <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
+                  <div mat-card-avatar 
+                    [ngStyle]="{
+                      'background-image': 'url(https://cdn.glitch.com/9c389208-b279-4e96-bcbc-e5f8712d8706%2Fplaceholder-landscape-short.png?1553629848209)',
+                      'background-size': 'cover',
+                      'background-position': 'center'
+                    }" alt="Photo of avatar"></div>
                   <mat-card-title>Shiba Inu</mat-card-title>
                   <mat-card-subtitle>Dog Breed</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="https://cdn.glitch.com/9c389208-b279-4e96-bcbc-e5f8712d8706%2Fplaceholder-landscape-short.png?1553629848209" alt="Photo of a Shiba Inu">
+                <img mat-card-image src="https://cdn.glitch.com/9c389208-b279-4e96-bcbc-e5f8712d8706%2Fplaceholder-landscape-short.png?1553629848209" alt="Photo of a geometric shapes">
                 <mat-card-content>
                   <p>
                     The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -767,6 +830,26 @@
               <mat-form-field>
                 <mat-label>Label</mat-label>
                 <input matInput type="text" placeholder="Hint" autocomplete="off">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="component-section">
+            <a class="section-header">
+              SELECT
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+            <div class="component-wrapper">
+              <mat-form-field appearance="fill">
+                <mat-label>Label</mat-label>
+                <mat-select required>
+                  <mat-option *ngFor="let fruit of fruits" [value]="fruit">{{ fruit }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Label</mat-label>
+                <mat-select multiple>
+                  <mat-option *ngFor="let fruit of fruits" [value]="fruit">{{ fruit }}</mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
           </div>
@@ -803,24 +886,25 @@
               <mat-icon>open_in_new</mat-icon>
             </a>
             <div class="component-wrapper">
+              <button mat-stroked-button color="accent" (click)="openSnackBar('Rhubarb!', 'Close')">SHOW SNACK-BAR</button>
             </div>
           </div>
-          <div class="component-section">
+          <!-- <div class="component-section">
             <a class="section-header">
               DIALOG
               <mat-icon>open_in_new</mat-icon>
             </a>
             <div class="component-wrapper">
             </div>
-          </div>
-          <div class="component-section">
+          </div> -->
+          <!-- <div class="component-section">
             <a class="section-header">
               IMAGE LIST
               <mat-icon>open_in_new</mat-icon>
             </a>
             <div class="component-wrapper">
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </mat-drawer-content>

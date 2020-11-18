@@ -14,20 +14,24 @@
         .theme-button {
             margin: 0 5px;
 
+            &.dark-mode {
+                background: linear-gradient(to bottom right, #ffffff 0%, #463c36be 100%);
+            }
+            
             &.deeppurple-amber {
-                background: linear-gradient(to bottom right, purple 0%, chocolate 100%);
+                background: linear-gradient(to bottom right, #e09ae0 0%, #dd9565 100%);
             }
 
             &.indigo-pink {
-                background: linear-gradient(to bottom right, indigo 0%, pink 100%);
+                background: linear-gradient(to bottom right, #b57bdf 0%, #ffc0cb 100%);
             }
 
             &.pink-bluegrey {
-                background: linear-gradient(to bottom right, pink 0%, grey 100%);
+                background: linear-gradient(to bottom right, #ffc0cb 0%, #a0adca 100%);
             }
 
             &.purple-green {
-                background: linear-gradient(to bottom right, purple 0%, green 100%);
+                background: linear-gradient(to bottom right, #c782c7e5 0%, #96dd96c4 100%);
             }
         }
     }
@@ -85,31 +89,43 @@
         
         @each $key in $mat-color-keys {
             &.primary-#{$key} {
-                background-color: mat-color($mat-theme-primary, $key);;
-            }  
+                background-color: mat-color($mat-theme-primary, $key);
+            }
+
+            &.primary-#{$key}-contrast {
+                background-color: mat-color($mat-theme-primary, #{$key}-contrast);
+            }
         }
 
         @each $key in $mat-color-keys {
             &.accent-#{$key} {
-                background-color: mat-color($mat-theme-accent, $key);;
-            }  
+                background-color: mat-color($mat-theme-accent, $key);
+            }
+
+            &.accent-#{$key}-contrast {
+                background-color: mat-color($mat-theme-accent, #{$key}-contrast);
+            }
         }
 
         @each $key in $mat-color-keys {
             &.warn-#{$key} {
-                background-color: mat-color($mat-theme-warn, $key);;
+                background-color: mat-color($mat-theme-warn, $key);
             }  
+
+            &.warn-#{$key}-contrast {
+                background-color: mat-color($mat-theme-warn, #{$key}-contrast);
+            }
         }
 
         @each $key in $mat-foreground-keys {
             &.foreground-#{$key} {
-                background-color: mat-color($mat-light-theme-foreground, $key);;
+                background-color: mat-color($mat-light-theme-foreground, $key);
             }  
         }
 
         @each $key in $mat-background-keys {
             &.background-#{$key} {
-                background-color: mat-color($mat-light-theme-background, $key);;
+                background-color: mat-color($mat-light-theme-background, $key);
             }  
         }
     } 
@@ -127,18 +143,30 @@
             &.primary-#{$key} {
                 background-color: mat-color($mat-dark-theme-primary, $key);;
             }  
+
+            &.primary-#{$key}-contrast {
+                background-color: mat-color($mat-dark-theme-primary, #{$key}-contrast);
+            }
         }
 
         @each $key in $mat-color-keys {
             &.accent-#{$key} {
                 background-color: mat-color($mat-dark-theme-accent, $key);;
             }  
+
+            &.accent-#{$key}-contrast {
+                background-color: mat-color($mat-dark-theme-accent, #{$key}-contrast);
+            }
         }
 
         @each $key in $mat-color-keys {
             &.warn-#{$key} {
                 background-color: mat-color($mat-dark-theme-warn, $key);;
             }  
+
+            &.warm-#{$key}-contrast {
+                background-color: mat-color($mat-dark-theme-accent, #{$key}-contrast);
+            }
         }
 
         @each $key in $mat-foreground-keys {
@@ -170,7 +198,7 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    .mat-icons {
+    .material-icons {
         font-size: 1rem;
         padding: 8px;
         height: auto;
@@ -184,7 +212,7 @@
     justify-content: space-evenly;
 
     .column {
-        flex: 0 1 25%;
+        flex: 0 1 30%;
         display: flex;
         flex-direction: column;
         width: 420px;
@@ -206,6 +234,7 @@
         .component-wrapper {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             align-items: center;
             margin: 16px 0;
             

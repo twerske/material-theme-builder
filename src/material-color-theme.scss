@@ -1,28 +1,6 @@
 @import '~@angular/material/theming';
 
-$mat-color-themes: (
-    'red': $mat-red,
-    'pink': $mat-pink,
-    'purple': $mat-purple,
-    'deep-purple': $mat-deep-purple,
-    'indigo': $mat-indigo,
-    'blue': $mat-blue,
-    'light-blue': $mat-light-blue,
-    'cyan': $mat-cyan,
-    'teal': $mat-teal,
-    'green': $mat-green,
-    'light-green': $mat-light-green,
-    'lime': $mat-lime,
-    'yellow': $mat-yellow,
-    'amber': $mat-amber,
-    'orange': $mat-orange,
-    'deep-orange': $mat-deep-orange,
-    'brown': $mat-brown,
-    'grey': $mat-grey,
-    'blue-grey': $mat-blue-grey
-);
-
-// Background palette for light themes.}}
+// Background palette for light themes.
 $mat-light-theme-background: (
   status-bar: map-get($mat-grey, 300),
   app-bar:    map-get($mat-grey, 100),
@@ -146,94 +124,105 @@ $mat-custom-periwinkle: (
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://mat.io/design/color/
 
+$mat-primary-palette: $mat-blue;
 $mat-primary-color: 'blue';
-$mat-primary-palette: map-get($mat-color-themes, $mat-primary-color);
-$mat-primary-default: 200;
-$mat-primary-lighter: 100;
-$mat-primary-darker: 600;
-$mat-primary-text: A200;
+$mat-primary: (
+  default: 200,
+  lighter: 100,
+  darker: 600,
+  text: A200,
+);
 
 $mat-theme-primary: mat-palette(
   $mat-primary-palette, 
-  $default: $mat-primary-default, 
-  $lighter: $mat-primary-lighter, 
-  $darker: $mat-primary-darker, 
-  $text: $mat-primary-text
+  $default: map-get($mat-primary, default),
+  $lighter: map-get($mat-primary, lighter),
+  $darker: map-get($mat-primary, darker),
+  $text: map-get($mat-primary, text)
 );
 
-$mat-accent-color: 'custom-periwinkle';
 $mat-accent-palette: $mat-custom-periwinkle;
-$mat-accent-default: 700;
-$mat-accent-lighter: 600;
-$mat-accent-darker: 900;
-$mat-accent-text: 600;
+$mat-accent-color: 'custom-periwinkle';
+$mat-accent: (
+  default: 700,
+  lighter: 600,
+  darker: 900,
+  text: 600,
+);
 
 $mat-theme-accent: mat-palette(
   $mat-accent-palette, 
-  $default: $mat-accent-default, 
-  $lighter: $mat-accent-lighter, 
-  $darker: $mat-accent-darker, 
-  $text: $mat-accent-text
+  $default: map-get($mat-accent, default),
+  $lighter: map-get($mat-accent, lighter),
+  $darker: map-get($mat-accent, darker),
+  $text: map-get($mat-accent, text)
 );
 
+$mat-warn-palette: $mat-orange;
 $mat-warn-color: 'orange';
-$mat-warn-palette: map-get($mat-color-themes, $mat-warn-color);
-$mat-warn-default: 700;
-$mat-warn-lighter: 700;
-$mat-warn-darker: 700;
-$mat-warn-text: 700;
+$mat-warn: (
+  default: 700,
+  lighter: 700,
+  darker: 700,
+  text: 700,
+);
 
 $mat-theme-warn: mat-palette(
   $mat-warn-palette, 
-  $default: $mat-warn-default, 
-  $lighter: $mat-warn-lighter, 
-  $darker: $mat-warn-darker, 
-  $text: $mat-warn-text
+  $default: map-get($mat-warn, default),
+  $lighter: map-get($mat-warn, lighter),
+  $darker: map-get($mat-warn, darker),
+  $text: map-get($mat-warn, text)
 );
 
-// Dark theme palettes
-
+// Dark Themes
+$mat-dark-primary-palette: $mat-pink;
 $mat-dark-primary-color: 'pink';
-$mat-dark-primary-palette: map-get($mat-color-themes, $mat-dark-primary-color);
-$mat-dark-primary-default: 200;
-$mat-dark-primary-lighter: 100;
-$mat-dark-primary-darker: 500;
-$mat-dark-primary-text: A200;
+$mat-dark-primary: (
+  default: 200,
+  lighter: 100,
+  darker: 500,
+  text: A200,
+);
 
 $mat-dark-theme-primary: mat-palette(
-  $mat-dark-primary-palette, 
-  $default: $mat-dark-primary-default, 
-  $lighter: $mat-dark-primary-lighter, 
-  $darker: $mat-dark-primary-darker, 
-  $text: $mat-dark-primary-text
+  $mat-dark-primary-palette,
+  $default: map-get($mat-dark-primary, default),
+  $lighter: map-get($mat-dark-primary, lighter),
+  $darker: map-get($mat-dark-primary, darker),
+  $text: map-get($mat-dark-primary, text)
 );
 
-$mat-dark-accent-color: 'custom-periwinkle';
 $mat-dark-accent-palette: $mat-custom-periwinkle;
-$mat-dark-accent-default: 400;
-$mat-dark-accent-lighter: 200;
-$mat-dark-accent-darker: 600;
-$mat-dark-accent-text: 500;
+$mat-dark-accent-color: 'custom-periwinkle';
+$mat-dark-accent: (
+  default: 400,
+  lighter: 200,
+  darker: 600,
+  text: 500,
+);
 
 $mat-dark-theme-accent: mat-palette(
   $mat-dark-accent-palette, 
-  $default: $mat-dark-accent-default, 
-  $lighter: $mat-dark-accent-lighter, 
-  $darker: $mat-dark-accent-darker, 
-  $text: $mat-dark-accent-text
+  $default: map-get($mat-dark-accent, default),
+  $lighter: map-get($mat-dark-accent, lighter),
+  $darker: map-get($mat-dark-accent, darker),
+  $text: map-get($mat-dark-accent, text)
 );
 
+$mat-dark-warn-palette: $mat-yellow;
 $mat-dark-warn-color: 'yellow';
-$mat-dark-warn-palette: map-get($mat-color-themes, $mat-dark-warn-color);
-$mat-dark-warn-default: 300;
-$mat-dark-warn-lighter: 300;
-$mat-dark-warn-darker: 300;
-$mat-dark-warn-text: 300;
+$mat-dark-warn: (
+  default: 300,
+  lighter: 300,
+  darker: 300,
+  text: 300,
+);
 
 $mat-dark-theme-warn: mat-palette(
   $mat-dark-warn-palette, 
-  $default: $mat-dark-warn-default, 
-  $lighter: $mat-dark-warn-lighter, 
-  $darker: $mat-dark-warn-darker, 
-  $text: $mat-dark-warn-text
+  $default: map-get($mat-dark-warn, default),
+  $lighter: map-get($mat-dark-warn, lighter),
+  $darker: map-get($mat-dark-warn, darker),
+  $text: map-get($mat-dark-warn, text)
 );
