@@ -12,6 +12,7 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
+// Define your theme with color palettes, typography and [coming soon] density
 $mat-light-theme: mat-light-theme((
   color: (
     primary: $mat-theme-primary,
@@ -32,32 +33,23 @@ $mat-dark-theme: mat-dark-theme((
   density: $mat-density
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-
-// @include angular-material-color(_mat-create-light-color-config(
-//   $primary: $mat-theme-primary,
-//   $accent: $mat-theme-accent,
-//   $warn: $mat-theme-warn,
-// ));
-// @include mat-core-theme($mat-light-theme);
-// @include mat-core-color($mat-light-theme);
-
 @include angular-material-theme($mat-light-theme);
 
 .dark-theme {
+  // Override only the color in dark theme to reduce style duplication
   @include angular-material-color($mat-dark-theme);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-/* You can add global styles to this file, and also import other style files */
+/* Style resets */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-:root {
+///////////////////////////////////////////////////////////////////////////////
 
+/* These variables are purely for the sidenav display */
+:root {
   --primary-color:#{$mat-primary-color};
   @each $key, $color in $mat-primary {
     --primary-#{$key}:#{$color};

@@ -76,9 +76,9 @@ $mat-dark-theme-foreground: (
   slider-off-active: rgba(white, 0.3),
 );
 
+// Key strings for sidenav display.
 $mat-palette-keys: 'primary', 'accent', 'warn';
 $mat-color-keys: 'default', 'lighter', 'darker', 'text';
-
 $mat-foreground-keys: 'base', 'divider', 'dividers', 'disabled', 'disabled-button', 
   'disabled-text', 'elevation', 'hint-text', 'secondary-text', 'icon', 'icons', 'text', 
   'slider-min', 'slider-off', 'slider-off-active';
@@ -87,6 +87,27 @@ $mat-background-keys: 'status-bar', 'app-bar', 'background', 'hover', 'card',
   'selected-disabled-button', 'disabled-button-toggle', 
   'unselected-chip', 'disabled-list-option', 'tooltip';
 
+// Example of editing an existing color palette.
+$mat-blue: map-merge($mat-light-green, (
+  contrast: (
+    50: #782b80,
+    100: #782b80,
+    200: #782b80,
+    300: #782b80,
+    400: #782b80,
+    500: #782b80,
+    600: #782b80,
+    700: #782b80,
+    800: #782b80,
+    900: #b443c0,
+    A100: #782b80,
+    A200: #782b80,
+    A400: #782b80,
+    A700: #782b80,
+  )
+));
+  
+// Example of creating a new color palette.
 $mat-custom-periwinkle: (
   50: #f5f5ff,
   100: #ebebff,
@@ -123,14 +144,13 @@ $mat-custom-periwinkle: (
 // Define the palettes for your theme using the mat Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://mat.io/design/color/
-
-$mat-primary-palette: $mat-blue;
-$mat-primary-color: 'blue';
+$mat-primary-palette: $mat-indigo;
+$mat-primary-color: 'indigo';
 $mat-primary: (
-  default: 200,
+  default: 500,
   lighter: 100,
-  darker: 600,
-  text: A200,
+  darker: 700,
+  text: 500,
 );
 
 $mat-theme-primary: mat-palette(
@@ -141,13 +161,24 @@ $mat-theme-primary: mat-palette(
   $text: map-get($mat-primary, text)
 );
 
-$mat-accent-palette: $mat-custom-periwinkle;
-$mat-accent-color: 'custom-periwinkle';
+// $accent: (
+//  Main: #F7931E,
+//  Light: #ffc453,
+//  Dark: #be6500,
+//  contrast: (
+//    Main: #ff88ff,
+//    Light: #ff88ff,
+//    Dark: #ff88ff
+//   ));
+// $mat-theme-accent: mat-palette($accent, Main, Light, Dark);
+
+$mat-accent-palette: $mat-pink;
+$mat-accent-color: 'pink';
 $mat-accent: (
-  default: 700,
-  lighter: 600,
-  darker: 900,
-  text: 600,
+  default: A200,
+  lighter: A100,
+  darker: A200,
+  text: A200,
 );
 
 $mat-theme-accent: mat-palette(
@@ -158,13 +189,13 @@ $mat-theme-accent: mat-palette(
   $text: map-get($mat-accent, text)
 );
 
-$mat-warn-palette: $mat-orange;
-$mat-warn-color: 'orange';
+$mat-warn-palette: $mat-red;
+$mat-warn-color: 'red';
 $mat-warn: (
-  default: 700,
-  lighter: 700,
-  darker: 700,
-  text: 700,
+  default: 500,
+  lighter: 500,
+  darker: 500,
+  text: 500,
 );
 
 $mat-theme-warn: mat-palette(
@@ -175,14 +206,14 @@ $mat-theme-warn: mat-palette(
   $text: map-get($mat-warn, text)
 );
 
-// Dark Themes
-$mat-dark-primary-palette: $mat-pink;
-$mat-dark-primary-color: 'pink';
+// Dark palettes
+$mat-dark-primary-palette: $mat-purple;
+$mat-dark-primary-color: 'purple';
 $mat-dark-primary: (
-  default: 200,
-  lighter: 100,
-  darker: 500,
-  text: A200,
+  default: 700,
+  lighter: 500,
+  darker: 900,
+  text: 700,
 );
 
 $mat-dark-theme-primary: mat-palette(
@@ -193,13 +224,13 @@ $mat-dark-theme-primary: mat-palette(
   $text: map-get($mat-dark-primary, text)
 );
 
-$mat-dark-accent-palette: $mat-custom-periwinkle;
-$mat-dark-accent-color: 'custom-periwinkle';
+$mat-dark-accent-palette: $mat-green;
+$mat-dark-accent-color: 'green';
 $mat-dark-accent: (
-  default: 400,
-  lighter: 200,
-  darker: 600,
-  text: 500,
+  default: A200,
+  lighter: A100,
+  darker: A400,
+  text: A200,
 );
 
 $mat-dark-theme-accent: mat-palette(
@@ -210,13 +241,13 @@ $mat-dark-theme-accent: mat-palette(
   $text: map-get($mat-dark-accent, text)
 );
 
-$mat-dark-warn-palette: $mat-yellow;
-$mat-dark-warn-color: 'yellow';
+$mat-dark-warn-palette: $mat-red;
+$mat-dark-warn-color: 'red';
 $mat-dark-warn: (
-  default: 300,
-  lighter: 300,
-  darker: 300,
-  text: 300,
+  default: 500,
+  lighter: 500,
+  darker: 500,
+  text: 500,
 );
 
 $mat-dark-theme-warn: mat-palette(

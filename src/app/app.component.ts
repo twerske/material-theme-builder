@@ -1,6 +1,9 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { themeToAngularScss } from './theme-generator/angular-theme-transformer';
+import { defaultTheme } from './theme-generator/Theme';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +14,18 @@ export class AppComponent implements OnInit {
   fruits: string[] = ['Cherry', 'Apple', 'Rhubarb', 'Marionberry'];
   isDark: boolean;
   bodyStyles: CSSStyleDeclaration;
+  downloadJsonHref: SafeUrl;
 
-  constructor(private overlayContainer: OverlayContainer, private snackBar: MatSnackBar) {}
+  constructor(private overlayContainer: OverlayContainer, private snackBar: MatSnackBar, private sanitizer: DomSanitizer) {}
+
+  generateDownloadJsonUri(): void {
+    // const theJSON = JSON.stringify(themeToAngularScss(defaultTheme));
+    // const blob = new Blob([theJSON], { type: 'text/json' });
+    // const url = window.URL.createObjectURL(blob);
+    // const uri: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(url);
+    // this.downloadJsonHref = uri;
+    console.log(themeToAngularScss(defaultTheme));
+  }
 
   ngOnInit(): void {
     this.isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;

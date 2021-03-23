@@ -1,8 +1,13 @@
+// Import and define new fonts
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
 
-$mat-font-family: 'Sansita, "Helvetica Neue", sans-serif';
+$mat-font-family: 'Lato, "Helvetica Neue", sans-serif';
+$mat-font-family-roboto: 'Roboto, sans-serif';
+$mat-font-family-lobster: 'Lobster Two', cursive;
 
+// Define a custion Typography configurations
 $mat-typography: mat-typography-config(
   $font-family: $mat-font-family,
   $display-4:     mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
@@ -21,9 +26,18 @@ $mat-typography: mat-typography-config(
   $input:         mat-typography-level(inherit, 1.125, 400)
 );
 
+// Override individual fonts
 // @include mat-typography-font-shorthand($font-size, $font-weight, $line-height, $font-family);
 // @include mat-typography-level-to-styles($config, $level);
 // @include mat-base-typography($config, $selector: '.mat-typography')
 
 // @include angular-material-typography($custom-typography);
 
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+// @include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+// @include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+// @include angular-material-typography($custom-typography);

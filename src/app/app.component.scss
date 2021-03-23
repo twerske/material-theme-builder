@@ -10,29 +10,33 @@
     
     .mat-theme-header {
         padding: 24px;
+
+        h1 {
+            margin: 0;
+        }
         
         .theme-button {
             margin: 0 5px;
 
-            &.dark-mode {
-                background: linear-gradient(to bottom right, #ffffff 0%, #463c36be 100%);
-            }
+            // &.dark-mode {
+            //     background: linear-gradient(to bottom right, #ffffff 0%, #463c36be 100%);
+            // }
             
-            &.deeppurple-amber {
-                background: linear-gradient(to bottom right, #e09ae0 0%, #dd9565 100%);
-            }
+            // &.deeppurple-amber {
+            //     background: linear-gradient(to bottom right, #e09ae0 0%, #dd9565 100%);
+            // }
 
-            &.indigo-pink {
-                background: linear-gradient(to bottom right, #b57bdf 0%, #ffc0cb 100%);
-            }
+            // &.indigo-pink {
+            //     background: linear-gradient(to bottom right, #b57bdf 0%, #ffc0cb 100%);
+            // }
 
-            &.pink-bluegrey {
-                background: linear-gradient(to bottom right, #ffc0cb 0%, #a0adca 100%);
-            }
+            // &.pink-bluegrey {
+            //     background: linear-gradient(to bottom right, #ffc0cb 0%, #a0adca 100%);
+            // }
 
-            &.purple-green {
-                background: linear-gradient(to bottom right, #c782c7e5 0%, #96dd96c4 100%);
-            }
+            // &.purple-green {
+            //     background: linear-gradient(to bottom right, #c782c7e5 0%, #96dd96c4 100%);
+            // }
         }
     }
 
