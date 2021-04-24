@@ -55,9 +55,9 @@ export const defaultTheme: Theme = {
   path: 'theme',
   name: 'Default',
   shapes: {
-  small: '4px',
-  medium: '4px',
-  large: '0px',
+    small: '4px',
+    medium: '4px',
+    large: '0px',
   },
   colorsLight: {
     primary: '#6200ee',

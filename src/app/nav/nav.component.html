@@ -1,0 +1,600 @@
+<div class="mat-theme-header">
+  <h1>Build an Angular Material Theme</h1>
+  <!-- <a title="Download JSON" [href]="downloadJsonHref" download="download.json"><button mat-raised-button>Download</button></a> -->
+  <!-- <button mat-raised-button (click)="generateDownloadJsonUri()">Download</button> -->
+  <h2>@twerske</h2>
+  <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme" class="theme-button dark-mode">
+    <mat-icon>
+      brightness_6
+    </mat-icon>
+  </button>
+  <!-- <button mat-mini-fab (click)="setTheme('deeppurple-amber')" matTooltip="Deep purple amber theme" class="theme-button deeppurple-amber">
+    <mat-icon>
+      palette
+    </mat-icon>
+  </button>
+  <button mat-mini-fab (click)="setTheme('indigo-pink')" matTooltip="Indigo pink theme" class="theme-button indigo-pink">
+    <mat-icon>
+      palette
+    </mat-icon>
+  </button>
+  <button mat-mini-fab (click)="setTheme('pink-bluegrey')" matTooltip="Pink blue grey theme" class="theme-button pink-bluegrey">
+    <mat-icon>
+      palette
+    </mat-icon>
+  </button>
+  <button mat-mini-fab (click)="setTheme('purple-green')" matTooltip="Purple green theme" class="theme-button purple-green">
+    <mat-icon>
+      palette
+    </mat-icon>
+  </button> -->
+</div>
+<mat-tab-group mat-stretch-tabs>
+  <!-- <mat-tab label="Instructions" class="drawer-content">
+    <div class="drawer-content">
+      <h4 class="section-header">HOW TO BUILD A THEME</h4>
+      <p>Build your own custom Material theme by remixing and styling these themeable components.</p>
+      <p>Modify the variables in the Theme Variables tab, then use 'ng add @angular/material' and apply to your app's styles.scss file</p>
+    </div>
+  </mat-tab> -->
+  <mat-tab label="Color">
+    <div class="drawer-content">
+      <app-example-header [title]="'Color Scheme'" [link]="''"><mat-icon>colorize</mat-icon></app-example-header>
+      <div class='light' *ngIf="!isDark">
+        <div class='primary'>
+          <app-example-header [title]="'Primary'"></app-example-header>
+          <div class='theme-line'>
+            <!-- <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--primary-color') }}</span></p> -->
+            <input matInput [(ngModel)]="primary" type="text" placeholder="Hint" autocomplete="off">
+            <figure class="color-swatch primary-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--primary-color') }}</span></p>
+            <figure class="color-swatch primary-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--primary-default') }}</span></p>
+            <figure class="color-swatch primary-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--primary-lighter') }}</span></p>
+            <figure class="color-swatch primary-lighter"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--primary-darker') }}</span></p>
+            <figure class="color-swatch primary-darker"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--primary-text') }}</span></p>
+            <figure class="color-swatch primary-text"></figure>
+          </div>
+          <mat-divider></mat-divider>
+          <div class='theme-line'>
+            <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-default-contrast') }}</span></p>
+            <figure class="color-swatch primary-default-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-lighter-contrast') }}</span></p>
+            <figure class="color-swatch primary-lighter-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-darker-contrast') }}</span></p>
+            <figure class="color-swatch primary-darker-contrast"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='accent'>
+          <app-example-header [title]="'Accent'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--accent-color') }}</span></p>
+            <figure class="color-swatch accent-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--accent-default') }}</span></p>
+            <figure class="color-swatch accent-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--accent-lighter') }}</span></p>
+            <figure class="color-swatch accent-lighter"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--accent-darker') }}</span></p>
+            <figure class="color-swatch accent-darker"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--accent-text') }}</span></p>
+            <figure class="color-swatch accent-text"></figure>
+          </div>
+          <mat-divider></mat-divider>
+          <div class='theme-line'>
+            <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-default-contrast') }}</span></p>
+            <figure class="color-swatch accent-default-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-lighter-contrast') }}</span></p>
+            <figure class="color-swatch accent-lighter-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-darker-contrast') }}</span></p>
+            <figure class="color-swatch accent-darker-contrast"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='warn'>
+          <app-example-header [title]="'Warn'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--warn-color') }}</span></p>
+            <figure class="color-swatch warn-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--warn-default') }}</span></p>
+            <figure class="color-swatch warn-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--warn-lighter') }}</span></p>
+            <figure class="color-swatch warn-lighter"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--warn-darker') }}</span></p>
+            <figure class="color-swatch warn-darker"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--warn-text') }}</span></p>
+            <figure class="color-swatch warn-text"></figure>
+          </div>
+          <mat-divider></mat-divider>
+          <div class='theme-line'>
+            <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-default-contrast') }}</span></p>
+            <figure class="color-swatch warn-default-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-lighter-contrast') }}</span></p>
+            <figure class="color-swatch warn-lighter-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-darker-contrast') }}</span></p>
+            <figure class="color-swatch warn-darker-contrast"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='foreground'>
+          <app-example-header [title]="'Foreground'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-base: <span>{{ bodyStyles.getPropertyValue('--foreground-base') }}</span></p>
+            <figure class="color-swatch foreground-base"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-divider: <span>{{ bodyStyles.getPropertyValue('--foreground-divider') }}</span></p>
+            <figure class="color-swatch foreground-divider"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-dividers: <span>{{ bodyStyles.getPropertyValue('--foreground-dividers') }}</span></p>
+            <figure class="color-swatch foreground-dividers"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled') }}</span></p>
+            <figure class="color-swatch foreground-disabled"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-button: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled-button') }}</span></p>
+            <figure class="color-swatch foreground-disabled-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-text: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled-text') }}</span></p>
+            <figure class="color-swatch foreground-disabled-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-elevation: <span>{{ bodyStyles.getPropertyValue('--foreground-elevation') }}</span></p>
+            <figure class="color-swatch foreground-elevation"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-hint-text: <span>{{ bodyStyles.getPropertyValue('--foreground-hint-text') }}</span></p>
+            <figure class="color-swatch foreground-hint-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-secondary-text: <span>{{ bodyStyles.getPropertyValue('--foreground-secondary-text') }}</span></p>
+            <figure class="color-swatch foreground-secondary-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-icon: <span>{{ bodyStyles.getPropertyValue('--foreground-icon') }}</span></p>
+            <figure class="color-swatch foreground-icon"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-icons: <span>{{ bodyStyles.getPropertyValue('--foreground-icons') }}</span></p>
+            <figure class="color-swatch foreground-icons"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--foreground-text') }}</span></p>
+            <figure class="color-swatch foreground-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-slider-min: <span>{{ bodyStyles.getPropertyValue('--foreground-slider-min') }}</span></p>
+            <figure class="color-swatch foreground-slider-min"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-slider-off: <span>{{ bodyStyles.getPropertyValue('--foreground-slider-off') }}</span></p>
+            <figure class="color-swatch foreground-slider-off"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-slider-off-active: <span>{{ bodyStyles.getPropertyValue('--foreground-slider-off-active') }}</span></p>
+            <figure class="color-swatch foreground-slider-off-active"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='background'>
+          <app-example-header [title]="'Background'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-status-bar: <span>{{ bodyStyles.getPropertyValue('--background-status-bar') }}</span></p>
+            <figure class="color-swatch background-status-bar"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-app-bar: <span>{{ bodyStyles.getPropertyValue('--background-app-bar') }}</span></p>
+            <figure class="color-swatch background-app-bar"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-background: <span>{{ bodyStyles.getPropertyValue('--background-background') }}</span></p>
+            <figure class="color-swatch background-background"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-hover: <span>{{ bodyStyles.getPropertyValue('--background-hover') }}</span></p>
+            <figure class="color-swatch background-hover"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-card: <span>{{ bodyStyles.getPropertyValue('--background-card') }}</span></p>
+            <figure class="color-swatch background-card"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-dialog: <span>{{ bodyStyles.getPropertyValue('--background-dialog') }}</span></p>
+            <figure class="color-swatch background-dialog"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-button: <span>{{ bodyStyles.getPropertyValue('--background-disabled-button') }}</span></p>
+            <figure class="color-swatch background-disabled-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-raised-button: <span>{{ bodyStyles.getPropertyValue('--background-raised-button') }}</span></p>
+            <figure class="color-swatch background-raised-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-focused-button: <span>{{ bodyStyles.getPropertyValue('--background-focused-button') }}</span></p>
+            <figure class="color-swatch background-focused-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-selected-button: <span>{{ bodyStyles.getPropertyValue('--background-selected-button') }}</span></p>
+            <figure class="color-swatch background-selected-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-selected-disabled-button: <span>{{ bodyStyles.getPropertyValue('--background-selected-disabled-button') }}</span></p>
+            <figure class="color-swatch background-selected-disabled-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-button-toggle: <span>{{ bodyStyles.getPropertyValue('--background-disabled-button-toggle') }}</span></p>
+            <figure class="color-swatch background-disabled-button-toggle"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-unselected-chip: <span>{{ bodyStyles.getPropertyValue('--background-unselected-chip') }}</span></p>
+            <figure class="color-swatch background-unselected-chip"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-list-option: <span>{{ bodyStyles.getPropertyValue('--background-disabled-list-option') }}</span></p>
+            <figure class="color-swatch background-disabled-list-option"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-background-tooltip: <span>{{ bodyStyles.getPropertyValue('--background-tooltip') }}</span></p>
+            <figure class="color-swatch background-tooltip"></figure>
+          </div>
+        </div>
+      </div>
+      <div class='dark' *ngIf="isDark">
+        <div class='primary'>
+          <app-example-header [title]="'Primary'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-primary-color') }}</span></p>
+            <figure class="color-swatch primary-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--dark-primary-default') }}</span></p>
+            <figure class="color-swatch primary-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--dark-primary-lighter') }}</span></p>
+            <figure class="color-swatch primary-lighter"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--dark-primary-darker') }}</span></p>
+            <figure class="color-swatch primary-darker"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--dark-primary-text') }}</span></p>
+            <figure class="color-swatch primary-text"></figure>
+          </div>
+          <mat-divider></mat-divider>
+          <div class='theme-line'>
+            <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-primary-default-contrast') }}</span></p>
+            <figure class="color-swatch primary-default-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-primary-lighter-contrast') }}</span></p>
+            <figure class="color-swatch primary-lighter-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-primary-darker-contrast') }}</span></p>
+            <figure class="color-swatch primary-darker-contrast"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='accent'>
+          <app-example-header [title]="'Accent'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-accent-color') }}</span></p>
+            <figure class="color-swatch accent-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--dark-accent-default') }}</span></p>
+            <figure class="color-swatch accent-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--dark-accent-lighter') }}</span></p>
+            <figure class="color-swatch accent-lighter"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--dark-accent-darker') }}</span></p>
+            <figure class="color-swatch accent-darker"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--dark-accent-text') }}</span></p>
+            <figure class="color-swatch accent-text"></figure>
+          </div>
+          <mat-divider></mat-divider>
+          <div class='theme-line'>
+            <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-accent-default-contrast') }}</span></p>
+            <figure class="color-swatch accent-default-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-accent-lighter-contrast') }}</span></p>
+            <figure class="color-swatch accent-lighter-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-accent-darker-contrast') }}</span></p>
+            <figure class="color-swatch accent-darker-contrast"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='warn'>
+          <app-example-header [title]="'Warn'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--dark-warn-color') }}</span></p>
+            <figure class="color-swatch warn-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--dark-warn-default') }}</span></p>
+            <figure class="color-swatch warn-default"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--dark-warn-lighter') }}</span></p>
+            <figure class="color-swatch warn-lighter"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--dark-warn-darker') }}</span></p>
+            <figure class="color-swatch warn-darker"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--dark-warn-text') }}</span></p>
+            <figure class="color-swatch warn-text"></figure>
+          </div>
+          <mat-divider></mat-divider>
+          <div class='theme-line'>
+            <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-warn-default-contrast') }}</span></p>
+            <figure class="color-swatch warn-default-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-warn-lighter-contrast') }}</span></p>
+            <figure class="color-swatch warn-lighter-contrast"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--dark-warn-darker-contrast') }}</span></p>
+            <figure class="color-swatch warn-darker-contrast"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='foreground'>
+          <app-example-header [title]="'Foreground'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-base: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-base') }}</span></p>
+            <figure class="color-swatch foreground-base"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-divider: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-divider') }}</span></p>
+            <figure class="color-swatch foreground-divider"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-dividers: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-dividers') }}</span></p>
+            <figure class="color-swatch foreground-dividers"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-disabled') }}</span></p>
+            <figure class="color-swatch foreground-disabled"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-button: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-disabled-button') }}</span></p>
+            <figure class="color-swatch foreground-disabled-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-text: <span>{{ bodyStyles.getPropertyValue('--foreground-disabled-text') }}</span></p>
+            <figure class="color-swatch foreground-disabled-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-elevation: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-elevation') }}</span></p>
+            <figure class="color-swatch foreground-elevation"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-hint-text: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-hint-text') }}</span></p>
+            <figure class="color-swatch foreground-hint-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-secondary-text: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-secondary-text') }}</span></p>
+            <figure class="color-swatch foreground-secondary-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-icon: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-icon') }}</span></p>
+            <figure class="color-swatch foreground-icon"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-icons: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-icons') }}</span></p>
+            <figure class="color-swatch foreground-icons"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-text') }}</span></p>
+            <figure class="color-swatch foreground-text"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-slider-min: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-slider-min') }}</span></p>
+            <figure class="color-swatch foreground-slider-min"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-slider-off: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-slider-off') }}</span></p>
+            <figure class="color-swatch foreground-slider-off"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-slider-off-active: <span>{{ bodyStyles.getPropertyValue('--dark-foreground-slider-off-active') }}</span></p>
+            <figure class="color-swatch foreground-slider-off-active"></figure>
+          </div>
+        </div>
+        <mat-divider class="content-divider"></mat-divider>
+        <div class='background'>
+          <app-example-header [title]="'Background'"></app-example-header>
+          <div class='theme-line'>
+            <p class="code">$mat-status-bar: <span>{{ bodyStyles.getPropertyValue('--dark-background-status-bar') }}</span></p>
+            <figure class="color-swatch background-status-bar"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-app-bar: <span>{{ bodyStyles.getPropertyValue('--dark-background-app-bar') }}</span></p>
+            <figure class="color-swatch background-app-bar"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-background: <span>{{ bodyStyles.getPropertyValue('--dark-background-background') }}</span></p>
+            <figure class="color-swatch background-background"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-hover: <span>{{ bodyStyles.getPropertyValue('--dark-background-hover') }}</span></p>
+            <figure class="color-swatch background-hover"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-card: <span>{{ bodyStyles.getPropertyValue('--dark-background-card') }}</span></p>
+            <figure class="color-swatch background-card"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-dialog: <span>{{ bodyStyles.getPropertyValue('--dark-background-dialog') }}</span></p>
+            <figure class="color-swatch background-dialog"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-disabled-button') }}</span></p>
+            <figure class="color-swatch background-disabled-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-raised-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-raised-button') }}</span></p>
+            <figure class="color-swatch background-raised-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-focused-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-focused-button') }}</span></p>
+            <figure class="color-swatch background-focused-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-selected-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-selected-button') }}</span></p>
+            <figure class="color-swatch background-selected-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-selected-disabled-button: <span>{{ bodyStyles.getPropertyValue('--dark-background-selected-disabled-button') }}</span></p>
+            <figure class="color-swatch background-selected-disabled-button"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-button-toggle: <span>{{ bodyStyles.getPropertyValue('--dark-background-disabled-button-toggle') }}</span></p>
+            <figure class="color-swatch background-disabled-button-toggle"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-unselected-chip: <span>{{ bodyStyles.getPropertyValue('--dark-background-unselected-chip') }}</span></p>
+            <figure class="color-swatch background-unselected-chip"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-disabled-list-option: <span>{{ bodyStyles.getPropertyValue('--dark-background-disabled-list-option') }}</span></p>
+            <figure class="color-swatch background-disabled-list-option"></figure>
+          </div>
+          <div class='theme-line'>
+            <p class="code">$mat-tooltip: <span>{{ bodyStyles.getPropertyValue('--dark-background-tooltip') }}</span></p>
+            <figure class="color-swatch background-tooltip"></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Typography">
+    <div class="drawer-content">
+      <app-example-header [title]="'Typography Scale'"><mat-icon>text_fields</mat-icon></app-example-header>
+      <div>
+        <div class='theme-line'>
+          <p class="code">$mat-font-family: <span>"{{ bodyStyles.getPropertyValue('--font-family') }}"</span></p>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-display-4:</p>
+          <h1 class="mat-display-4 typography">H1</h1>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-display-3:</p>
+          <h1 class="mat-display-3 typography">H1</h1>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-display-2:</p>
+          <h1 class="mat-display-2 typography">H1</h1>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-display-1:</p>
+          <h1 class="mat-display-1 typography">H1</h1>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-headline:</p>
+          <h1 class="typography">H1</h1>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-title:</p>
+          <h2 class="typography">H2</h2>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-subheading-2:</p>
+          <h3 class="typography">H3</h3>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-subheading-1:</p>
+          <h4 class="typography">H4</h4>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-body-2:</p>
+          <body class="typography">Body 2</body>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-body-1:</p>
+          <h6 class="typography">Body 1</h6>
+        </div>
+        <div class='theme-line'>
+          <p class="code">$mat-caption:</p>
+          <caption class="typography">caption</caption>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Density">
+    <div class="drawer-content">
+      <app-example-header [title]="'Density System'"><mat-icon>border_style</mat-icon></app-example-header>
+      <div class='theme-line'>
+        <p class="code">$mat-density: <span>{{ bodyStyles.getPropertyValue('--density') }}</span></p>
+        <h2 class="typography">{{ bodyStyles.getPropertyValue('--density') }}</h2>
+      </div>
+      More density system coming soon...
+    </div>
+  </mat-tab>
+  <mat-tab label="Sass" class="drawer-content">
+    <div class="drawer-content">
+      <app-example-header [title]="'Generated Sass'"><mat-icon>palette</mat-icon></app-example-header>
+      <p>Sass will be here...</p>
+    </div>
+  </mat-tab>
+</mat-tab-group>

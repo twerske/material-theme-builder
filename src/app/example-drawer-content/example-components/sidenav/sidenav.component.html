@@ -1,0 +1,9 @@
+<mat-drawer-container class="sidenav-example">
+  <mat-drawer mode="side" opened>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option *ngFor="let item of example" [value]="item">
+        {{ item }}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+</mat-drawer-container>
