@@ -1,12 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { defaultTheme, Theme } from '../../theme-generator/Theme';
+import { AngularTheme, defaultAngularTheme } from '../../theme-generator/AngularTheme';
 
 @Component({
   selector: 'app-light-mode',
   templateUrl: './light-mode.component.html',
   styleUrls: ['./light-mode.component.scss']
 })
-export class LightModeComponent {
+export class LightModeComponent implements OnInit {
   @Input() bodyStyles: CSSStyleDeclaration | undefined;
-  @Input() theme: Theme | undefined;
+  @Input() theme: AngularTheme | undefined;
+  placeholder: AngularTheme;
+
+  constructor() {
+    // this.placeholder = defaultAngularTheme;
+  }
+  ngOnInit(): void {
+    this.placeholder = defaultAngularTheme;
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { defaultTheme, Theme } from '../theme-generator/Theme';
+import { AngularTheme } from '../theme-generator/AngularTheme';
 
 @Component({
   selector: 'app-color',
@@ -9,5 +9,5 @@ import { defaultTheme, Theme } from '../theme-generator/Theme';
 export class ColorComponent {
   @Input() isDark = false;
   @Input() bodyStyles: CSSStyleDeclaration | undefined;
-  @Input() theme: Theme | undefined;
+  @Input() theme: AngularTheme | undefined;
 }

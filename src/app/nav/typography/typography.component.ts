@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AngularTheme } from '../theme-generator/AngularTheme';
 
 @Component({
   selector: 'app-typography',
@@ -7,4 +8,5 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TypographyComponent {
   @Input() bodyStyles: CSSStyleDeclaration | undefined;
+  @Input() theme: AngularTheme | undefined;
 }

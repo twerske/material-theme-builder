@@ -1,179 +1,141 @@
-import { Theme } from './Theme';
+import { AngularTheme } from './AngularTheme';
 
-// declare function require(name:string);
-// var sass = require('sass');
-// const { sass } = require('sass');
-
+// const sass = require('sass');
 // import * as sass from 'sass';
-// import sass from "sass";
 
-declare namespace global {
-	function sass(data: string): string
-	function errSass(testStr: string): Function
-}
+// declare namespace global {
+// 	function sass(data: string): string
+// 	function errSass(testStr: string): Function
+// }
 
 const SassFiles = {
   '@angular/material/theming'() {
     return `...`;
   },
-  './material-color-theme.scss'(theme: Theme) {
+  './material-color-theme.scss'(theme: AngularTheme) {
     return themeToAngularSass(theme);
   }
 };
 
-export function themeToAngularSass(theme?: Theme): string {
+export function themeToAngularSass(theme?: AngularTheme): string {
   return `
     @import '~@angular/material/theming';
     @include mat-core();
-
-    // Background palette for light themes.
-    $mat-light-theme-background: (
-      status-bar: map-get($mat-grey, 300),
-      app-bar:    map-get($mat-grey, 100),
-      background: ${theme.colorsLight?.background || '#FFFFFF'},
-      hover:      rgba(black, 0.04), // TODO(kara): check style with mat Design UX
-      card:       ${theme.colorsLight?.background},
-      dialog:     ${theme.colorsLight?.background},
-      disabled-button: rgba(${theme.colorsLight?.onBackground}, 0.12),
-      raised-button: ${theme.colorsLight?.background},
-      focused-button: $dark-focused,
-      selected-button: map-get($mat-grey, 300),
-      selected-disabled-button: map-get($mat-grey, 400),
-      disabled-button-toggle: map-get($mat-grey, 200),
-      unselected-chip: map-get($mat-grey, 300),
-      disabled-list-option: map-get($mat-grey, 200),
-      tooltip: map-get($mat-grey, 700),
-    );
-
-    // Background palette for dark themes.
-    $mat-dark-theme-background: (
-      status-bar: ${theme.colorsDark.background},
-      app-bar:    map-get($mat-grey, 900),
-      background: ${theme.colorsDark?.background || '#303030'},
-      hover:      rgba(${theme.colorsDark.onBackground}, 0.04), // TODO(kara): check style with mat Design UX
-      card:       map-get($mat-grey, 800),
-      dialog:     map-get($mat-grey, 800),
-      disabled-button: rgba(${theme.colorsDark.onBackground}, 0.12),
-      raised-button: map-get($mat-grey, 800),
-      focused-button: $light-focused,
-      selected-button: map-get($mat-grey, 900),
-      selected-disabled-button: map-get($mat-grey, 800),
-      disabled-button-toggle: ${theme.colorsDark.background},
-      unselected-chip: map-get($mat-grey, 700),
-      disabled-list-option: ${theme.colorsDark.background},
-      tooltip: map-get($mat-grey, 700),
-    );
-
-    // Foreground palette for light themes.
-    $mat-light-theme-foreground: (
-      base:              ${theme.colorsLight.onSurface},
-      divider:           $dark-dividers,
-      dividers:          $dark-dividers,
-      disabled:          $dark-disabled-text,
-      disabled-button:   rgba(${theme.colorsLight.onSurface}, 0.26),
-      disabled-text:     $dark-disabled-text,
-      elevation:         ${theme.colorsLight.onSurface},
-      hint-text:         $dark-disabled-text,
-      secondary-text:    $dark-secondary-text,
-      icon:              rgba(${theme.colorsLight.onSurface}, 0.54),
-      icons:             rgba(${theme.colorsLight.onSurface}, 0.54),
-      text:              rgba(${theme.colorsLight.onSurface}, 0.87),
-      slider-min:        rgba(${theme.colorsLight.onSurface}, 0.87),
-      slider-off:        rgba(${theme.colorsLight.onSurface}, 0.26),
-      slider-off-active: rgba(${theme.colorsLight.onSurface}, 0.38),
-    );
-
-    // Foreground palette for dark themes.
-    $mat-dark-theme-foreground: (
-      base:              ${theme.colorsDark.onSurface},
-      divider:           $light-dividers,
-      dividers:          $light-dividers,
-      disabled:          $light-disabled-text,
-      disabled-button:   rgba(${theme.colorsDark.onSurface}, 0.3),
-      disabled-text:     $light-disabled-text,
-      elevation:         ${theme.colorsDark.surface},
-      hint-text:         $light-disabled-text,
-      secondary-text:    $light-secondary-text,
-      icon:              ${theme.colorsDark.onSurface},
-      icons:             ${theme.colorsDark.onSurface},
-      text:              ${theme.colorsDark.onSurface},
-      slider-min:        ${theme.colorsDark.onSurface},
-      slider-off:        rgba(${theme.colorsDark.onSurface}, 0.3),
-      slider-off-active: rgba(${theme.colorsDark.onSurface}, 0.3),
-    );
-
 
     // Define the palettes for your theme using the mat Design palettes available in palette.scss
     // (imported above). For each palette, you can optionally specify a default, lighter, and darker
     // hue. Available color palettes: https://mat.io/design/color/
 
+    $light-primary-palette: ${theme.colorsLight.primary.palette};
     $light-primary: (
-      base: ${theme.colorsLight.primary},
-      lighter: ${theme.colorsLight.primary},
-      darker: ${theme.colorsLight.primary},
+      default: ${theme.colorsLight.primary.default},
+      lighter: ${theme.colorsLight.primary.lighter},
+      darker: ${theme.colorsLight.primary.darker},
+      text: ${theme.colorsLight.primary.text}
       contrast: (
-        base: ${theme.colorsLight.onPrimary},
-        lighter: ${theme.colorsLight.onPrimary},
-        darker: ${theme.colorsLight.onPrimary}
+        default: ${theme.colorsLight.primary.contrast.default},
+        lighter: ${theme.colorsLight.primary.contrast.lighter},
+        darker: ${theme.colorsLight.primary.contrast.darker}
       )
     );
+    $light-accent-palette: ${theme.colorsLight.accent.palette};
     $light-accent: (
-      base: ${theme.colorsLight.secondary},
-      lighter: ${theme.colorsLight.secondary},
-      darker: ${theme.colorsLight.secondary},
+      default: ${theme.colorsLight.accent.default},
+      lighter: ${theme.colorsLight.accent.lighter},
+      darker: ${theme.colorsLight.accent.darker},
       contrast: (
-        base: ${theme.colorsLight.onSecondary},
-        lighter: ${theme.colorsLight.onSecondary},
-        darker: ${theme.colorsLight.onSecondary}
+        default: ${theme.colorsLight.accent.contrast.default},
+        lighter: ${theme.colorsLight.accent.contrast.lighter},
+        darker: ${theme.colorsLight.accent.contrast.darker}
       )
     );
+    $light-warn-palette: ${theme.colorsLight.warn.palette};
     $light-warn: (
-      base: ${theme.colorsLight.error},
-      lighter: ${theme.colorsLight.error},
-      darker: ${theme.colorsLight.error},
+      default: ${theme.colorsLight.warn.default},
+      lighter: ${theme.colorsLight.warn.lighter},
+      darker: ${theme.colorsLight.warn.darker},
       contrast: (
-        base: ${theme.colorsLight.onError},
-        lighter: ${theme.colorsLight.onError},
-        darker: ${theme.colorsLight.onError}
+        default: ${theme.colorsLight.warn.contrast.default},
+        lighter: ${theme.colorsLight.warn.contrast.lighter},
+        darker: ${theme.colorsLight.warn.contrast.darker}
       )
     );
-    $mat-theme-primary: mat-palette($light-primary, base, lighter, darker);
-    $mat-theme-accent: mat-palette($light-accent, base, lighter, darker);
-    $mat-theme-warn: mat-palette($light-warn, base, lighter, darker);
+    $mat-theme-primary: mat-palette(
+      $light-primary-palette, 
+      $default: map-get($light-primary, default),
+      $lighter: map-get($light-primary, lighter),
+      $darker: map-get($light-primary, darker),
+      $text: map-get($light-primary, text)
+    );
+    $mat-theme-accent: mat-palette(
+      $light-accent-palette, 
+      $default: map-get($light-accent, default),
+      $lighter: map-get($light-accent, lighter),
+      $darker: map-get($light-accent, darker),
+      $text: map-get($light-accent, text)
+    );
+    $mat-theme-warn: mat-palette(
+      $light-warn-palette, 
+      $default: map-get($light-warn, default),
+      $lighter: map-get($light-warn, lighter),
+      $darker: map-get($light-warn, darker),
+      $text: map-get($light-warn, text)
+    );
 
+    $dark-primary-palette: ${theme.colorsLight.warn.palette};
     $dark-primary: (
-      base: ${theme.colorsDark.primary},
-      lighter: ${theme.colorsDark.primary},
-      darker: ${theme.colorsDark.primary},
+      default: ${theme.colorsDark.primary.default},
+      lighter: ${theme.colorsDark.primary.lighter},
+      darker: ${theme.colorsDark.primary.darker},
       contrast: (
-        base: ${theme.colorsDark.onPrimary},
-        lighter: ${theme.colorsDark.onPrimary},
-        darker: ${theme.colorsDark.onPrimary}
+        default: ${theme.colorsDark.primary.contrast.default},
+        lighter: ${theme.colorsDark.primary.contrast.lighter},
+        darker: ${theme.colorsDark.primary.contrast.darker}
       )
     );
+    $dark-accent-palette: ${theme.colorsLight.warn.palette};
     $dark-accent: (
-      base: ${theme.colorsDark.secondary},
-      lighter: ${theme.colorsDark.secondary},
-      darker: ${theme.colorsDark.secondary},
+      default: ${theme.colorsDark.accent.default},
+      lighter: ${theme.colorsDark.accent.lighter},
+      darker: ${theme.colorsDark.accent.darker},
       contrast: (
-        base: ${theme.colorsDark.onSecondary},
-        lighter: ${theme.colorsDark.onSecondary},
-        darker: ${theme.colorsDark.onSecondary}
+        default: ${theme.colorsDark.accent.contrast.default},
+        lighter: ${theme.colorsDark.accent.contrast.lighter},
+        darker: ${theme.colorsDark.accent.contrast.darker}
       )
     );
+    $dark-warn-palette: ${theme.colorsLight.warn.palette};
     $dark-warn: (
-      base: ${theme.colorsDark.error},
-      lighter: ${theme.colorsDark.error},
-      darker: ${theme.colorsDark.error},
+      default: ${theme.colorsDark.warn.default},
+      lighter: ${theme.colorsDark.warn.lighter},
+      darker: ${theme.colorsDark.warn.darker},
       contrast: (
-        base: ${theme.colorsDark.onError},
-        lighter: ${theme.colorsDark.onError},
-        darker: ${theme.colorsDark.onError}
+        default: ${theme.colorsDark.warn.contrast.default},
+        lighter: ${theme.colorsDark.warn.contrast.lighter},
+        darker: ${theme.colorsDark.warn.contrast.darker}
       )
     );
-    $mat-dark-theme-primary: mat-palette($dark-primary, base, lighter, darker);
-    $mat-dark-theme-accent: mat-palette($dark-accent, base, lighter, darker);
-    $mat-dark-theme-warn: mat-palette($dark-warn, base, lighter, darker);
+    $mat-dark-theme-primary: mat-palette(
+      $dark-primary-palette, 
+      $default: map-get($dark-primary, default),
+      $lighter: map-get($dark-primary, lighter),
+      $darker: map-get($dark-primary, darker),
+      $text: map-get($dark-primary, text)
+    );
+    $mat-dark-theme-accent: mat-palette(
+      $dark-accent-palette, 
+      $default: map-get($dark-accent, default),
+      $lighter: map-get($dark-accent, lighter),
+      $darker: map-get($dark-accent, darker),
+      $text: map-get($dark-accent, text)
+    );
+    $mat-dark-theme-warn: mat-palette(
+      $dark-warn-palette, 
+      $default: map-get($dark-warn, default),
+      $lighter: map-get($dark-warn, lighter),
+      $darker: map-get($dark-warn, darker),
+      $text: map-get($dark-warn, text)
+    );
 
     @import url('https://fonts.googleapis.com/css2?family=${theme.typography.h1.family}');
     $mat-typography: mat-typography-config(
@@ -229,7 +191,7 @@ const removeOldStyles = () => {
   styles.parentElement.removeChild(styles);
 };
 
-const buildStyles = (theme: Theme): string => {
+const buildStyles = (theme: AngularTheme): string => {
   const scss = SassFiles['./material-color-theme.scss'](theme);
   // const result = sass.renderSync({
   //   data: scss
@@ -241,11 +203,11 @@ const buildStyles = (theme: Theme): string => {
 const addStyles = (css: string) => {
   const styleElement = document.createElement('style');
   styleElement.setAttribute('id', 'styles');
-  styleElement.innerHTML = css;
+  styleElement.innerText = css;
   document.getElementsByTagName('head')[0].appendChild(styleElement);
 };
 
-export const applyStyles = (theme: Theme) => {
+export const applyStyles = (theme: AngularTheme) => {
   removeOldStyles();
   const styles = buildStyles(theme);
   addStyles(styles);

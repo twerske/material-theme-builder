@@ -2,40 +2,43 @@
   <app-example-header [title]="'Primary'"></app-example-header>
   <div class='theme-line'>
     <!-- <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--primary-color') }}</span></p> -->
-    <p class="code">$mat-palette: <span><input matInput [(ngModel)]="theme.colorsLight.primary" type="text" placeholder="$mat-indigo" autocomplete="off"></span></p>
+    <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsLight.primary.name" type="text" placeholder="{{placeholder.colorsLight.primary.name}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-default"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--primary-color') }}</span></p>
+    <!-- <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--primary-default') }}</span></p> -->
+    <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsLight.primary.default" type="text" placeholder="{{placeholder.colorsLight.primary.default}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-default"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--primary-default') }}</span></p>
-    <figure class="color-swatch primary-default"></figure>
-  </div>
-  <div class='theme-line'>
-    <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--primary-lighter') }}</span></p>
+    <!-- <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--primary-lighter') }}</span></p> -->
+    <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsLight.primary.lighter" type="text" placeholder="{{placeholder.colorsLight.primary.lighter}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-lighter"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--primary-darker') }}</span></p>
+    <!-- <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--primary-darker') }}</span></p> -->
+    <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsLight.primary.darker" type="text" placeholder="{{placeholder.colorsLight.primary.darker}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-darker"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--primary-text') }}</span></p>
+    <!-- <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--primary-text') }}</span></p> -->
+    <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsLight.primary.text" type="text" placeholder="{{placeholder.colorsLight.primary.text}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-text"></figure>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
-    <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-default-contrast') }}</span></p>
+    <!-- <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-default-contrast') }}</span></p> -->
+    <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.primary.contrast.default" type="text" placeholder="{{placeholder.colorsLight.primary.contrast.default}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-default-contrast"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-lighter-contrast') }}</span></p>
+    <!-- <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-lighter-contrast') }}</span></p> -->
+    <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.primary.contrast.lighter" type="text" placeholder="{{placeholder.colorsLight.primary.contrast.lighter}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-lighter-contrast"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-darker-contrast') }}</span></p>
+    <!-- <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-darker-contrast') }}</span></p> -->
+    <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.primary.contrast.darker" type="text" placeholder="{{placeholder.colorsLight.primary.contrast.darker}}" autocomplete="off"></span></p>
     <figure class="color-swatch primary-darker-contrast"></figure>
   </div>
 </div>
@@ -43,36 +46,44 @@
 <div class='accent'>
   <app-example-header [title]="'Accent'"></app-example-header>
   <div class='theme-line'>
-    <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--accent-color') }}</span></p>
+    <!-- <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--accent-color') }}</span></p> -->
+    <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsLight.accent.name" type="text" placeholder="{{placeholder.colorsLight.accent.name}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-default"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--accent-default') }}</span></p>
+    <!-- <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--accent-default') }}</span></p> -->
+    <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsLight.accent.default" type="text" placeholder="{{placeholder.colorsLight.accent.default}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-default"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--accent-lighter') }}</span></p>
+    <!-- <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--accent-lighter') }}</span></p> -->
+    <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsLight.accent.lighter" type="text" placeholder="{{placeholder.colorsLight.accent.lighter}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-lighter"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--accent-darker') }}</span></p>
+    <!-- <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--accent-darker') }}</span></p> -->
+    <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsLight.accent.darker" type="text" placeholder="{{placeholder.colorsLight.accent.darker}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-darker"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--accent-text') }}</span></p>
+    <!-- <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--accent-text') }}</span></p> -->
+    <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsLight.accent.text" type="text" placeholder="{{placeholder.colorsLight.accent.text}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-text"></figure>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
-    <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-default-contrast') }}</span></p>
+    <!-- <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-default-contrast') }}</span></p> -->
+    <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.accent.contrast.default" type="text" placeholder="{{placeholder.colorsLight.accent.contrast.default}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-default-contrast"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-lighter-contrast') }}</span></p>
+    <!-- <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-lighter-contrast') }}</span></p> -->
+    <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.accent.contrast.lighter" type="text" placeholder="{{placeholder.colorsLight.accent.contrast.lighter}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-lighter-contrast"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-darker-contrast') }}</span></p>
+    <!-- <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-darker-contrast') }}</span></p> -->
+    <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.accent.contrast.darker" type="text" placeholder="{{placeholder.colorsLight.accent.contrast.darker}}" autocomplete="off"></span></p>
     <figure class="color-swatch accent-darker-contrast"></figure>
   </div>
 </div>
@@ -80,40 +91,48 @@
 <div class='warn'>
   <app-example-header [title]="'Warn'"></app-example-header>
   <div class='theme-line'>
-    <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--warn-color') }}</span></p>
+    <!-- <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--warn-color') }}</span></p> -->
+    <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsLight.warn.name" type="text" placeholder="{{placeholder.colorsLight.warn.name}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-default"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--warn-default') }}</span></p>
+    <!-- <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--warn-default') }}</span></p> -->
+    <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsLight.warn.default" type="text" placeholder="{{placeholder.colorsLight.warn.default}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-default"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--warn-lighter') }}</span></p>
+    <!-- <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--warn-lighter') }}</span></p> -->
+    <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsLight.warn.lighter" type="text" placeholder="{{placeholder.colorsLight.warn.lighter}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-lighter"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--warn-darker') }}</span></p>
+    <!-- <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--warn-darker') }}</span></p> -->
+    <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsLight.warn.darker" type="text" placeholder="{{placeholder.colorsLight.warn.darker}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-darker"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--warn-text') }}</span></p>
+    <!-- <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--warn-text') }}</span></p> -->
+    <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsLight.warn.text" type="text" placeholder="{{placeholder.colorsLight.warn.text}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-text"></figure>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
-    <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-default-contrast') }}</span></p>
+    <!-- <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-default-contrast') }}</span></p> -->
+    <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.warn.contrast.default" type="text" placeholder="{{placeholder.colorsLight.warn.contrast.default}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-default-contrast"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-lighter-contrast') }}</span></p>
+    <!-- <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-lighter-contrast') }}</span></p> -->
+    <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.warn.contrast.lighter" type="text" placeholder="{{placeholder.colorsLight.warn.contrast.lighter}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-lighter-contrast"></figure>
   </div>
   <div class='theme-line'>
-    <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-darker-contrast') }}</span></p>
+    <!-- <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-darker-contrast') }}</span></p> -->
+    <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.warn.contrast.darker" type="text" placeholder="{{placeholder.colorsLight.warn.contrast.darker}}" autocomplete="off"></span></p>
     <figure class="color-swatch warn-darker-contrast"></figure>
   </div>
 </div>
-<mat-divider class="content-divider"></mat-divider>
+<!-- <mat-divider class="content-divider"></mat-divider>
 <div class='foreground'>
   <app-example-header [title]="'Foreground'"></app-example-header>
   <div class='theme-line'>
@@ -240,4 +259,4 @@
     <p class="code">$mat-background-tooltip: <span>{{ bodyStyles.getPropertyValue('--background-tooltip') }}</span></p>
     <figure class="color-swatch background-tooltip"></figure>
   </div>
-</div>
+</div> -->

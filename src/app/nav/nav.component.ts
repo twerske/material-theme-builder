@@ -2,7 +2,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { applyStyles, themeToAngularSass } from './theme-generator/angular-theme-transformer';
-import { defaultTheme, Theme } from './theme-generator/Theme';
+import { AngularTheme, defaultAngularTheme } from './theme-generator/AngularTheme';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +13,7 @@ export class NavComponent implements OnInit, OnChanges {
   isDark: boolean;
   bodyStyles: CSSStyleDeclaration;
   downloadJsonHref: SafeUrl;
-  theme: Theme = defaultTheme;
+  theme: AngularTheme = defaultAngularTheme;
 
   constructor(private sanitizer: DomSanitizer) {}
 
@@ -23,7 +23,7 @@ export class NavComponent implements OnInit, OnChanges {
     // const url = window.URL.createObjectURL(blob);
     // const uri: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(url);
     // this.downloadJsonHref = uri;
-    console.log(themeToAngularSass(defaultTheme));
+    console.log(themeToAngularSass(defaultAngularTheme));
   }
 
   ngOnInit(): void {

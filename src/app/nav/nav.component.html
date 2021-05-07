@@ -1,7 +1,7 @@
 <div class="mat-theme-header">
   <div>
     <h1>Build an Angular Material Theme</h1>
-    <h2>@twerske</h2>
+    <h2 href="https://twitter.com/twerske">@twerske</h2>
   </div>
   <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme" class="theme-button dark-mode">
     <mat-icon>
@@ -48,12 +48,12 @@
   </mat-tab>
   <mat-tab label="Typography">
     <div class="drawer-content">
-      <app-typography [bodyStyles]="bodyStyles"></app-typography>  
+      <app-typography [bodyStyles]="bodyStyles" [theme]="theme"></app-typography>  
     </div>
   </mat-tab>
   <mat-tab label="Density">
     <div class="drawer-content">
-      <app-density [bodyStyles]="bodyStyles"></app-density>
+      <app-density [bodyStyles]="bodyStyles" [theme]="theme"></app-density>
     </div>
   </mat-tab>
   <mat-tab label="Sass" class="drawer-content">
