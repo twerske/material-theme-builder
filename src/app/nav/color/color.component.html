@@ -1,0 +1,7 @@
+<app-example-header [title]="'Color Scheme'" [link]="''"><mat-icon>colorize</mat-icon></app-example-header>
+<div class='light' *ngIf="!isDark">
+  <app-light-mode [bodyStyles]="bodyStyles" [theme]="theme"></app-light-mode>
+</div>
+<div class='dark' *ngIf="isDark">
+  <app-dark-mode [bodyStyles]="bodyStyles" [theme]="theme"></app-dark-mode>
+</div>

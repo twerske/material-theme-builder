@@ -27,6 +27,12 @@ import { SliderComponent } from './example-drawer-content/example-components/sli
 import { SnackbarComponent } from './example-drawer-content/example-components/snackbar/snackbar.component';
 import { ExampleHeaderComponent } from './example-header/example-header.component';
 import { ExampleDrawerContentComponent } from './example-drawer-content/example-drawer-content.component';
+import { ColorComponent } from './nav/color/color.component';
+import { TypographyComponent } from './nav/typography/typography.component';
+import { DensityComponent } from './nav/density/density.component';
+import { StylingComponent } from './nav/styling/styling.component';
+import { LightModeComponent } from './nav/color/light-mode/light-mode.component';
+import { DarkModeComponent } from './nav/color/dark-mode/dark-mode.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +58,12 @@ import { ExampleDrawerContentComponent } from './example-drawer-content/example-
     SnackbarComponent,
     ExampleHeaderComponent,
     ExampleDrawerContentComponent,
+    ColorComponent,
+    TypographyComponent,
+    DensityComponent,
+    StylingComponent,
+    LightModeComponent,
+    DarkModeComponent,
   ],
   imports: [
     BrowserModule,
