@@ -1,12 +1,13 @@
 import { AngularTheme } from './AngularTheme';
 
-// const sass = require('sass');
 // import * as sass from 'sass';
 
 // declare namespace global {
 // 	function sass(data: string): string
 // 	function errSass(testStr: string): Function
 // }
+
+// ngx-build plus
 
 const SassFiles = {
   '@angular/material/theming'() {
@@ -191,8 +192,14 @@ const removeOldStyles = () => {
   styles.parentElement.removeChild(styles);
 };
 
+export const generateSassTheme = (theme?: AngularTheme): string => {
+  if (theme) {
+    return SassFiles['./material-color-theme.scss'](theme);
+  }
+}
+
 const buildStyles = (theme: AngularTheme): string => {
-  const scss = SassFiles['./material-color-theme.scss'](theme);
+  const scss = generateSassTheme(theme);
   // const result = sass.renderSync({
   //   data: scss
   // });

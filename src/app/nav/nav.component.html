@@ -56,9 +56,9 @@
       <app-density [bodyStyles]="bodyStyles" [theme]="theme"></app-density>
     </div>
   </mat-tab>
-  <mat-tab label="Sass" class="drawer-content">
+  <mat-tab label="Generated Theme" class="drawer-content">
     <div class="drawer-content">
-      <app-styling></app-styling>
+      <app-styling [theme]="theme"></app-styling>
     </div>
   </mat-tab>
 </mat-tab-group>
