@@ -9,6 +9,8 @@
     width: clamp(400px, 30%, 500px);
     
     .mat-theme-header {
+        display: flex;
+        justify-content: space-between;
         padding: 24px;
 
         h1 {

@@ -1,7 +1,7 @@
 <div class="mat-theme-header">
   <div>
     <h1>Build an Angular Material Theme</h1>
-    <h2 href="https://twitter.com/twerske">@twerske</h2>
+    <a class="twitter" target="_blank" href="https://twitter.com/twerske">@twerske</a>
   </div>
   <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme" class="theme-button dark-mode">
     <mat-icon>
@@ -46,7 +46,7 @@
       <app-color [isDark]="isDark" [bodyStyles]="bodyStyles" [theme]="theme"></app-color>
     </div>
   </mat-tab>
-  <mat-tab label="Typography">
+  <!-- <mat-tab label="Typography">
     <div class="drawer-content">
       <app-typography [bodyStyles]="bodyStyles" [theme]="theme"></app-typography>  
     </div>
@@ -55,7 +55,7 @@
     <div class="drawer-content">
       <app-density [bodyStyles]="bodyStyles" [theme]="theme"></app-density>
     </div>
-  </mat-tab>
+  </mat-tab> -->
   <mat-tab label="Generated Theme" class="drawer-content">
     <div class="drawer-content">
       <app-styling [theme]="theme"></app-styling>

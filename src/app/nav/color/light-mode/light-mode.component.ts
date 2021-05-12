@@ -11,9 +11,6 @@ export class LightModeComponent implements OnInit {
   @Input() theme: AngularTheme | undefined;
   placeholder: AngularTheme;
 
-  constructor() {
-    // this.placeholder = defaultAngularTheme;
-  }
   ngOnInit(): void {
     this.placeholder = defaultAngularTheme;
   }
