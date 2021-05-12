@@ -1,0 +1,9 @@
+@mixin space-and-center($width: 100%) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @if $width == 100% {
+    width: $width;
+  }
+}

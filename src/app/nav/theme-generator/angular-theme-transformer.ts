@@ -19,15 +19,30 @@ const SassFiles = {
 };
 
 export function themeToAngularSass(theme?: AngularTheme): string {
+  const lightWarning = theme.colorsLight.warn.name == 'mat.$red-palette' ? '' : 
+  `$mat-theme-warn: mat.define-palette(
+    ${theme.colorsLight.warn.name}, 
+    $default: ${theme.colorsLight.warn.default},
+    $lighter: ${theme.colorsLight.warn.lighter},
+    $darker: ${theme.colorsLight.warn.darker},
+    $text: ${theme.colorsLight.warn.text}
+  );`
+  const darkWarning = theme.colorsDark.warn.name == 'mat.$red-palette' ? '' : 
+  `$mat-dark-theme-warn: mat.define-palette(
+    ${theme.colorsDark.warn.name}, 
+    $default: ${theme.colorsDark.warn.default},
+    $lighter: ${theme.colorsDark.warn.lighter},
+    $darker: ${theme.colorsDark.warn.darker},
+    $text: ${theme.colorsDark.warn.text}
+  );`
+
   return `
   @use '~@angular/material' as mat;
 
-  // Include the common styles for Angular Material. We include this here so that you only
-  // have to load a single css file for Angular Material in your app.
   // Be sure that you only ever include this mixin once!
   @include mat.core();
 
-  // Define your theme with color palettes, typography and [coming soon] density
+  // Define your theme with color palettes, typography and density
   $mat-theme-primary: mat.define-palette(
     ${theme.colorsLight.primary.name}, 
     $default: ${theme.colorsLight.primary.default},
@@ -42,13 +57,7 @@ export function themeToAngularSass(theme?: AngularTheme): string {
     $darker: ${theme.colorsLight.accent.darker},
     $text: ${theme.colorsLight.accent.text}
   );
-  $mat-theme-warn: mat.define-palette(
-    ${theme.colorsLight.warn.name}, 
-    $default: ${theme.colorsLight.warn.default},
-    $lighter: ${theme.colorsLight.warn.lighter},
-    $darker: ${theme.colorsLight.warn.darker},
-    $text: ${theme.colorsLight.warn.text}
-  );
+  ${lightWarning}
   $mat-dark-theme-primary: mat.define-palette(
     ${theme.colorsDark.primary.name}, 
     $default: ${theme.colorsDark.primary.default},
@@ -63,14 +72,7 @@ export function themeToAngularSass(theme?: AngularTheme): string {
     $darker: ${theme.colorsDark.accent.darker},
     $text: ${theme.colorsDark.accent.text}
   );
-  $mat-dark-theme-warn: mat.define-palette(
-    ${theme.colorsDark.warn.name}, 
-    $default: ${theme.colorsDark.warn.default},
-    $lighter: ${theme.colorsDark.warn.lighter},
-    $darker: ${theme.colorsDark.warn.darker},
-    $text: ${theme.colorsDark.warn.text}
-  );
-
+  ${darkWarning}
   @import url('https://fonts.googleapis.com/css2?family=${theme.typography.h1.family}');
   $mat-typography: mat.define-typography-config(
     $font-family: '${theme.typography.h1.family}',

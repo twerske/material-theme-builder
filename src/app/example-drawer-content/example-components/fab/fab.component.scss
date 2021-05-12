@@ -1,0 +1,5 @@
+@import 'src/utils.scss';
+
+:host {
+  @include space-and-center;
+}

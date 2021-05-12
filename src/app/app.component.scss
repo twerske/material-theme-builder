@@ -1,5 +1,6 @@
 @use '~@angular/material' as mat;
-@import "src/styles.scss";
+@import 'src/styles.scss';
+@import 'src/utils.scss';
 
 .mat-theme-creator {
     height: 100vh;
@@ -10,8 +11,9 @@
     width: clamp(400px, 30%, 500px);
     
     .mat-theme-header {
-        display: flex;
-        justify-content: space-between;
+        @include space-and-center($width: 0%);
+        // display: flex;
+        // justify-content: space-between;
         padding: 24px;
 
         h1 {
@@ -52,9 +54,10 @@
         }
 
         .theme-line {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include space-and-center;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-between;
             font-family: Roboto, sans-serif;
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
@@ -207,8 +210,7 @@
         // outline: #0009 solid 1px;
 
         &.two-column {
-            display: flex;
-            justify-content: space-between;
+            @include space-and-center;
         }
 
         .example-spacer {
