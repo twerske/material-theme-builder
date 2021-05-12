@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "src/styles.scss";
 
 .mat-theme-creator {
@@ -95,43 +96,43 @@
         
         @each $key in $mat-color-keys {
             &.primary-#{$key} {
-                background-color: mat-color($mat-theme-primary, $key);
+                background-color: mat.get-color-from-palette($mat-theme-primary, $key);
             }
 
             &.primary-#{$key}-contrast {
-                background-color: mat-color($mat-theme-primary, #{$key}-contrast);
+                background-color: mat.get-color-from-palette($mat-theme-primary, #{$key}-contrast);
             }
         }
 
         @each $key in $mat-color-keys {
             &.accent-#{$key} {
-                background-color: mat-color($mat-theme-accent, $key);
+                background-color: mat.get-color-from-palette($mat-theme-accent, $key);
             }
 
             &.accent-#{$key}-contrast {
-                background-color: mat-color($mat-theme-accent, #{$key}-contrast);
+                background-color: mat.get-color-from-palette($mat-theme-accent, #{$key}-contrast);
             }
         }
 
         @each $key in $mat-color-keys {
             &.warn-#{$key} {
-                background-color: mat-color($mat-theme-warn, $key);
+                background-color: mat.get-color-from-palette($mat-theme-warn, $key);
             }  
 
             &.warn-#{$key}-contrast {
-                background-color: mat-color($mat-theme-warn, #{$key}-contrast);
+                background-color: mat.get-color-from-palette($mat-theme-warn, #{$key}-contrast);
             }
         }
 
         @each $key in $mat-foreground-keys {
             &.foreground-#{$key} {
-                background-color: mat-color($mat-light-theme-foreground, $key);
+                background-color: mat.get-color-from-palette(mat.$light-theme-foreground-palette, $key);
             }  
         }
 
         @each $key in $mat-background-keys {
             &.background-#{$key} {
-                background-color: mat-color($mat-light-theme-background, $key);
+                background-color: mat.get-color-from-palette(mat.$light-theme-background-palette, $key);
             }  
         }
     } 
@@ -147,43 +148,43 @@
         
         @each $key in $mat-color-keys {
             &.primary-#{$key} {
-                background-color: mat-color($mat-dark-theme-primary, $key);;
+                background-color: mat.get-color-from-palette($mat-dark-theme-primary, $key);;
             }  
 
             &.primary-#{$key}-contrast {
-                background-color: mat-color($mat-dark-theme-primary, #{$key}-contrast);
+                background-color: mat.get-color-from-palette($mat-dark-theme-primary, #{$key}-contrast);
             }
         }
 
         @each $key in $mat-color-keys {
             &.accent-#{$key} {
-                background-color: mat-color($mat-dark-theme-accent, $key);;
+                background-color: mat.get-color-from-palette($mat-dark-theme-accent, $key);;
             }  
 
             &.accent-#{$key}-contrast {
-                background-color: mat-color($mat-dark-theme-accent, #{$key}-contrast);
+                background-color: mat.get-color-from-palette($mat-dark-theme-accent, #{$key}-contrast);
             }
         }
 
         @each $key in $mat-color-keys {
             &.warn-#{$key} {
-                background-color: mat-color($mat-dark-theme-warn, $key);;
+                background-color: mat.get-color-from-palette($mat-dark-theme-warn, $key);;
             }  
 
             &.warm-#{$key}-contrast {
-                background-color: mat-color($mat-dark-theme-accent, #{$key}-contrast);
+                background-color: mat.get-color-from-palette($mat-dark-theme-accent, #{$key}-contrast);
             }
         }
 
         @each $key in $mat-foreground-keys {
             &.foreground-#{$key} {
-                background-color: mat-color($mat-dark-theme-foreground, $key);;
+                background-color: mat.get-color-from-palette(mat.$dark-theme-foreground-palette, $key);;
             }  
         }
 
         @each $key in $mat-background-keys {
             &.background-#{$key} {
-                background-color: mat-color($mat-dark-theme-background, $key);;
+                background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, $key);;
             }  
         }
     } 

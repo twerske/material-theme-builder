@@ -1,8 +1,7 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
 // Plus imports for other components in your app.
+@use '~@angular/material' as mat;
 @import './material-color-theme.scss';
 @import './material-typography-theme.scss';
 @import './material-shape-theme.scss';
@@ -10,10 +9,10 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+@include mat.core();
 
 // Define your theme with color palettes, typography and [coming soon] density
-$mat-light-theme: mat-light-theme((
+$mat-light-theme: mat.define-light-theme((
   color: (
     primary: $mat-theme-primary,
     accent: $mat-theme-accent,
@@ -23,7 +22,7 @@ $mat-light-theme: mat-light-theme((
   density: $mat-density
 ));
 
-$mat-dark-theme: mat-dark-theme((
+$mat-dark-theme: mat.define-dark-theme((
   color: (
     primary: $mat-dark-theme-primary,
     accent: $mat-dark-theme-accent,
@@ -33,11 +32,11 @@ $mat-dark-theme: mat-dark-theme((
   density: $mat-density
 ));
 
-@include angular-material-theme($mat-light-theme);
+@include mat.all-component-themes($mat-light-theme);
 
 .dark-theme {
   // Override only the color in dark theme to reduce style duplication
-  @include angular-material-color($mat-dark-theme);
+  @include mat.all-component-colors($mat-dark-theme);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -53,47 +52,47 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --primary-color:#{$mat-primary-color};
   @each $key, $color in $mat-primary {
     --primary-#{$key}:#{$color};
-    --primary-#{$key}-contrast:#{mat-contrast($mat-theme-primary, $color)};
+    --primary-#{$key}-contrast:#{mat.get-contrast-color-from-palette($mat-theme-primary, $color)};
   }
 
   --dark-primary-color:#{$mat-dark-primary-color};
   @each $key, $color in $mat-dark-primary {
     --dark-primary-#{$key}:#{$color};
-    --dark-primary-#{$key}-contrast:#{mat-contrast($mat-theme-primary, $color)};
+    --dark-primary-#{$key}-contrast:#{mat.get-contrast-color-from-palette($mat-theme-primary, $color)};
   }
 
   --accent-color:#{$mat-accent-color};
   @each $key, $color in $mat-accent {
     --accent-#{$key}:#{$color};
-    --accent-#{$key}-contrast:#{mat-contrast($mat-theme-accent, $color)};
+    --accent-#{$key}-contrast:#{mat.get-contrast-color-from-palette($mat-theme-accent, $color)};
   }
 
   --dark-accent-color:#{$mat-dark-accent-color};
   @each $key, $color in $mat-dark-accent {
     --dark-accent-#{$key}:#{$color};
-    --dark-accent-#{$key}-contrast:#{mat-contrast($mat-theme-accent, $color)};
+    --dark-accent-#{$key}-contrast:#{mat.get-contrast-color-from-palette($mat-theme-accent, $color)};
   }
   
   --warn-color:#{$mat-warn-color};
   @each $key, $color in $mat-warn {
     --warn-#{$key}:#{$color};
-    --warn-#{$key}-contrast:#{mat-contrast($mat-theme-warn, $color)};
+    --warn-#{$key}-contrast:#{mat.get-contrast-color-from-palette($mat-theme-warn, $color)};
   }
 
   --dark-warn-color:#{$mat-dark-warn-color};
   @each $key, $color in $mat-dark-warn {
     --dark-warn-#{$key}:#{$color};
-    --dark-warn-#{$key}-contrast:#{mat-contrast($mat-theme-warn, $color)};
+    --dark-warn-#{$key}-contrast:#{mat.get-contrast-color-from-palette($mat-theme-warn, $color)};
   }
 
   @each $key in $mat-foreground-keys {
-    --foreground-#{$key}: #{map-get($mat-light-theme-foreground, $key)};
-    --dark-foreground-#{$key}: #{map-get($mat-dark-theme-foreground, $key)};
+    --foreground-#{$key}: #{map-get(mat.$light-theme-foreground-palette, $key)};
+    --dark-foreground-#{$key}: #{map-get(mat.$dark-theme-foreground-palette, $key)};
   }
 
   @each $key in $mat-background-keys {
-    --background-#{$key}: #{map-get($mat-light-theme-background, $key)};
-    --dark-background-#{$key}: #{map-get($mat-dark-theme-background, $key)};
+    --background-#{$key}: #{map-get(mat.$light-theme-background-palette, $key)};
+    --dark-background-#{$key}: #{map-get(mat.$dark-theme-background-palette, $key)};
   }
 
   --font-family:#{$mat-font-family};
