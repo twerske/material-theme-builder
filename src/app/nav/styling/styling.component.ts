@@ -13,6 +13,5 @@ export class StylingComponent implements OnInit {
   
   ngOnInit(): void {
     this.scss = generateSassTheme(this.theme);
-    console.log(this.scss)
   }
 }
