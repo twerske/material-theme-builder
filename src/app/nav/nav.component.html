@@ -32,21 +32,26 @@
   </button> -->
 </div>
 <mat-tab-group mat-stretch-tabs>
-  <!-- <mat-tab label="Instructions" class="drawer-content">
+  <mat-tab label="Instructions" class="drawer-content">
     <div class="drawer-content">
       <h4 class="section-header">HOW TO BUILD A THEME</h4>
-      <p>Build your own custom Material theme by remixing and styling these themeable components.</p>
-      <p>Modify the variables in the variables tabs, then use download your theme file in the Sass tab.</p>
+      <p>Build your own custom Angular Material theme by remixing and styling these themeable components.</p>
+      <p>Modify the variables in the Color, Typography and Density tabs, then copy your styles.scss file in the Theme tab.</p>
       <p>Use your custom theme by running 'ng add @angular/material' and select the custom theme.</p>
-      <p>Replace your app's styles.scss file with the downloaded Sass file to see your new custom theme!</p>
-    </div>
-  </mat-tab> -->
-  <mat-tab label="Color">
-    <div class="drawer-content">
-      <app-color [isDark]="isDark" [bodyStyles]="bodyStyles" [theme]="theme"></app-color>
+      <p>Replace your app's styles.scss file with the copied Sass file to see your custom theme!</p>
     </div>
   </mat-tab>
-  <!-- <mat-tab label="Typography">
+  <mat-tab label="Theme" class="drawer-content">
+    <div class="drawer-content">
+      <app-styling [theme]="theme"></app-styling>
+    </div>
+  </mat-tab>
+  <mat-tab label="Color">
+    <div class="drawer-content">
+      <app-color [isDark]="isDark" [bodyStyles]="bodyStyles" [theme]="theme" (updateTheme)="this.updateTheme($event)"></app-color>
+    </div>
+  </mat-tab>
+  <mat-tab label="Typography">
     <div class="drawer-content">
       <app-typography [bodyStyles]="bodyStyles" [theme]="theme"></app-typography>  
     </div>
@@ -54,11 +59,6 @@
   <mat-tab label="Density">
     <div class="drawer-content">
       <app-density [bodyStyles]="bodyStyles" [theme]="theme"></app-density>
-    </div>
-  </mat-tab> -->
-  <mat-tab label="Generated Theme" class="drawer-content">
-    <div class="drawer-content">
-      <app-styling [theme]="theme"></app-styling>
     </div>
   </mat-tab>
 </mat-tab-group>

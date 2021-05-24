@@ -45,4 +45,8 @@ export class NavComponent implements OnInit, OnChanges {
   setTheme(): void {
     document.documentElement.classList.toggle('dark-theme', this.isDark);
   }
+
+  updateTheme(theme: AngularTheme): void {
+    this.theme = theme;
+  }
 }
