@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 import { MaterialModule } from './material.module';
 import { NavComponent } from './nav/nav.component'
@@ -33,6 +34,7 @@ import { DensityComponent } from './nav/density/density.component';
 import { StylingComponent } from './nav/styling/styling.component';
 import { LightModeComponent } from './nav/color/light-mode/light-mode.component';
 import { DarkModeComponent } from './nav/color/dark-mode/dark-mode.component';
+import { ColorPickerComponent } from './nav/color/color-picker/color-picker.component';
 
 @NgModule({
   declarations: [
@@ -64,13 +66,15 @@ import { DarkModeComponent } from './nav/color/dark-mode/dark-mode.component';
     StylingComponent,
     LightModeComponent,
     DarkModeComponent,
+    ColorPickerComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ColorPickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

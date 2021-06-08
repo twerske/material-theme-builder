@@ -1,134 +1,110 @@
 <div class='primary'>
   <app-example-header [title]="'Primary'"></app-example-header>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--primary-color') }}</span></p> -->
     <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsDark.primary.name" type="text" placeholder="{{placeholder.colorsDark.primary.name}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-default"></figure>
+    <app-color-picker [isPalette]="true" [palette]="theme.colorsDark.primary.name" [colorFromPalette]="'500'" (updateColor)="theme.colorsDark.primary.name=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--primary-default') }}</span></p> -->
     <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsDark.primary.default" type="text" placeholder="{{placeholder.colorsDark.primary.default}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-default"></figure>
+    <app-color-picker [palette]="theme.colorsDark.primary.name" [colorFromPalette]="theme.colorsDark.primary.default" (updateColor)="theme.colorsDark.primary.default=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--primary-lighter') }}</span></p> -->
     <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsDark.primary.lighter" type="text" placeholder="{{placeholder.colorsDark.primary.lighter}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-lighter"></figure>
+    <app-color-picker [palette]="theme.colorsDark.primary.name" [colorFromPalette]="theme.colorsDark.primary.lighter" (updateColor)="theme.colorsDark.primary.lighter=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--primary-darker') }}</span></p> -->
     <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsDark.primary.darker" type="text" placeholder="{{placeholder.colorsDark.primary.darker}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-darker"></figure>
+    <app-color-picker [palette]="theme.colorsDark.primary.name" [colorFromPalette]="theme.colorsDark.primary.darker" (updateColor)="theme.colorsDark.primary.darker=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--primary-text') }}</span></p> -->
     <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsDark.primary.text" type="text" placeholder="{{placeholder.colorsDark.primary.text}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-text"></figure>
+    <app-color-picker [palette]="theme.colorsDark.primary.name" [colorFromPalette]="theme.colorsDark.primary.text" (updateColor)="theme.colorsDark.primary.text=$event"></app-color-picker>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-default-contrast') }}</span></p> -->
     <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.primary.contrast.default" type="text" placeholder="{{placeholder.colorsDark.primary.contrast.default}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-default-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.primary.name" [colorFromPalette]="theme.colorsDark.primary.contrast.default" (updateColor)="theme.colorsDark.primary.contrast.default=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-lighter-contrast') }}</span></p> -->
     <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.primary.contrast.lighter" type="text" placeholder="{{placeholder.colorsDark.primary.contrast.lighter}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-lighter-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.primary.name" [colorFromPalette]="theme.colorsDark.primary.contrast.lighter" (updateColor)="theme.colorsDark.primary.contrast.lighter=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--primary-darker-contrast') }}</span></p> -->
     <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.primary.contrast.darker" type="text" placeholder="{{placeholder.colorsDark.primary.contrast.darker}}" autocomplete="off"></span></p>
-    <figure class="color-swatch primary-darker-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.primary.name" [colorFromPalette]="theme.colorsDark.primary.contrast.darker" (updateColor)="theme.colorsDark.primary.contrast.darker=$event"></app-color-picker>
   </div>
 </div>
 <mat-divider class="content-divider"></mat-divider>
 <div class='accent'>
   <app-example-header [title]="'Accent'"></app-example-header>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--accent-color') }}</span></p> -->
     <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsDark.accent.name" type="text" placeholder="{{placeholder.colorsDark.accent.name}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-default"></figure>
+    <app-color-picker [isPalette]="true" [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.default" (updateColor)="theme.colorsDark.accent.name=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--accent-default') }}</span></p> -->
     <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsDark.accent.default" type="text" placeholder="{{placeholder.colorsDark.accent.default}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-default"></figure>
+    <app-color-picker [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.default" (updateColor)="theme.colorsDark.accent.default=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--accent-lighter') }}</span></p> -->
     <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsDark.accent.lighter" type="text" placeholder="{{placeholder.colorsDark.accent.lighter}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-lighter"></figure>
+    <app-color-picker [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.lighter" (updateColor)="theme.colorsDark.accent.lighter=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--accent-darker') }}</span></p> -->
     <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsDark.accent.darker" type="text" placeholder="{{placeholder.colorsDark.accent.darker}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-darker"></figure>
+    <app-color-picker [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.darker" (updateColor)="theme.colorsDark.accent.darker=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--accent-text') }}</span></p> -->
     <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsDark.accent.text" type="text" placeholder="{{placeholder.colorsDark.accent.text}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-text"></figure>
+    <app-color-picker [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.text" (updateColor)="theme.colorsDark.accent.text=$event"></app-color-picker>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-default-contrast') }}</span></p> -->
     <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.accent.contrast.default" type="text" placeholder="{{placeholder.colorsDark.accent.contrast.default}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-default-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.contrast.default" (updateColor)="theme.colorsDark.accent.contrast.default=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-lighter-contrast') }}</span></p> -->
     <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.accent.contrast.lighter" type="text" placeholder="{{placeholder.colorsDark.accent.contrast.lighter}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-lighter-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.contrast.lighter" (updateColor)="theme.colorsDark.accent.contrast.lighter=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--accent-darker-contrast') }}</span></p> -->
     <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.accent.contrast.darker" type="text" placeholder="{{placeholder.colorsDark.accent.contrast.darker}}" autocomplete="off"></span></p>
-    <figure class="color-swatch accent-darker-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.accent.name" [colorFromPalette]="theme.colorsDark.accent.contrast.darker" (updateColor)="theme.colorsDark.accent.contrast.darker=$event"></app-color-picker>
   </div>
 </div>
 <mat-divider class="content-divider"></mat-divider>
 <div class='warn'>
   <app-example-header [title]="'Warn'"></app-example-header>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-palette: <span>$mat-{{ bodyStyles.getPropertyValue('--warn-color') }}</span></p> -->
     <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsDark.warn.name" type="text" placeholder="{{placeholder.colorsDark.warn.name}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-default"></figure>
+    <app-color-picker [isPalette]="true" [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.default" (updateColor)="theme.colorsDark.warn.name=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-default: <span>{{ bodyStyles.getPropertyValue('--warn-default') }}</span></p> -->
     <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsDark.warn.default" type="text" placeholder="{{placeholder.colorsDark.warn.default}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-default"></figure>
+    <app-color-picker [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.default" (updateColor)="theme.colorsDark.warn.default=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-lighter: <span>{{ bodyStyles.getPropertyValue('--warn-lighter') }}</span></p> -->
     <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsDark.warn.lighter" type="text" placeholder="{{placeholder.colorsDark.warn.lighter}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-lighter"></figure>
+    <app-color-picker [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.lighter" (updateColor)="theme.colorsDark.warn.lighter=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-darker: <span>{{ bodyStyles.getPropertyValue('--warn-darker') }}</span></p> -->
     <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsDark.warn.darker" type="text" placeholder="{{placeholder.colorsDark.warn.darker}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-darker"></figure>
+    <app-color-picker [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.darker" (updateColor)="theme.colorsDark.warn.darker=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-text: <span>{{ bodyStyles.getPropertyValue('--warn-text') }}</span></p> -->
     <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsDark.warn.text" type="text" placeholder="{{placeholder.colorsDark.warn.text}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-text"></figure>
+    <app-color-picker [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.text" (updateColor)="theme.colorsDark.warn.text=$event"></app-color-picker>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-default-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-default-contrast') }}</span></p> -->
     <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.warn.contrast.default" type="text" placeholder="{{placeholder.colorsDark.warn.contrast.default}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-default-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.contrast.default" (updateColor)="theme.colorsDark.warn.contrast.default=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-lighter-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-lighter-contrast') }}</span></p> -->
     <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.warn.contrast.lighter" type="text" placeholder="{{placeholder.colorsDark.warn.contrast.lighter}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-lighter-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.contrast.lighter" (updateColor)="theme.colorsDark.warn.contrast.lighter=$event"></app-color-picker>
   </div>
   <div class='theme-line'>
-    <!-- <p class="code">$mat-darker-contrast: <span>{{ bodyStyles.getPropertyValue('--warn-darker-contrast') }}</span></p> -->
     <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsDark.warn.contrast.darker" type="text" placeholder="{{placeholder.colorsDark.warn.contrast.darker}}" autocomplete="off"></span></p>
-    <figure class="color-swatch warn-darker-contrast"></figure>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsDark.warn.name" [colorFromPalette]="theme.colorsDark.warn.contrast.darker" (updateColor)="theme.colorsDark.warn.contrast.darker=$event"></app-color-picker>
   </div>
 </div>
