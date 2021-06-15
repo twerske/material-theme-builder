@@ -6,6 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./example-header.component.scss']
 })
 export class ExampleHeaderComponent {
-  @Input() title : string | undefined;
-  @Input() link : string | undefined;
+  @Input() title: string | undefined;
+  @Input() link: string | undefined;
 }

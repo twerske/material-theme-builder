@@ -1,5 +1,5 @@
-import { Font } from "ngx-font-picker";
-import { Palette, paletteMap } from "./AngularPalettes";
+import { Font } from 'ngx-font-picker';
+import { Palette, paletteMap } from './AngularPalettes';
 
 export interface AngularTheme {
   version: string;
@@ -27,7 +27,7 @@ export interface AngularColor {
     default?: string;
     lighter?: string;
     darker?: string;
-  }
+  };
 }
 
 export interface AngularTypography {
@@ -47,7 +47,7 @@ export interface AngularTypography {
 }
 
 export interface AngularFont extends Font {
-
+  uppercase?: boolean;
 }
 
 export const defaultAngularTheme: AngularTheme = {
@@ -64,7 +64,7 @@ export const defaultAngularTheme: AngularTheme = {
       contrast: {
         default: 'white',
         lighter: 'black',
-        darker: 'white', 
+        darker: 'white',
       }
     },
     accent: {
@@ -77,7 +77,7 @@ export const defaultAngularTheme: AngularTheme = {
       contrast: {
         default: 'white',
         lighter: 'black',
-        darker: 'white', 
+        darker: 'white',
       }
     },
     warn: {
@@ -90,7 +90,7 @@ export const defaultAngularTheme: AngularTheme = {
       contrast: {
         default: 'white',
         lighter: 'white',
-        darker: 'white', 
+        darker: 'white',
       }
     },
   },
@@ -105,7 +105,7 @@ export const defaultAngularTheme: AngularTheme = {
       contrast: {
         default: 'white',
         lighter: 'white',
-        darker: 'white', 
+        darker: 'white',
       }
     },
     accent: {
@@ -118,7 +118,7 @@ export const defaultAngularTheme: AngularTheme = {
       contrast: {
         default: 'black',
         lighter: 'black',
-        darker: 'black', 
+        darker: 'black',
       }
     },
     warn: {
@@ -131,7 +131,7 @@ export const defaultAngularTheme: AngularTheme = {
       contrast: {
         default: 'white',
         lighter: 'white',
-        darker: 'white', 
+        darker: 'white',
       }
     },
   },

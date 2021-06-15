@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColorPickerModule } from 'ngx-color-picker';
 
 import { MaterialModule } from './material.module';
-import { NavComponent } from './nav/nav.component'
+import { NavComponent } from './nav/nav.component';
 import { ButtonsComponent } from './example-drawer-content/example-components/buttons/buttons.component';
 import { ToolbarComponent } from './example-drawer-content/example-components/toolbar/toolbar.component';
 import { SidenavComponent } from './example-drawer-content/example-components/sidenav/sidenav.component';

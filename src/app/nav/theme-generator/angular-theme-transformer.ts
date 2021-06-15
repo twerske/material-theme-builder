@@ -11,48 +11,48 @@ import { AngularTheme } from './AngularTheme';
 // ngx-build plus
 
 const SassFiles = {
-  '@angular/material/theming'() {
+  '@angular/material/theming'(): string {
     return `...`;
   },
-  './material-color-theme.scss'(theme: AngularTheme) {
+  './material-color-theme.scss'(theme: AngularTheme): string {
     return themeToAngularSass(theme);
   }
 };
 
 export function themeToAngularSass(theme?: AngularTheme): string {
-  const lightWarning = theme.colorsLight.warn.name == 'mat.$red-palette' ? '' : 
+  const lightWarning = theme.colorsLight.warn.name === 'mat.$red-palette' ? '' :
   `$mat-theme-warn: mat.define-palette(
-    ${theme.colorsLight.warn.name}, 
+    ${theme.colorsLight.warn.name},
     $default: ${theme.colorsLight.warn.default},
     $lighter: ${theme.colorsLight.warn.lighter},
     $darker: ${theme.colorsLight.warn.darker},
     $text: ${theme.colorsLight.warn.text}
-  );`
-  const darkWarning = theme.colorsDark.warn.name == 'mat.$red-palette' ? '' : 
+  );`;
+  const darkWarning = theme.colorsDark.warn.name === 'mat.$red-palette' ? '' :
   `$mat-dark-theme-warn: mat.define-palette(
-    ${theme.colorsDark.warn.name}, 
+    ${theme.colorsDark.warn.name},
     $default: ${theme.colorsDark.warn.default},
     $lighter: ${theme.colorsDark.warn.lighter},
     $darker: ${theme.colorsDark.warn.darker},
     $text: ${theme.colorsDark.warn.text}
-  );`
+  );`;
 
-  const fontImportList : Font[] = [];
-  fontImportList.push(theme.typography.h1)
-  fontImportList.push(theme.typography.h2)
-  fontImportList.push(theme.typography.h3)
-  fontImportList.push(theme.typography.h4)
-  fontImportList.push(theme.typography.h5)
-  fontImportList.push(theme.typography.h6)
-  fontImportList.push(theme.typography.subtitle1)
-  fontImportList.push(theme.typography.subtitle2)
-  fontImportList.push(theme.typography.body1)
-  fontImportList.push(theme.typography.body2)
-  fontImportList.push(theme.typography.button)
-  fontImportList.push(theme.typography.caption)
-  fontImportList.push(theme.typography.overline)
-  let fontImport: string = '';
-  fontImportList.forEach(font => {if(!fontImport.includes(font.family)) fontImport += `family=${font.family.split(' ').join('+')}:wght@${font.style}&`});
+  const fontImportList: Font[] = [];
+  fontImportList.push(theme.typography.h1);
+  fontImportList.push(theme.typography.h2);
+  fontImportList.push(theme.typography.h3);
+  fontImportList.push(theme.typography.h4);
+  fontImportList.push(theme.typography.h5);
+  fontImportList.push(theme.typography.h6);
+  fontImportList.push(theme.typography.subtitle1);
+  fontImportList.push(theme.typography.subtitle2);
+  fontImportList.push(theme.typography.body1);
+  fontImportList.push(theme.typography.body2);
+  fontImportList.push(theme.typography.button);
+  fontImportList.push(theme.typography.caption);
+  fontImportList.push(theme.typography.overline);
+  let fontImport = '';
+  fontImportList.forEach(font => {if (!fontImport.includes(font.family)) { fontImport += `family=${font.family.split(' ').join('+')}:wght@${font.style}&`; }});
 
   return `
   @use '~@angular/material' as mat;
@@ -62,14 +62,14 @@ export function themeToAngularSass(theme?: AngularTheme): string {
 
   // Define your theme with color palettes, typography and density
   $mat-theme-primary: mat.define-palette(
-    ${theme.colorsLight.primary.name}, 
+    ${theme.colorsLight.primary.name},
     $default: ${theme.colorsLight.primary.default},
     $lighter: ${theme.colorsLight.primary.lighter},
     $darker: ${theme.colorsLight.primary.darker},
     $text: ${theme.colorsLight.primary.text}
   );
   $mat-theme-accent: mat.define-palette(
-    ${theme.colorsLight.accent.name}, 
+    ${theme.colorsLight.accent.name},
     $default: ${theme.colorsLight.accent.default},
     $lighter: ${theme.colorsLight.accent.lighter},
     $darker: ${theme.colorsLight.accent.darker},
@@ -77,14 +77,14 @@ export function themeToAngularSass(theme?: AngularTheme): string {
   );
   ${lightWarning}
   $mat-dark-theme-primary: mat.define-palette(
-    ${theme.colorsDark.primary.name}, 
+    ${theme.colorsDark.primary.name},
     $default: ${theme.colorsDark.primary.default},
     $lighter: ${theme.colorsDark.primary.lighter},
     $darker: ${theme.colorsDark.primary.darker},
     $text: ${theme.colorsDark.primary.text}
   );
   $mat-dark-theme-accent: mat.define-palette(
-    ${theme.colorsDark.accent.name}, 
+    ${theme.colorsDark.accent.name},
     $default: ${theme.colorsDark.accent.default},
     $lighter: ${theme.colorsDark.accent.lighter},
     $darker: ${theme.colorsDark.accent.darker},
@@ -113,8 +113,8 @@ export function themeToAngularSass(theme?: AngularTheme): string {
 
   $mat-density: 0;
   // @include mat.elevation(
-  //   $zValue: 12, 
-  //   $color: #000, 
+  //   $zValue: 12,
+  //   $color: #000,
   //   $opacity: 0.5
   // );
 
@@ -154,7 +154,7 @@ export const generateSassTheme = (theme?: AngularTheme): string => {
   if (theme) {
     return SassFiles['./material-color-theme.scss'](theme);
   }
-}
+};
 
 const buildStyles = (theme: AngularTheme): string => {
   const scss = generateSassTheme(theme);
@@ -162,7 +162,7 @@ const buildStyles = (theme: AngularTheme): string => {
   //   data: scss
   // });
   // return result.css.toString()
-  return ''
+  return '';
 };
 
 const addStyles = (css: string) => {

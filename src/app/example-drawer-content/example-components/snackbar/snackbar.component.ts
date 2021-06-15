@@ -15,5 +15,5 @@ export class SnackbarComponent {
       duration: 2000,
     });
   }
-  
+
 }

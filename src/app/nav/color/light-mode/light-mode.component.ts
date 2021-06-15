@@ -7,7 +7,6 @@ import { AngularTheme, defaultAngularTheme } from '../../theme-generator/Angular
   styleUrls: ['./light-mode.component.scss']
 })
 export class LightModeComponent implements OnInit {
-  @Input() bodyStyles: CSSStyleDeclaration | undefined;
   @Input() theme: AngularTheme | undefined;
   placeholder: AngularTheme;
 

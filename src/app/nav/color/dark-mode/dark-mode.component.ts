@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularTheme, defaultAngularTheme } from '../../theme-generator/AngularTheme';
 
 @Component({
@@ -6,8 +6,7 @@ import { AngularTheme, defaultAngularTheme } from '../../theme-generator/Angular
   templateUrl: './dark-mode.component.html',
   styleUrls: ['./dark-mode.component.scss']
 })
-export class DarkModeComponent {
-  @Input() bodyStyles: CSSStyleDeclaration | undefined;
+export class DarkModeComponent implements OnInit {
   @Input() theme: AngularTheme | undefined;
   placeholder: AngularTheme;
 
