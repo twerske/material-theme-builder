@@ -1,3 +1,4 @@
+import { Font } from "ngx-font-picker";
 import { Palette, paletteMap } from "./AngularPalettes";
 
 export interface AngularTheme {
@@ -6,7 +7,7 @@ export interface AngularTheme {
   colorsLight?: AngularThemeColors;
   colorsDark?: AngularThemeColors;
   typography?: AngularTypography;
-  density?: number;
+  density?: string;
 }
 
 export interface AngularThemeColors {
@@ -45,11 +46,8 @@ export interface AngularTypography {
   overline: AngularFont;
 }
 
-export interface AngularFont {
-  family: string;
-  weight: string;
-  size: number;
-  uppercase?: boolean;
+export interface AngularFont extends Font {
+
 }
 
 export const defaultAngularTheme: AngularTheme = {
@@ -137,30 +135,25 @@ export const defaultAngularTheme: AngularTheme = {
       }
     },
   },
+    // size: string;
+  // style: string;
+  // family: string;
+  // files: any;
+  // styles: string[];
   typography: {
-    h1: { family: 'Raleway', weight: '300', size: 96 },
-    h2: { family: 'Raleway', weight: '500', size: 60 },
-    h3: { family: 'Raleway', weight: '700', size: 48 },
-    h4: { family: 'Raleway', weight: '700', size: 34 },
-    h5: { family: 'Raleway', weight: '700', size: 24 },
-    h6: { family: 'Raleway', weight: '700', size: 20 },
-    subtitle1: { family: 'Raleway', weight: '700', size: 16 },
-    subtitle2: { family: 'Raleway', weight: '700', size: 24 },
-    body1: { family: 'Raleway', weight: '700', size: 16 },
-    body2: { family: 'Raleway', weight: '500', size: 14 },
-    button: {
-    family: 'Raleway',
-    weight: '700',
-    size: 14,
-    uppercase: true,
+    h1: new Font({ family: 'Raleway', style: '300', size: '96' }),
+    h2: new Font({ family: 'Raleway', style: '500', size: '60'}),
+    h3: new Font({ family: 'Raleway', style: '700', size: '48' }),
+    h4: new Font({ family: 'Raleway', style: '700', size: '34' }),
+    h5: new Font({ family: 'Raleway', style: '700', size: '24' }),
+    h6: new Font({ family: 'Raleway', style: '700', size: '20' }),
+    subtitle1: new Font({ family: 'Raleway', style: '700', size: '16' }),
+    subtitle2: new Font({ family: 'Raleway', style: '700', size: '24' }),
+    body1: new Font({ family: 'Raleway', style: '700', size: '16' }),
+    body2: new Font({ family: 'Raleway', style: '500', size: '14' }),
+    button: new Font({ family: 'Raleway', style: '700', size: '14' }),
+    caption: new Font({ family: 'Raleway', style: 'Medium', size: '12' }),
+    overline: new Font({ family: 'Raleway', style: '300', size: '12' }),
   },
-  caption: {
-    family: 'Raleway', weight: 'Medium', size: 12 },
-    overline: {
-      family: 'Raleway',
-      weight: '300',
-      size: 12,
-      uppercase: true,
-    },
-  },
+  density: '0'
 };

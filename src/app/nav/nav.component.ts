@@ -11,7 +11,6 @@ import { AngularTheme, defaultAngularTheme } from './theme-generator/AngularThem
 })
 export class NavComponent implements OnInit, OnChanges {
   isDark: boolean;
-  bodyStyles: CSSStyleDeclaration;
   downloadJsonHref: SafeUrl;
   theme: AngularTheme = defaultAngularTheme;
 
@@ -29,7 +28,6 @@ export class NavComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.setTheme();
-    this.bodyStyles = window.getComputedStyle(document.body);
     applyStyles(this.theme);
   }
 

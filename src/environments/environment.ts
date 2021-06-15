@@ -2,9 +2,15 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { FontPickerConfigInterface } from "ngx-font-picker";
+
 export const environment = {
-  production: false
+  production: false,
+  key: {
+    apiKey: 'ADD_KEY_HERE'
+  }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

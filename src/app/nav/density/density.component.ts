@@ -7,6 +7,5 @@ import { AngularTheme } from '../theme-generator/AngularTheme';
   styleUrls: ['./density.component.scss']
 })
 export class DensityComponent {
-  @Input() bodyStyles : CSSStyleDeclaration | undefined;
   @Input() theme: AngularTheme | undefined;
 }

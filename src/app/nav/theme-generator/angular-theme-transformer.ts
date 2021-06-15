@@ -1,3 +1,4 @@
+import { Font } from 'ngx-font-picker';
 import { AngularTheme } from './AngularTheme';
 
 // import * as sass from 'sass';
@@ -36,6 +37,23 @@ export function themeToAngularSass(theme?: AngularTheme): string {
     $text: ${theme.colorsDark.warn.text}
   );`
 
+  const fontImportList : Font[] = [];
+  fontImportList.push(theme.typography.h1)
+  fontImportList.push(theme.typography.h2)
+  fontImportList.push(theme.typography.h3)
+  fontImportList.push(theme.typography.h4)
+  fontImportList.push(theme.typography.h5)
+  fontImportList.push(theme.typography.h6)
+  fontImportList.push(theme.typography.subtitle1)
+  fontImportList.push(theme.typography.subtitle2)
+  fontImportList.push(theme.typography.body1)
+  fontImportList.push(theme.typography.body2)
+  fontImportList.push(theme.typography.button)
+  fontImportList.push(theme.typography.caption)
+  fontImportList.push(theme.typography.overline)
+  let fontImport: string = '';
+  fontImportList.forEach(font => {if(!fontImport.includes(font.family)) fontImport += `family=${font.family.split(' ').join('+')}:wght@${font.style}&`});
+
   return `
   @use '~@angular/material' as mat;
 
@@ -73,23 +91,24 @@ export function themeToAngularSass(theme?: AngularTheme): string {
     $text: ${theme.colorsDark.accent.text}
   );
   ${darkWarning}
-  @import url('https://fonts.googleapis.com/css2?family=${theme.typography.h1.family}');
+
+  @import url('https://fonts.googleapis.com/css2?${fontImport}display=swap');
   $mat-typography: mat.define-typography-config(
     $font-family: '${theme.typography.h1.family}',
-    $display-4:     mat.define-typography-level($font-size: ${theme.typography.h1.size}px, $font-weight: ${theme.typography.h1.weight}, $font-family: ${theme.typography.h1.family}),
-    $display-3:     mat.define-typography-level($font-size: ${theme.typography.h2.size}px, $font-weight: ${theme.typography.h2.weight}, $font-family: ${theme.typography.h2.family}),
-    $display-2:     mat.define-typography-level($font-size: ${theme.typography.h3.size}px, $font-weight: ${theme.typography.h3.weight}, $font-family: ${theme.typography.h3.family}),
-    $display-1:     mat.define-typography-level($font-size: ${theme.typography.h4.size}px, $font-weight: ${theme.typography.h4.weight}, $font-family: ${theme.typography.h4.family}),
-    $headline:      mat.define-typography-level($font-size: ${theme.typography.h5.size}px, $font-weight: ${theme.typography.h5.weight}, $font-family: ${theme.typography.h5.family}),
-    $title:         mat.define-typography-level($font-size: ${theme.typography.h6.size}px, $font-weight: ${theme.typography.h6.weight}, $font-family: ${theme.typography.h6.family}),
-    $subheading-2:  mat.define-typography-level($font-size: ${theme.typography.subtitle2.size}px, $font-weight: ${theme.typography.subtitle2.weight}, $font-family: ${theme.typography.subtitle2.family}),
-    $subheading-1:  mat.define-typography-level($font-size: ${theme.typography.subtitle1.size}px, $font-weight: ${theme.typography.subtitle1.weight}, $font-family: ${theme.typography.subtitle1.family}),
-    $body-2:        mat.define-typography-level($font-size: ${theme.typography.body2.size}px, $font-weight: ${theme.typography.body2.weight}, $font-family: ${theme.typography.body2.family}),
-    $body-1:        mat.define-typography-level($font-size: ${theme.typography.body1.size}px, $font-weight: ${theme.typography.body1.weight}, $font-family: ${theme.typography.body1.family}),
-    $caption:       mat.define-typography-level($font-size: ${theme.typography.caption.size}px, $font-weight: ${theme.typography.caption.weight}, $font-family: ${theme.typography.caption.family}),
-    $button:        mat.define-typography-level($font-size: ${theme.typography.button.size}px, $font-weight: ${theme.typography.button.weight}, $font-family: ${theme.typography.button.family}),
+    $display-4:     mat.define-typography-level($font-size: ${theme.typography.h1.size}px, $font-weight: ${theme.typography.h1.style}, $font-family: ${theme.typography.h1.family}),
+    $display-3:     mat.define-typography-level($font-size: ${theme.typography.h2.size}px, $font-weight: ${theme.typography.h2.style}, $font-family: ${theme.typography.h2.family}),
+    $display-2:     mat.define-typography-level($font-size: ${theme.typography.h3.size}px, $font-weight: ${theme.typography.h3.style}, $font-family: ${theme.typography.h3.family}),
+    $display-1:     mat.define-typography-level($font-size: ${theme.typography.h4.size}px, $font-weight: ${theme.typography.h4.style}, $font-family: ${theme.typography.h4.family}),
+    $headline:      mat.define-typography-level($font-size: ${theme.typography.h5.size}px, $font-weight: ${theme.typography.h5.style}, $font-family: ${theme.typography.h5.family}),
+    $title:         mat.define-typography-level($font-size: ${theme.typography.h6.size}px, $font-weight: ${theme.typography.h6.style}, $font-family: ${theme.typography.h6.family}),
+    $subheading-2:  mat.define-typography-level($font-size: ${theme.typography.subtitle2.size}px, $font-weight: ${theme.typography.subtitle2.style}, $font-family: ${theme.typography.subtitle2.family}),
+    $subheading-1:  mat.define-typography-level($font-size: ${theme.typography.subtitle1.size}px, $font-weight: ${theme.typography.subtitle1.style}, $font-family: ${theme.typography.subtitle1.family}),
+    $body-2:        mat.define-typography-level($font-size: ${theme.typography.body2.size}px, $font-weight: ${theme.typography.body2.style}, $font-family: ${theme.typography.body2.family}),
+    $body-1:        mat.define-typography-level($font-size: ${theme.typography.body1.size}px, $font-weight: ${theme.typography.body1.style}, $font-family: ${theme.typography.body1.family}),
+    $caption:       mat.define-typography-level($font-size: ${theme.typography.caption.size}px, $font-weight: ${theme.typography.caption.style}, $font-family: ${theme.typography.caption.family}),
+    $button:        mat.define-typography-level($font-size: ${theme.typography.button.size}px, $font-weight: ${theme.typography.button.style}, $font-family: ${theme.typography.button.family}),
     // Line-height must be unit-less fraction of the font-size.
-    $input:         mat.define-typography-level($font-size: inherit, $line-height: 1.125, $font-weight: ${theme.typography.button.weight}, $font-family: ${theme.typography.button.family}),
+    $input:         mat.define-typography-level($font-size: inherit, $line-height: 1.125, $font-weight: ${theme.typography.button.style}, $font-family: ${theme.typography.button.family}),
   );
 
   $mat-density: 0;

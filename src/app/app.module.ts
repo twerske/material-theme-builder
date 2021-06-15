@@ -36,6 +36,10 @@ import { LightModeComponent } from './nav/color/light-mode/light-mode.component'
 import { DarkModeComponent } from './nav/color/dark-mode/dark-mode.component';
 import { ColorPickerComponent } from './nav/color/color-picker/color-picker.component';
 
+import { FontPickerModule } from 'ngx-font-picker';
+import { FONT_PICKER_CONFIG } from 'ngx-font-picker';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,8 +79,14 @@ import { ColorPickerComponent } from './nav/color/color-picker/color-picker.comp
     FormsModule,
     ReactiveFormsModule,
     ColorPickerModule,
+    FontPickerModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: FONT_PICKER_CONFIG,
+      useValue: environment.key
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

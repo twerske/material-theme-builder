@@ -3,3 +3,13 @@
   color: inherit;
   text-decoration: none;
 }
+
+.mat-tab-group {
+  height: 100%;
+}
+
+::ng-deep {
+  .mat-tab-body-wrapper {
+    height: 100%;
+  }
+}

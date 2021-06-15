@@ -8,6 +8,5 @@ import { AngularTheme } from '../theme-generator/AngularTheme';
 })
 export class ColorComponent {
   @Input() isDark = false;
-  @Input() bodyStyles: CSSStyleDeclaration | undefined;
   @Input() theme: AngularTheme | undefined;
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularTheme } from '../theme-generator/AngularTheme';
+import { Font } from 'ngx-font-picker';
+import { AngularTheme, defaultAngularTheme } from '../theme-generator/AngularTheme';
 
 @Component({
   selector: 'app-typography',
@@ -7,6 +8,5 @@ import { AngularTheme } from '../theme-generator/AngularTheme';
   styleUrls: ['./typography.component.scss']
 })
 export class TypographyComponent {
-  @Input() bodyStyles: CSSStyleDeclaration | undefined;
-  @Input() theme: AngularTheme | undefined;
+  @Input() theme: AngularTheme = defaultAngularTheme;
 }
