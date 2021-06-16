@@ -1,5 +1,6 @@
+import { newArray } from '@angular/compiler/src/util';
 import { Font } from 'ngx-font-picker';
-import { AngularTheme } from './AngularTheme';
+import { AngularColor, AngularTheme } from './AngularTheme';
 
 // import * as sass from 'sass';
 
@@ -19,24 +20,34 @@ const SassFiles = {
   }
 };
 
-export function themeToAngularSass(theme?: AngularTheme): string {
-  const lightWarning = theme.colorsLight.warn.name === 'mat.$red-palette' ? '' :
-  `$mat-theme-warn: mat.define-palette(
-    ${theme.colorsLight.warn.name},
-    $default: ${theme.colorsLight.warn.default},
-    $lighter: ${theme.colorsLight.warn.lighter},
-    $darker: ${theme.colorsLight.warn.darker},
-    $text: ${theme.colorsLight.warn.text}
-  );`;
-  const darkWarning = theme.colorsDark.warn.name === 'mat.$red-palette' ? '' :
-  `$mat-dark-theme-warn: mat.define-palette(
-    ${theme.colorsDark.warn.name},
-    $default: ${theme.colorsDark.warn.default},
-    $lighter: ${theme.colorsDark.warn.lighter},
-    $darker: ${theme.colorsDark.warn.darker},
-    $text: ${theme.colorsDark.warn.text}
-  );`;
+export function colorToPalette(name: string, color: AngularColor): string {
+  const keys = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700'];
+  const def = keys.includes(color.palette[color.default]) ? {value: color.default} : {value: '500', color: color.default};
+  const lighter = keys.includes(color.palette[color.lighter]) ? {value: color.lighter} : {value: '100', color: color.lighter};
+  const darker = keys.includes(color.palette[color.darker]) ? {value: color.darker} : {value: '800', color: color.darker};
+  const text = keys.includes(color.palette[color.text]) ? {value: color.text} : {value: '600', color: color.text};
 
+  const defaultContrast = color.palette.contrast[def.value] === color.contrast.default ? {value: color.contrast.default} : {value: def.value, color: color.contrast.default};
+  const lighterContrast = color.palette.contrast[lighter.value] === color.contrast.lighter ? {value: color.contrast.lighter} : {value: lighter.value, color: color.contrast.lighter};
+  const darkerContrast = color.palette.contrast[darker.value] === color.contrast.darker ? {value: color.contrast.darker} : {value: darker.value, color: color.contrast.darker};
+
+  let constrastColors = '';
+  if (defaultContrast.color || lighterContrast.color || darkerContrast.color) {
+    constrastColors = `contrast: (${defaultContrast.color ? `${defaultContrast?.value}: ${defaultContrast?.color},` : ``}${lighterContrast.color ? `${lighterContrast?.value}: ${lighterContrast?.color},` : ''}${darkerContrast.color ? `${darkerContrast?.value}: ${darkerContrast?.color},` : ''})`;
+  }
+
+  return `${color.name}: map-merge(${color.name}, ( ${def.color ? '' : `${def.value}: ${def.color},`}${lighter.color ? '' : `${lighter.value}: ${lighter.color},`}${darker.color ? '' : `${darker.value}: ${darker.color},`}${text.color ? '' : `${text.value}: ${text.color},`}${constrastColors}));
+
+  ${name}: mat.define-palette(
+    ${color.name},
+    $default: ${def.value},
+    $lighter: ${lighter.value},
+    $darker: ${darker.value},
+    $text: ${text.value}
+  );`;
+}
+
+export function themeToAngularSass(theme?: AngularTheme): string {
   const fontImportList: Font[] = [];
   fontImportList.push(theme.typography.h1);
   fontImportList.push(theme.typography.h2);
@@ -61,36 +72,12 @@ export function themeToAngularSass(theme?: AngularTheme): string {
   @include mat.core();
 
   // Define your theme with color palettes, typography and density
-  $mat-theme-primary: mat.define-palette(
-    ${theme.colorsLight.primary.name},
-    $default: ${theme.colorsLight.primary.default},
-    $lighter: ${theme.colorsLight.primary.lighter},
-    $darker: ${theme.colorsLight.primary.darker},
-    $text: ${theme.colorsLight.primary.text}
-  );
-  $mat-theme-accent: mat.define-palette(
-    ${theme.colorsLight.accent.name},
-    $default: ${theme.colorsLight.accent.default},
-    $lighter: ${theme.colorsLight.accent.lighter},
-    $darker: ${theme.colorsLight.accent.darker},
-    $text: ${theme.colorsLight.accent.text}
-  );
-  ${lightWarning}
-  $mat-dark-theme-primary: mat.define-palette(
-    ${theme.colorsDark.primary.name},
-    $default: ${theme.colorsDark.primary.default},
-    $lighter: ${theme.colorsDark.primary.lighter},
-    $darker: ${theme.colorsDark.primary.darker},
-    $text: ${theme.colorsDark.primary.text}
-  );
-  $mat-dark-theme-accent: mat.define-palette(
-    ${theme.colorsDark.accent.name},
-    $default: ${theme.colorsDark.accent.default},
-    $lighter: ${theme.colorsDark.accent.lighter},
-    $darker: ${theme.colorsDark.accent.darker},
-    $text: ${theme.colorsDark.accent.text}
-  );
-  ${darkWarning}
+  ${colorToPalette('$mat-theme-primary', theme.colorsLight.primary)}
+  ${colorToPalette('$mat-theme-accent', theme.colorsLight.accent)}
+  ${theme.colorsLight.warn.name === 'mat.$red-palette' && theme.colorsLight.warn.default == '500' ? '' : colorToPalette('$mat-theme-warn', theme.colorsLight.warn)}
+  ${colorToPalette('$mat-dark-theme-primary', theme.colorsDark.primary)}
+  ${colorToPalette('$mat-dark-theme-accent', theme.colorsDark.accent)}
+  ${theme.colorsDark.warn.name === 'mat.$red-palette' && theme.colorsDark.warn.default == '500' ? '' : colorToPalette('$mat-dark-theme-warn', theme.colorsDark.warn)}
 
   @import url('https://fonts.googleapis.com/css2?${fontImport}display=swap');
   $mat-typography: mat.define-typography-config(

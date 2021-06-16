@@ -12,6 +12,7 @@ export class StylingComponent {
   scss: string | undefined;
 
   getScss(): string {
-    return generateSassTheme(this.theme);
+    this.scss = generateSassTheme(this.theme);
+    return this.scss;
   }
 }
