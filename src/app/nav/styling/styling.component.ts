@@ -9,10 +9,8 @@ import { AngularTheme } from '../theme-generator/AngularTheme';
 })
 export class StylingComponent {
   @Input() theme: AngularTheme | undefined;
-  scss: string | undefined;
 
   getScss(): string {
-    this.scss = generateSassTheme(this.theme);
-    return this.scss;
+    return generateSassTheme(this.theme);
   }
 }
