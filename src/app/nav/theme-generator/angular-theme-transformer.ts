@@ -22,10 +22,10 @@ const SassFiles = {
 
 export function colorToPalette(name: string, color: AngularColor): string {
   const keys = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700'];
-  const def = keys.includes(color.palette[color.default]) ? {value: color.default} : {value: '500', color: color.default};
-  const lighter = keys.includes(color.palette[color.lighter]) ? {value: color.lighter} : {value: '100', color: color.lighter};
-  const darker = keys.includes(color.palette[color.darker]) ? {value: color.darker} : {value: '800', color: color.darker};
-  const text = keys.includes(color.palette[color.text]) ? {value: color.text} : {value: '600', color: color.text};
+  const def = keys.includes(color.default) ? {value: color.default} : {value: '501', color: color.default};
+  const lighter = keys.includes(color.lighter) ? {value: color.lighter} : {value: '201', color: color.lighter};
+  const darker = keys.includes(color.darker) ? {value: color.darker} : {value: '701', color: color.darker};
+  const text = keys.includes(color.text) ? {value: color.text} : {value: '601', color: color.text};
 
   const defaultContrast = color.palette.contrast[def.value] === color.contrast.default ? {value: color.contrast.default} : {value: def.value, color: color.contrast.default};
   const lighterContrast = color.palette.contrast[lighter.value] === color.contrast.lighter ? {value: color.contrast.lighter} : {value: lighter.value, color: color.contrast.lighter};
@@ -36,10 +36,10 @@ export function colorToPalette(name: string, color: AngularColor): string {
     constrastColors = `contrast: (${defaultContrast.color ? `${defaultContrast?.value}: ${defaultContrast?.color},` : ``}${lighterContrast.color ? `${lighterContrast?.value}: ${lighterContrast?.color},` : ''}${darkerContrast.color ? `${darkerContrast?.value}: ${darkerContrast?.color},` : ''})`;
   }
 
-  return `${color.name}: map-merge(${color.name}, ( ${def.color ? '' : `${def.value}: ${def.color},`}${lighter.color ? '' : `${lighter.value}: ${lighter.color},`}${darker.color ? '' : `${darker.value}: ${darker.color},`}${text.color ? '' : `${text.value}: ${text.color},`}${constrastColors}));
+  return `${name}-palette: map-merge(${color.name}, ( ${def.color === undefined ? '' : `${def.value}: ${def.color},`}${lighter.color === undefined ? '' : `${lighter.value}: ${lighter.color},`}${darker.color === undefined ? '' : `${darker.value}: ${darker.color},`}${text.color === undefined ? '' : `${text.value}: ${text.color},`}${constrastColors}));
 
   ${name}: mat.define-palette(
-    ${color.name},
+    ${name}-palette,
     $default: ${def.value},
     $lighter: ${lighter.value},
     $darker: ${darker.value},
@@ -74,10 +74,10 @@ export function themeToAngularSass(theme?: AngularTheme): string {
   // Define your theme with color palettes, typography and density
   ${colorToPalette('$mat-theme-primary', theme.colorsLight.primary)}
   ${colorToPalette('$mat-theme-accent', theme.colorsLight.accent)}
-  ${theme.colorsLight.warn.name === 'mat.$red-palette' && theme.colorsLight.warn.default == '500' ? '' : colorToPalette('$mat-theme-warn', theme.colorsLight.warn)}
+  ${theme.colorsLight.warn.name === 'mat.$red-palette' && theme.colorsLight.warn.default == '500' ? '$mat-theme-warn: mat.$red-palette;' : colorToPalette('$mat-theme-warn', theme.colorsLight.warn)}
   ${colorToPalette('$mat-dark-theme-primary', theme.colorsDark.primary)}
   ${colorToPalette('$mat-dark-theme-accent', theme.colorsDark.accent)}
-  ${theme.colorsDark.warn.name === 'mat.$red-palette' && theme.colorsDark.warn.default == '500' ? '' : colorToPalette('$mat-dark-theme-warn', theme.colorsDark.warn)}
+  ${theme.colorsDark.warn.name === 'mat.$red-palette' && theme.colorsDark.warn.default == '500' ? '$mat-dark-theme-warn: mat.$red-palette;' : colorToPalette('$mat-dark-theme-warn', theme.colorsDark.warn)}
 
   @import url('https://fonts.googleapis.com/css2?${fontImport}display=swap');
   $mat-typography: mat.define-typography-config(
