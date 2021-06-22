@@ -1,6 +1,7 @@
 <figure class="color-swatch" 
         [style.background]="color"
         [cpPosition]="'left'"
+        [cpColorMode]="this.isPalette ? 'presets' : ''"
         [cpPositionRelativeToArrow]="false"
         [(colorPicker)]="color"
         (colorPickerChange)="this.colorChange($event)"
