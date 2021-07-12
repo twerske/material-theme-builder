@@ -2,12 +2,12 @@ import { newArray } from '@angular/compiler/src/util';
 import { Font } from 'ngx-font-picker';
 import { AngularColor, AngularTheme } from './AngularTheme';
 
-// import * as sass from 'sass';
+import * as sass from 'sass';
 
-// declare namespace global {
-// 	function sass(data: string): string
-// 	function errSass(testStr: string): Function
-// }
+declare namespace global {
+	function sass(data: string): string
+	function errSass(testStr: string): Function
+}
 
 // ngx-build plus
 
@@ -133,8 +133,8 @@ export function themeToAngularSass(theme?: AngularTheme): string {
 }
 
 const removeOldStyles = () => {
-  const styles = document.querySelector('#styles');
-  styles.parentElement.removeChild(styles);
+  const styles = document.querySelector('#material-styles');
+  if (styles) styles.parentElement.removeChild(styles);
 };
 
 export const generateSassTheme = (theme?: AngularTheme): string => {
@@ -144,18 +144,26 @@ export const generateSassTheme = (theme?: AngularTheme): string => {
 };
 
 const buildStyles = (theme: AngularTheme): string => {
-  const scss = generateSassTheme(theme);
-  // const result = sass.renderSync({
-  //   data: scss
-  // });
-  // return result.css.toString()
-  return '';
+  // const scss = generateSassTheme(theme);
+  const scss = `
+  h1 {
+    color: blue;
+  }
+  `
+  console.log(scss)
+  const result = sass.renderSync({
+    data: scss,
+    includePaths: ['node_modules/@angular/material/_index.scss']
+  });
+  return result.css.toString()
+  // return '';
 };
 
 const addStyles = (css: string) => {
   const styleElement = document.createElement('style');
-  styleElement.setAttribute('id', 'styles');
+  styleElement.setAttribute('id', 'material-styles');
   styleElement.innerText = css;
+  console.log(styleElement);
   document.getElementsByTagName('head')[0].appendChild(styleElement);
 };
 
