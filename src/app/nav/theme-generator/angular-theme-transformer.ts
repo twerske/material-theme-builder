@@ -3,11 +3,12 @@ import { Font } from 'ngx-font-picker';
 import { AngularColor, AngularTheme } from './AngularTheme';
 
 import * as sass from 'sass';
+// const sass = require("sass");
 
-declare namespace global {
-	function sass(data: string): string
-	function errSass(testStr: string): Function
-}
+// declare namespace global {
+// 	function sass(data: string): string
+// 	function errSass(testStr: string): Function
+// }
 
 // ngx-build plus
 
@@ -82,18 +83,18 @@ export function themeToAngularSass(theme?: AngularTheme): string {
   @import url('https://fonts.googleapis.com/css2?${fontImport}display=swap');
   $mat-typography: mat.define-typography-config(
     $font-family: '${theme.typography.h1.family}',
-    $display-4:     mat.define-typography-level($font-size: ${theme.typography.h1.size}px, $font-weight: ${theme.typography.h1.style}, $font-family: ${theme.typography.h1.family}),
-    $display-3:     mat.define-typography-level($font-size: ${theme.typography.h2.size}px, $font-weight: ${theme.typography.h2.style}, $font-family: ${theme.typography.h2.family}),
-    $display-2:     mat.define-typography-level($font-size: ${theme.typography.h3.size}px, $font-weight: ${theme.typography.h3.style}, $font-family: ${theme.typography.h3.family}),
-    $display-1:     mat.define-typography-level($font-size: ${theme.typography.h4.size}px, $font-weight: ${theme.typography.h4.style}, $font-family: ${theme.typography.h4.family}),
-    $headline:      mat.define-typography-level($font-size: ${theme.typography.h5.size}px, $font-weight: ${theme.typography.h5.style}, $font-family: ${theme.typography.h5.family}),
-    $title:         mat.define-typography-level($font-size: ${theme.typography.h6.size}px, $font-weight: ${theme.typography.h6.style}, $font-family: ${theme.typography.h6.family}),
-    $subheading-2:  mat.define-typography-level($font-size: ${theme.typography.subtitle2.size}px, $font-weight: ${theme.typography.subtitle2.style}, $font-family: ${theme.typography.subtitle2.family}),
-    $subheading-1:  mat.define-typography-level($font-size: ${theme.typography.subtitle1.size}px, $font-weight: ${theme.typography.subtitle1.style}, $font-family: ${theme.typography.subtitle1.family}),
-    $body-2:        mat.define-typography-level($font-size: ${theme.typography.body2.size}px, $font-weight: ${theme.typography.body2.style}, $font-family: ${theme.typography.body2.family}),
-    $body-1:        mat.define-typography-level($font-size: ${theme.typography.body1.size}px, $font-weight: ${theme.typography.body1.style}, $font-family: ${theme.typography.body1.family}),
-    $caption:       mat.define-typography-level($font-size: ${theme.typography.caption.size}px, $font-weight: ${theme.typography.caption.style}, $font-family: ${theme.typography.caption.family}),
-    $button:        mat.define-typography-level($font-size: ${theme.typography.button.size}px, $font-weight: ${theme.typography.button.style}, $font-family: ${theme.typography.button.family}),
+    $display-4:     mat.define-typography-level($font-size: ${theme.typography.h1.size.replace('px','')}px, $font-weight: ${theme.typography.h1.style}, $font-family: ${theme.typography.h1.family}),
+    $display-3:     mat.define-typography-level($font-size: ${theme.typography.h2.size.replace('px','')}px, $font-weight: ${theme.typography.h2.style}, $font-family: ${theme.typography.h2.family}),
+    $display-2:     mat.define-typography-level($font-size: ${theme.typography.h3.size.replace('px','')}px, $font-weight: ${theme.typography.h3.style}, $font-family: ${theme.typography.h3.family}),
+    $display-1:     mat.define-typography-level($font-size: ${theme.typography.h4.size.replace('px','')}px, $font-weight: ${theme.typography.h4.style}, $font-family: ${theme.typography.h4.family}),
+    $headline:      mat.define-typography-level($font-size: ${theme.typography.h5.size.replace('px','')}px, $font-weight: ${theme.typography.h5.style}, $font-family: ${theme.typography.h5.family}),
+    $title:         mat.define-typography-level($font-size: ${theme.typography.h6.size.replace('px','')}px, $font-weight: ${theme.typography.h6.style}, $font-family: ${theme.typography.h6.family}),
+    $subheading-2:  mat.define-typography-level($font-size: ${theme.typography.subtitle2.size.replace('px','')}px, $font-weight: ${theme.typography.subtitle2.style}, $font-family: ${theme.typography.subtitle2.family}),
+    $subheading-1:  mat.define-typography-level($font-size: ${theme.typography.subtitle1.size.replace('px','')}px, $font-weight: ${theme.typography.subtitle1.style}, $font-family: ${theme.typography.subtitle1.family}),
+    $body-2:        mat.define-typography-level($font-size: ${theme.typography.body2.size.replace('px','')}px, $font-weight: ${theme.typography.body2.style}, $font-family: ${theme.typography.body2.family}),
+    $body-1:        mat.define-typography-level($font-size: ${theme.typography.body1.size.replace('px','')}px, $font-weight: ${theme.typography.body1.style}, $font-family: ${theme.typography.body1.family}),
+    $caption:       mat.define-typography-level($font-size: ${theme.typography.caption.size.replace('px','')}px, $font-weight: ${theme.typography.caption.style}, $font-family: ${theme.typography.caption.family}),
+    $button:        mat.define-typography-level($font-size: ${theme.typography.button.size.replace('px','')}px, $font-weight: ${theme.typography.button.style}, $font-family: ${theme.typography.button.family}),
     // Line-height must be unit-less fraction of the font-size.
     $input:         mat.define-typography-level($font-size: inherit, $line-height: 1.125, $font-weight: ${theme.typography.button.style}, $font-family: ${theme.typography.button.family}),
   );
@@ -144,26 +145,24 @@ export const generateSassTheme = (theme?: AngularTheme): string => {
 };
 
 const buildStyles = (theme: AngularTheme): string => {
-  // const scss = generateSassTheme(theme);
-  const scss = `
-  h1 {
-    color: blue;
-  }
-  `
-  console.log(scss)
+  const scss = generateSassTheme(theme);
+  // const scss = `h1 { color: pink; }`
+  // console.log(scss)
   const result = sass.renderSync({
+    // file: "styles.scss",
     data: scss,
+    outputStyle: "compressed",
     includePaths: ['node_modules/@angular/material/_index.scss']
   });
+  // console.log(result.css.toString());
   return result.css.toString()
-  // return '';
 };
 
 const addStyles = (css: string) => {
   const styleElement = document.createElement('style');
   styleElement.setAttribute('id', 'material-styles');
   styleElement.innerText = css;
-  console.log(styleElement);
+  // console.log(styleElement);
   document.getElementsByTagName('head')[0].appendChild(styleElement);
 };
 

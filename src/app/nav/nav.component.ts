@@ -22,16 +22,18 @@ export class NavComponent implements OnInit, OnChanges {
     // const url = window.URL.createObjectURL(blob);
     // const uri: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(url);
     // this.downloadJsonHref = uri;
-    console.log(themeToAngularSass(defaultAngularTheme));
+    // console.log(themeToAngularSass(defaultAngularTheme));
   }
 
   ngOnInit(): void {
     this.isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.setTheme();
+    // console.log("call apply styles on init")
     applyStyles(this.theme);
   }
 
   ngOnChanges(): void {
+    // console.log("call apply styles on changes")
     applyStyles(this.theme);
   }
 
