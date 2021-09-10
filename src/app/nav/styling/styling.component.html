@@ -1,7 +1,7 @@
 <app-example-header [title]="'styles.scss'"><mat-icon>palette</mat-icon></app-example-header>
 <div>
-  <button class="copy-button" mat-icon-button [cdkCopyToClipboard]="getScss()" aria-label="Copy generate theme Sass to clipboard">
+  <button class="copy-button" mat-icon-button [cdkCopyToClipboard]="this.getSCSS()" aria-label="Copy generate theme Sass to clipboard">
     <mat-icon>content_copy</mat-icon>
   </button>
-  <p class="format-text">{{getScss()}}</p>
+  <p class="format-text">{{this.getSCSS()}}</p>
 </div>

@@ -3,14 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 $mat-font-family: 'Lato, "Helvetica Neue", sans-serif';
 $mat-font-family-roboto: 'Roboto, sans-serif';
 $mat-font-family-lobster: 'Lobster Two', cursive;
+$mat-font-family-rubik: 'Rubik';
 
 // Define a custion Typography configurations
 $mat-typography: mat.define-typography-config(
-  $font-family: $mat-font-family,
+  $font-family: $mat-font-family-rubik,
   $display-4:     mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
   $display-3:     mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
   $display-2:     mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),

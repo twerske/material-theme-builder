@@ -8,6 +8,10 @@
   height: 100%;
 }
 
+.section-header:nth-of-type(2) {
+  margin-top: 1.5rem;
+}
+
 ::ng-deep {
   .mat-tab-body-wrapper {
     height: 100%;

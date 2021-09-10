@@ -1,20 +1,19 @@
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { applyStyles, themeToAngularSass } from './theme-generator/angular-theme-transformer';
 import { AngularTheme, defaultAngularTheme } from './theme-generator/AngularTheme';
+import { ConvertThemeService } from '../convert-theme.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit, OnChanges {
+export class NavComponent implements OnInit {
   isDark: boolean;
   downloadJsonHref: SafeUrl;
   theme: AngularTheme = defaultAngularTheme;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private convertTheme: ConvertThemeService) {}
 
   generateDownloadJsonUri(): void {
     // const theJSON = JSON.stringify(themeToAngularScss(defaultTheme));
@@ -28,13 +27,7 @@ export class NavComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.setTheme();
-    // console.log("call apply styles on init")
-    applyStyles(this.theme);
-  }
-
-  ngOnChanges(): void {
-    // console.log("call apply styles on changes")
-    applyStyles(this.theme);
+    this.convertTheme.applyTheme(this.theme);
   }
 
   toggleTheme(): void {
@@ -44,9 +37,5 @@ export class NavComponent implements OnInit, OnChanges {
 
   setTheme(): void {
     document.documentElement.classList.toggle('dark-theme', this.isDark);
-  }
-
-  updateTheme(theme: AngularTheme): void {
-    this.theme = theme;
   }
 }

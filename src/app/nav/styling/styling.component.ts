@@ -1,5 +1,5 @@
-import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
-import { generateSassTheme } from '../theme-generator/angular-theme-transformer';
+import { Component, Input } from '@angular/core';
+import { getAngularThemeSCSS } from '../theme-generator/angular-theme-transformer';
 import { AngularTheme } from '../theme-generator/AngularTheme';
 
 @Component({
@@ -10,7 +10,7 @@ import { AngularTheme } from '../theme-generator/AngularTheme';
 export class StylingComponent {
   @Input() theme: AngularTheme | undefined;
 
-  getScss(): string {
-    return generateSassTheme(this.theme);
+  getSCSS(): string {
+    return getAngularThemeSCSS(this.theme);
   }
 }

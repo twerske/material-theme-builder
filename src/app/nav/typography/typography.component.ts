@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Font } from 'ngx-font-picker';
+import { Component, Input} from '@angular/core';
+import { ConvertThemeService } from 'src/app/convert-theme.service';
 import { AngularTheme, defaultAngularTheme } from '../theme-generator/AngularTheme';
 
 @Component({
@@ -9,4 +9,10 @@ import { AngularTheme, defaultAngularTheme } from '../theme-generator/AngularThe
 })
 export class TypographyComponent {
   @Input() theme: AngularTheme = defaultAngularTheme;
+
+  constructor(private convertTheme: ConvertThemeService) {}
+
+  updateTypographyTheme(): void {
+    this.convertTheme.applyTypographyTheme(this.theme);
+  }
 }

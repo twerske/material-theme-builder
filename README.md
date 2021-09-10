@@ -3,9 +3,7 @@
 Demo & experiment with various Angular Material theming attributes/APIs/@mixins to understand custom theming.
 
 Future
-- Export themes
 - Prebuilt themes
-- New Sass in v12
 - DSP exploration
 - density
 

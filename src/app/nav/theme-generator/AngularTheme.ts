@@ -31,6 +31,7 @@ export interface AngularColor {
 }
 
 export interface AngularTypography {
+  [x: string]: any;
   h1: AngularFont;
   h2: AngularFont;
   h3: AngularFont;
@@ -55,38 +56,38 @@ export const defaultAngularTheme: AngularTheme = {
   name: 'AngularDefault',
   colorsLight: {
     primary: {
-      name: 'mat.$indigo-palette',
-      palette: paletteMap['mat.$indigo-palette'],
-      default: '500',
+      name: 'mat.$cyan-palette',
+      palette: paletteMap['mat.$cyan-palette'],
+      default: '100',
       lighter: '100',
       darker: '700',
       text: '500',
       contrast: {
-        default: 'white',
+        default: '#150c4a',
         lighter: 'black',
         darker: 'white',
       }
     },
     accent: {
-      name: 'mat.$pink-palette',
-      palette: paletteMap['mat.$pink-palette'],
-      default: 'A200',
+      name: 'mat.$teal-palette',
+      palette: paletteMap['mat.$teal-palette'],
+      default: '#4d77b6',
       lighter: 'A100',
       darker: 'A200',
-      text: 'A200',
+      text: '600',
       contrast: {
         default: 'white',
-        lighter: 'black',
+        lighter: 'white',
         darker: 'white',
       }
     },
     warn: {
-      name: 'mat.$red-palette',
-      palette: paletteMap['mat.$red-palette'],
-      default: '500',
+      name: 'mat.$pink-palette',
+      palette: paletteMap['mat.$pink-palette'],
+      default: 'A200',
       lighter: '500',
       darker: '500',
-      text: '500',
+      text: 'A700',
       contrast: {
         default: 'white',
         lighter: 'white',
@@ -96,25 +97,25 @@ export const defaultAngularTheme: AngularTheme = {
   },
   colorsDark: {
     primary: {
-      name: 'mat.$purple-palette',
-      palette: paletteMap['mat.$purple-palette'],
-      default: '700',
-      lighter: '500',
-      darker: '900',
+      name: 'mat.$lime-palette',
+      palette: paletteMap['mat.$lime-palette'],
+      default: '200',
+      lighter: 'A100',
+      darker: 'A700',
       text: '700',
       contrast: {
-        default: 'white',
-        lighter: 'white',
-        darker: 'white',
+        default: '#030844',
+        lighter: 'rgba(0,0,0, 0.87)',
+        darker: 'rgba(0,0,0, 0.87)',
       }
     },
     accent: {
       name: 'mat.$green-palette',
       palette: paletteMap['mat.$green-palette'],
       default: 'A200',
-      lighter: 'A100',
+      lighter: '50',
       darker: 'A400',
-      text: 'A200',
+      text: 'A100',
       contrast: {
         default: 'black',
         lighter: 'black',
@@ -122,38 +123,33 @@ export const defaultAngularTheme: AngularTheme = {
       }
     },
     warn: {
-      name: 'mat.$red-palette',
-      palette: paletteMap['mat.$red-palette'],
-      default: '500',
-      lighter: '500',
-      darker: '500',
-      text: '500',
+      name: 'mat.$pink-palette',
+      palette: paletteMap['mat.$pink-palette'],
+      default: 'A100',
+      lighter: '100',
+      darker: 'A700',
+      text: '100',
       contrast: {
-        default: 'white',
+        default: 'black',
         lighter: 'white',
         darker: 'white',
       }
     },
   },
-    // size: string;
-  // style: string;
-  // family: string;
-  // files: any;
-  // styles: string[];
   typography: {
-    h1: new Font({ family: 'Raleway', style: '300', size: '96' }),
-    h2: new Font({ family: 'Raleway', style: '500', size: '60'}),
-    h3: new Font({ family: 'Raleway', style: '700', size: '48' }),
-    h4: new Font({ family: 'Raleway', style: '700', size: '34' }),
-    h5: new Font({ family: 'Raleway', style: '700', size: '24' }),
-    h6: new Font({ family: 'Raleway', style: '700', size: '20' }),
-    subtitle1: new Font({ family: 'Raleway', style: '700', size: '16' }),
-    subtitle2: new Font({ family: 'Raleway', style: '700', size: '24' }),
-    body1: new Font({ family: 'Raleway', style: '700', size: '16' }),
-    body2: new Font({ family: 'Raleway', style: '500', size: '14' }),
-    button: new Font({ family: 'Raleway', style: '700', size: '14' }),
-    caption: new Font({ family: 'Raleway', style: 'Medium', size: '12' }),
-    overline: new Font({ family: 'Raleway', style: '300', size: '12' }),
+    h1: new Font({ family: 'Rubik', style: '300', size: '96' }),
+    h2: new Font({ family: 'Rubik', style: '500', size: '60'}),
+    h3: new Font({ family: 'Rubik', style: '500', size: '48' }),
+    h4: new Font({ family: 'Rubik', style: '500', size: '34' }),
+    h5: new Font({ family: 'Rubik', style: '500', size: '24' }),
+    h6: new Font({ family: 'Rubik', style: '500', size: '20' }),
+    subtitle1: new Font({ family: 'Rubik', style: '500', size: '20' }),
+    subtitle2: new Font({ family: 'Rubik', style: '500', size: '18' }),
+    body1: new Font({ family: 'Rubik', style: '400', size: '18' }),
+    body2: new Font({ family: 'Rubik', style: '400', size: '16' }),
+    button: new Font({ family: 'Rubik', style: '500', size: '16' }),
+    caption: new Font({ family: 'Rubik', style: 'Medium', size: '16' }),
+    overline: new Font({ family: 'Rubik', style: '300', size: '16' }),
   },
   density: '0'
 };

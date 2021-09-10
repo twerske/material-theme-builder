@@ -2,36 +2,36 @@
   <app-example-header [title]="'Primary'"></app-example-header>
   <div class='theme-line'>
     <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsLight.primary.name" type="text" placeholder="{{placeholder.colorsLight.primary.name}}" autocomplete="off"></span></p>
-    <app-color-picker [isPalette]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="'500'" (updateColor)="theme.colorsLight.primary.name=$event"></app-color-picker>
+    <app-color-picker [isPalette]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="'500'" (updateColor)="theme.colorsLight.primary.name=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsLight.primary.default" type="text" placeholder="{{placeholder.colorsLight.primary.default}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.default" (updateColor)="this.theme.colorsLight.primary.default = $event; this.theme.colorsLight.primary.contrast.default = paletteMap[this.theme.colorsLight.primary.name].contrast[this.theme.colorsLight.primary.default]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.default" (updateColor)="this.theme.colorsLight.primary.default = $event; this.theme.colorsLight.primary.contrast.default = paletteMap[this.theme.colorsLight.primary.name].contrast[this.theme.colorsLight.primary.default]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsLight.primary.lighter" type="text" placeholder="{{placeholder.colorsLight.primary.lighter}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.lighter" (updateColor)="this.theme.colorsLight.primary.lighter = $event; this.theme.colorsLight.primary.contrast.lighter = paletteMap[this.theme.colorsLight.primary.name].contrast[this.theme.colorsLight.primary.lighter]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.lighter" (updateColor)="this.theme.colorsLight.primary.lighter = $event; this.theme.colorsLight.primary.contrast.lighter = paletteMap[this.theme.colorsLight.primary.name].contrast[this.theme.colorsLight.primary.lighter]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsLight.primary.darker" type="text" placeholder="{{placeholder.colorsLight.primary.darker}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.darker" (updateColor)="this.theme.colorsLight.primary.darker = $event; this.theme.colorsLight.primary.contrast.darker = paletteMap[this.theme.colorsLight.primary.name].contrast[this.theme.colorsLight.primary.darker]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.darker" (updateColor)="this.theme.colorsLight.primary.darker = $event; this.theme.colorsLight.primary.contrast.darker = paletteMap[this.theme.colorsLight.primary.name].contrast[this.theme.colorsLight.primary.darker]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsLight.primary.text" type="text" placeholder="{{placeholder.colorsLight.primary.text}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.text" (updateColor)="theme.colorsLight.primary.text=$event"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.text" (updateColor)="theme.colorsLight.primary.text=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
     <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.primary.contrast.default" type="text" placeholder="{{placeholder.colorsLight.primary.contrast.default}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.contrast.default" (updateColor)="theme.colorsLight.primary.contrast.default=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.contrast.default" (updateColor)="theme.colorsLight.primary.contrast.default=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.primary.contrast.lighter" type="text" placeholder="{{placeholder.colorsLight.primary.contrast.lighter}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.contrast.lighter" (updateColor)="theme.colorsLight.primary.contrast.lighter=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.contrast.lighter" (updateColor)="theme.colorsLight.primary.contrast.lighter=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.primary.contrast.darker" type="text" placeholder="{{placeholder.colorsLight.primary.contrast.darker}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.contrast.darker" (updateColor)="theme.colorsLight.primary.contrast.darker=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.primary.name" [colorFromPalette]="theme.colorsLight.primary.contrast.darker" (updateColor)="theme.colorsLight.primary.contrast.darker=$event; this.updateColorTheme();"></app-color-picker>
   </div>
 </div>
 <mat-divider class="content-divider"></mat-divider>
@@ -39,36 +39,36 @@
   <app-example-header [title]="'Accent'"></app-example-header>
   <div class='theme-line'>
     <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsLight.accent.name" type="text" placeholder="{{placeholder.colorsLight.accent.name}}" autocomplete="off"></span></p>
-    <app-color-picker [isPalette]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.default" (updateColor)="theme.colorsLight.accent.name=$event"></app-color-picker>
+    <app-color-picker [isPalette]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.default" (updateColor)="theme.colorsLight.accent.name=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsLight.accent.default" type="text" placeholder="{{placeholder.colorsLight.accent.default}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.default" (updateColor)="this.theme.colorsLight.accent.default = $event; this.theme.colorsLight.accent.contrast.default = paletteMap[this.theme.colorsLight.accent.name].contrast[this.theme.colorsLight.accent.default]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.default" (updateColor)="this.theme.colorsLight.accent.default = $event; this.theme.colorsLight.accent.contrast.default = paletteMap[this.theme.colorsLight.accent.name].contrast[this.theme.colorsLight.accent.default]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsLight.accent.lighter" type="text" placeholder="{{placeholder.colorsLight.accent.lighter}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.lighter" (updateColor)="this.theme.colorsLight.accent.lighter = $event; this.theme.colorsLight.accent.contrast.lighter = paletteMap[this.theme.colorsLight.accent.name].contrast[this.theme.colorsLight.accent.lighter]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.lighter" (updateColor)="this.theme.colorsLight.accent.lighter = $event; this.theme.colorsLight.accent.contrast.lighter = paletteMap[this.theme.colorsLight.accent.name].contrast[this.theme.colorsLight.accent.lighter]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsLight.accent.darker" type="text" placeholder="{{placeholder.colorsLight.accent.darker}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.darker" (updateColor)="this.theme.colorsLight.accent.darker = $event; this.theme.colorsLight.accent.contrast.darker = paletteMap[this.theme.colorsLight.accent.name].contrast[this.theme.colorsLight.accent.darker]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.darker" (updateColor)="this.theme.colorsLight.accent.darker = $event; this.theme.colorsLight.accent.contrast.darker = paletteMap[this.theme.colorsLight.accent.name].contrast[this.theme.colorsLight.accent.darker]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsLight.accent.text" type="text" placeholder="{{placeholder.colorsLight.accent.text}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.text" (updateColor)="theme.colorsLight.accent.text=$event"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.text" (updateColor)="theme.colorsLight.accent.text=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
     <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.accent.contrast.default" type="text" placeholder="{{placeholder.colorsLight.accent.contrast.default}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.contrast.default" (updateColor)="theme.colorsLight.accent.contrast.default=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.contrast.default" (updateColor)="theme.colorsLight.accent.contrast.default=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.accent.contrast.lighter" type="text" placeholder="{{placeholder.colorsLight.accent.contrast.lighter}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.contrast.lighter" (updateColor)="theme.colorsLight.accent.contrast.lighter=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.contrast.lighter" (updateColor)="theme.colorsLight.accent.contrast.lighter=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.accent.contrast.darker" type="text" placeholder="{{placeholder.colorsLight.accent.contrast.darker}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.contrast.darker" (updateColor)="theme.colorsLight.accent.contrast.darker=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.accent.name" [colorFromPalette]="theme.colorsLight.accent.contrast.darker" (updateColor)="theme.colorsLight.accent.contrast.darker=$event; this.updateColorTheme();"></app-color-picker>
   </div>
 </div>
 <mat-divider class="content-divider"></mat-divider>
@@ -76,35 +76,35 @@
   <app-example-header [title]="'Warn'"></app-example-header>
   <div class='theme-line'>
     <p class="code">palette: <span><input matInput [(ngModel)]="theme.colorsLight.warn.name" type="text" placeholder="{{placeholder.colorsLight.warn.name}}" autocomplete="off"></span></p>
-    <app-color-picker [isPalette]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.default" (updateColor)="theme.colorsLight.warn.name=$event"></app-color-picker>
+    <app-color-picker [isPalette]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.default" (updateColor)="theme.colorsLight.warn.name=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">default: <span><input matInput [(ngModel)]="theme.colorsLight.warn.default" type="text" placeholder="{{placeholder.colorsLight.warn.default}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.default" (updateColor)="this.theme.colorsLight.warn.default = $event; this.theme.colorsLight.warn.contrast.default = paletteMap[this.theme.colorsLight.warn.name].contrast[this.theme.colorsLight.warn.default]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.default" (updateColor)="this.theme.colorsLight.warn.default = $event; this.theme.colorsLight.warn.contrast.default = paletteMap[this.theme.colorsLight.warn.name].contrast[this.theme.colorsLight.warn.default]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">lighter: <span><input matInput [(ngModel)]="theme.colorsLight.warn.lighter" type="text" placeholder="{{placeholder.colorsLight.warn.lighter}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.lighter" (updateColor)="this.theme.colorsLight.warn.lighter = $event; this.theme.colorsLight.warn.contrast.lighter = paletteMap[this.theme.colorsLight.warn.name].contrast[this.theme.colorsLight.warn.lighter]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.lighter" (updateColor)="this.theme.colorsLight.warn.lighter = $event; this.theme.colorsLight.warn.contrast.lighter = paletteMap[this.theme.colorsLight.warn.name].contrast[this.theme.colorsLight.warn.lighter]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">darker: <span><input matInput [(ngModel)]="theme.colorsLight.warn.darker" type="text" placeholder="{{placeholder.colorsLight.warn.darker}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.darker" (updateColor)="this.theme.colorsLight.warn.darker = $event; this.theme.colorsLight.warn.contrast.darker = paletteMap[this.theme.colorsLight.warn.name].contrast[this.theme.colorsLight.warn.darker]?.replace('black', '0,0,0');"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.darker" (updateColor)="this.theme.colorsLight.warn.darker = $event; this.theme.colorsLight.warn.contrast.darker = paletteMap[this.theme.colorsLight.warn.name].contrast[this.theme.colorsLight.warn.darker]?.replace('black', '0,0,0'); this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">text: <span><input matInput [(ngModel)]="theme.colorsLight.warn.text" type="text" placeholder="{{placeholder.colorsLight.warn.text}}" autocomplete="off"></span></p>
-    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.text" (updateColor)="theme.colorsLight.warn.text=$event"></app-color-picker>
+    <app-color-picker [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.text" (updateColor)="theme.colorsLight.warn.text=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <mat-divider></mat-divider>
   <div class='theme-line'>
     <p class="code">default-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.warn.contrast.default" type="text" placeholder="{{placeholder.colorsLight.warn.contrast.default}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.contrast.default" (updateColor)="theme.colorsLight.warn.contrast.default=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.contrast.default" (updateColor)="theme.colorsLight.warn.contrast.default=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">lighter-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.warn.contrast.lighter" type="text" placeholder="{{placeholder.colorsLight.warn.contrast.lighter}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.contrast.lighter" (updateColor)="theme.colorsLight.warn.contrast.lighter=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.contrast.lighter" (updateColor)="theme.colorsLight.warn.contrast.lighter=$event; this.updateColorTheme();"></app-color-picker>
   </div>
   <div class='theme-line'>
     <p class="code">darker-contrast: <span><input matInput [(ngModel)]="theme.colorsLight.warn.contrast.darker" type="text" placeholder="{{placeholder.colorsLight.warn.contrast.darker}}" autocomplete="off"></span></p>
-    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.contrast.darker" (updateColor)="theme.colorsLight.warn.contrast.darker=$event"></app-color-picker>
+    <app-color-picker [isContrast]="true" [palette]="theme.colorsLight.warn.name" [colorFromPalette]="theme.colorsLight.warn.contrast.darker" (updateColor)="theme.colorsLight.warn.contrast.darker=$event; this.updateColorTheme();"></app-color-picker>
   </div>
 </div>

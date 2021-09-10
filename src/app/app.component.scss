@@ -4,7 +4,7 @@
 
 .mat-theme-creator {
     height: 100vh;
-    overflow: auto;
+    overflow: none;
 }
 
 .mat-theme-drawer {
@@ -61,9 +61,9 @@
             font-family: Roboto, sans-serif;
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
-            font-size: 0.75rem;
             line-height: 1.25rem;
-            font-weight: 400;
+            // font-size: 0.75rem;
+            // font-weight: 400;
             letter-spacing: 0.03333em;
             text-decoration: inherit;
             text-transform: inherit;
@@ -71,13 +71,15 @@
 
             .code {
                 background: none;
-                font-family: 'Roboto mono';
+                font-family: Roboto, mono;
                 margin: 0;
                 display: flex;
                 flex-wrap: wrap;
+                // font-size: 0.75rem;
+                font-weight: 400;
                 
                 span {
-                    font-weight: 600;
+                    font-weight: 500;
                     margin-left: 0.25rem;
                 }
             }
