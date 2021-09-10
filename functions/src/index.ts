@@ -1,7 +1,7 @@
 import * as functions from "firebase-functions";
 import * as sass from "sass";
 
-export const convertSCSSToCSS = functions.https.onCall((data) => {
+export const convertSCSSToCSS = functions.https.onCall((data: {scss: string}) => {
   const themeSCSS = data.scss.replace("/n", "");
 
   const result = sass.renderSync({

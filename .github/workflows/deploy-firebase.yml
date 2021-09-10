@@ -25,10 +25,10 @@ jobs:
       - uses: actions/checkout@main
       - uses: actions/setup-node@main
         with:
-          node-version: [14.x]
+          node-version: "14.x"
       - run: npm install
-      - run: npm run build --configuration production
-      - uses: w9jds/firebase-action@main
+      - run: npm run build
+      - uses: w9jds/firebase-action@master
         with:
           args: deploy
         env:
