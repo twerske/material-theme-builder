@@ -14,11 +14,11 @@ export const environment = {
     measurementId: 'G-4JV9CPL856',
     emulators: {
       ui: {
-        enabled: true,
+        enabled: false,
         port: 4000
       },
       functions: {
-        enabled: true,
+        enabled: false,
         port: 5001
       }
     }
