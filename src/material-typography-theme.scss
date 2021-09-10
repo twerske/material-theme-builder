@@ -1,32 +1,28 @@
 // Import and define new fonts
-@use '~@angular/material' as mat;
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@use '~@angular/material/_index' as mat;
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Acme|Alegreya|Alegreya+Sans|Anton|Archivo|Archivo+Black|Archivo+Narrow|Arimo|Arvo|Asap|Asap+Condensed|Bitter|Bowlby+One+SC|Bree+Serif|Cabin|Cairo|Catamaran|Crete+Round|Crimson+Text|Cuprum|Dancing+Script|Dosis|Droid+Sans|Droid+Serif|EB+Garamond|Exo|Exo+2|Faustina|Fira+Sans|Fjalla+One|Francois+One|Gloria+Hallelujah|Hind|Inconsolata|Indie+Flower|Josefin+Sans|Julee|Karla|Lato|Libre+Baskerville|Libre+Franklin|Lobster|Lora|Mada|Manuale|Maven+Pro|Merriweather|Merriweather+Sans|Montserrat|Montserrat+Subrayada|Mukta+Vaani|Muli|Noto+Sans|Noto+Serif|Nunito|Open+Sans|Open+Sans+Condensed|Oswald|Oxygen|PT+Sans|PT+Sans+Caption|PT+Sans+Narrow|PT+Serif|Pacifico|Passion+One|Pathway+Gothic+One|Play|Playfair+Display|Poppins|Questrial|Quicksand|Raleway|Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab|Ropa+Sans|Rubik|Saira|Saira+Condensed|Saira+Extra+Condensed|Saira+Semi+Condensed|Sedgwick+Ave|Sedgwick+Ave+Display|Shadows+Into+Light|Signika|Slabo+27px|Source+Code+Pro|Source+Sans+Pro|Spectral|Titillium+Web|Ubuntu|Ubuntu+Condensed|Varela+Round|Vollkorn|Work+Sans|Yanone+Kaffeesatz|Zilla+Slab|Zilla+Slab+Highlight&display=swap');
 
 $mat-font-family: 'Lato, "Helvetica Neue", sans-serif';
 $mat-font-family-roboto: 'Roboto, sans-serif';
 $mat-font-family-lobster: 'Lobster Two', cursive;
 $mat-font-family-rubik: 'Rubik';
 
-// Define a custion Typography configurations
 $mat-typography: mat.define-typography-config(
-  $font-family: $mat-font-family-rubik,
-  $display-4:     mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
-  $display-3:     mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
-  $display-2:     mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
-  $display-1:     mat.define-typography-level(34px, 40px, 400),
-  $headline:      mat.define-typography-level(24px, 32px, 400),
-  $title:         mat.define-typography-level(20px, 32px, 500),
-  $subheading-2:  mat.define-typography-level(16px, 28px, 400),
-  $subheading-1:  mat.define-typography-level(15px, 24px, 400),
-  $body-2:        mat.define-typography-level(14px, 24px, 500),
-  $body-1:        mat.define-typography-level(14px, 20px, 400),
-  $caption:       mat.define-typography-level(12px, 20px, 400),
-  $button:        mat.define-typography-level(14px, 14px, 500),
+  $font-family: 'Rubik',
+  $display-4:     mat.define-typography-level($font-size: 96px, $font-weight: 300, $font-family: Rubik),
+  $display-3:     mat.define-typography-level($font-size: 60px, $font-weight: 500, $font-family: Rubik),
+  $display-2:     mat.define-typography-level($font-size: 48px, $font-weight: 500, $font-family: Rubik),
+  $display-1:     mat.define-typography-level($font-size: 34px, $font-weight: 500, $font-family: Rubik),
+  $headline:      mat.define-typography-level($font-size: 24px, $font-weight: 500, $font-family: Rubik),
+  $title:         mat.define-typography-level($font-size: 20px, $font-weight: 500, $font-family: Rubik),
+  $subheading-2:  mat.define-typography-level($font-size: 18px, $font-weight: 500, $font-family: Rubik),
+  $subheading-1:  mat.define-typography-level($font-size: 20px, $font-weight: 500, $font-family: Rubik),
+  $body-2:        mat.define-typography-level($font-size: 16px, $font-weight: 400, $font-family: Rubik),
+  $body-1:        mat.define-typography-level($font-size: 18px, $font-weight: 400, $font-family: Rubik),
+  $caption:       mat.define-typography-level($font-size: 16px, $font-weight: Medium, $font-family: Rubik),
+  $button:        mat.define-typography-level($font-size: 16px, $font-weight: 500, $font-family: Rubik),
   // Line-height must be unit-less fraction of the font-size.
-  $input:         mat.define-typography-level(inherit, 1.125, 400)
+  $input:         mat.define-typography-level($font-size: inherit, $line-height: 1.125, $font-weight: 500, $font-family: Rubik),
 );
 
 // Override individual fonts

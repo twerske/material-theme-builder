@@ -132,21 +132,60 @@ const themeToColorPalettes = (theme: AngularTheme): string => {
   `;
 };
 
+const componentColors = (theme: string): string => {
+  return `
+  @include mat.button-color(${theme});
+  @include mat.card-color(${theme});
+  @include mat.checkbox-color(${theme});
+  @include mat.chips-color(${theme});
+  @include mat.form-field-color(${theme});
+  @include mat.icon-color(${theme});
+  @include mat.input-color(${theme});
+  @include mat.list-color(${theme});
+  @include mat.menu-color(${theme});
+  @include mat.paginator-color(${theme});
+  @include mat.progress-bar-color(${theme});
+  @include mat.progress-spinner-color(${theme});
+  @include mat.radio-color(${theme});
+  @include mat.select-color(${theme});
+  @include mat.sidenav-color(${theme});
+  @include mat.slide-toggle-color(${theme});
+  @include mat.slider-color(${theme});
+  @include mat.tabs-color(${theme});
+  @include mat.toolbar-color(${theme});
+  @include mat.snack-bar-color(${theme});
+  `
+}
+
 const buildColorOnlyTheme = (theme: AngularTheme, dark: boolean = false): string => {
   return `
   @use '@angular/material' as mat;
 
   ${themeToColorPalettes(theme)}
-  ${themeToTypographyObject(theme)}
-  ${themeToDensityObject(theme)}
-  ${themeObjects}
+  $mat-core-theme: mat.define-light-theme((
+    color: (
+      primary: $mat-theme-primary,
+      accent: $mat-theme-accent,
+      warn: $mat-theme-warn
+    ),
+  ));
 
-  ${dark ? '.dark-theme {@include mat.all-component-colors($mat-dark-theme);}' : '@include mat.all-component-colors($mat-core-theme);'}
-  `;
+  $mat-dark-theme: mat.define-dark-theme((
+    color: (
+      primary: $mat-dark-theme-primary,
+      accent: $mat-dark-theme-accent,
+      warn: $mat-dark-theme-warn,
+    )
+  ));
+
+  ${dark ? 
+    `.dark-theme {${componentColors('$mat-dark-theme')}}`
+    : `${componentColors('$mat-core-theme')}`
+  }`;
 };
 
 const themeToTypographyObject = (theme: AngularTheme): string => {
-  return `@import url('https://fonts.googleapis.com/css2?${buildFontImportList(theme)}display=swap');
+  return `
   $mat-typography: mat.define-typography-config(
     $font-family: '${theme.typography.h1.family}',
     $display-4:     mat.define-typography-level($font-size: ${theme.typography.h1.size.replace('px', '')}px, $font-weight: ${theme.typography.h1.style}, $font-family: ${theme.typography.h1.family}),
@@ -167,16 +206,42 @@ const themeToTypographyObject = (theme: AngularTheme): string => {
   `;
 };
 
+const componentTypographies = (theme: string): string => {
+  return `
+  @include mat.button-typography(${theme});
+  @include mat.card-typography(${theme});
+  @include mat.checkbox-typography(${theme});
+  @include mat.chips-typography(${theme});
+  @include mat.form-field-typography(${theme});
+  @include mat.icon-typography(${theme});
+  @include mat.input-typography(${theme});
+  @include mat.list-typography(${theme});
+  @include mat.menu-typography(${theme});
+  @include mat.paginator-typography(${theme});
+  @include mat.progress-bar-typography(${theme});
+  @include mat.progress-spinner-typography(${theme});
+  @include mat.radio-typography(${theme});
+  @include mat.select-typography(${theme});
+  @include mat.sidenav-typography(${theme});
+  @include mat.slide-toggle-typography(${theme});
+  @include mat.slider-typography(${theme});
+  @include mat.tabs-typography(${theme});
+  @include mat.toolbar-typography(${theme});
+  @include mat.snack-bar-typography(${theme});
+  @include mat.all-component-typographies(${theme});
+  `
+}
+
 const buildTypographyOnlyTheme = (theme: AngularTheme): string => {
   return `
   @use '@angular/material' as mat;
 
-  ${themeToColorPalettes(theme)}
   ${themeToTypographyObject(theme)}
-  ${themeToDensityObject(theme)}
-  ${themeObjects}
+  $mat-core-theme: mat.define-light-theme((
+    typography: $mat-typography,
+  ));
 
-  @include mat.all-component-typographies($mat-core-theme);
+  ${componentTypographies('$mat-core-theme')}
   `;
 };
 
@@ -192,7 +257,7 @@ const themeToDensityObject = (theme: AngularTheme): string => {
 
 // TODO: override with density styling once available
 const buildDensityOnlyTheme = (theme: AngularTheme): string => {
-  return themeToCompatibleSCSS(theme);
+  return `...`;
 };
 
 const themeObjects = `$mat-core-theme: mat.define-light-theme((
@@ -222,6 +287,7 @@ const themeToAngularSCSS = (theme: AngularTheme): string => {
   @include mat.core();
 
   ${themeToColorPalettes(theme)}
+  @import url('https://fonts.googleapis.com/css2?${buildFontImportList(theme)}display=swap');
   ${themeToTypographyObject(theme)}
   ${themeToDensityObject(theme)}
   ${themeObjects}
@@ -235,9 +301,6 @@ const themeToAngularSCSS = (theme: AngularTheme): string => {
 const themeToCompatibleSCSS = (theme: AngularTheme): string => {
   return `
   @use '@angular/material' as mat;
-
-  // Be sure that you only ever include this mixin once!
-  @include mat.core();
 
   ${themeToColorPalettes(theme)}
   ${themeToTypographyObject(theme)}

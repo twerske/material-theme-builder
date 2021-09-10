@@ -1,43 +1,39 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 // Plus imports for other components in your app.
-// @use '~@angular/material' as mat;
-// @import './material-color-theme.scss';
-// @import './material-typography-theme.scss';
-// @import './material-shape-theme.scss';
+@use '~@angular/material' as mat;
+@import './material-color-theme.scss';
+@import './material-typography-theme.scss';
+@import './material-shape-theme.scss';
 
-// // Include the common styles for Angular Material. We include this here so that you only
-// // have to load a single css file for Angular Material in your app.
-// // Be sure that you only ever include this mixin once!
-// @include mat.core();
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
 
-// // Define your theme with color palettes, typography and [coming soon] density
-// $mat-light-theme: mat.define-light-theme((
-//   color: (
-//     primary: $mat-theme-primary,
-//     accent: $mat-theme-accent,
-//     warn: $mat-theme-warn
-//   ),
-//   typography: $mat-typography,
-//   density: $mat-density
-// ));
+$mat-core-theme: mat.define-light-theme((
+  color: (
+    primary: $mat-theme-primary,
+    accent: $mat-theme-accent,
+    warn: $mat-theme-warn
+  ),
+  typography: $mat-typography,
+  density: $mat-density
+));
 
-// $mat-dark-theme: mat.define-dark-theme((
-//   color: (
-//     primary: $mat-dark-theme-primary,
-//     accent: $mat-dark-theme-accent,
-//     warn: $mat-dark-theme-warn,
-//   ),
-//   typography: $mat-typography,
-//   density: $mat-density
-// ));
+$mat-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $mat-dark-theme-primary,
+    accent: $mat-dark-theme-accent,
+    warn: $mat-dark-theme-warn,
+  )
+));
 
-// @include mat.all-component-themes($mat-light-theme);
+@include mat.all-component-themes($mat-core-theme);
 
-// .dark-theme {
-//   // Override only the color in dark theme to reduce style duplication
-//   @include mat.all-component-colors($mat-dark-theme);
-// }
+.dark-theme {
+  @include mat.all-component-colors($mat-dark-theme);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 
