@@ -28,7 +28,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
       - run: npm run build --configuration production
-      - uses: w9jds/firebase-action@main
+      - uses: w9jds/firebase-action@master
         with:
           args: deploy
         env:
