@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.setTheme();
-    this.convertTheme.applyTheme(this.theme);
+    // this.convertTheme.applyTheme(this.theme);
   }
 
   toggleTheme(): void {
