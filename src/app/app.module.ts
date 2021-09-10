@@ -2,11 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireFunctionsModule } from '@angular/fire/compat/functions';
+import { USE_EMULATOR as USE_FUNCTIONS_EMULATOR } from '@angular/fire/compat/functions';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 import { MaterialModule } from './material.module';
-import { NavComponent } from './nav/nav.component'
+import { NavComponent } from './nav/nav.component';
 import { ButtonsComponent } from './example-drawer-content/example-components/buttons/buttons.component';
 import { ToolbarComponent } from './example-drawer-content/example-components/toolbar/toolbar.component';
 import { SidenavComponent } from './example-drawer-content/example-components/sidenav/sidenav.component';
@@ -33,6 +38,11 @@ import { DensityComponent } from './nav/density/density.component';
 import { StylingComponent } from './nav/styling/styling.component';
 import { LightModeComponent } from './nav/color/light-mode/light-mode.component';
 import { DarkModeComponent } from './nav/color/dark-mode/dark-mode.component';
+import { ColorPickerComponent } from './nav/color/color-picker/color-picker.component';
+
+import { FontPickerModule } from 'ngx-font-picker';
+import { FONT_PICKER_CONFIG } from 'ngx-font-picker';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -64,15 +74,26 @@ import { DarkModeComponent } from './nav/color/dark-mode/dark-mode.component';
     StylingComponent,
     LightModeComponent,
     DarkModeComponent,
+    ColorPickerComponent,
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireFunctionsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ColorPickerModule,
+    FontPickerModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: FONT_PICKER_CONFIG,
+      useValue: environment.key
+    },
+    { provide: USE_FUNCTIONS_EMULATOR, useValue: environment.useEmulators ? ['localhost', 5001] : undefined },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

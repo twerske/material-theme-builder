@@ -1,21 +1,19 @@
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { applyStyles, themeToAngularSass } from './theme-generator/angular-theme-transformer';
-import { defaultTheme, Theme } from './theme-generator/Theme';
+import { AngularTheme, defaultAngularTheme } from './theme-generator/AngularTheme';
+import { ConvertThemeService } from '../convert-theme.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit, OnChanges {
+export class NavComponent implements OnInit {
   isDark: boolean;
-  bodyStyles: CSSStyleDeclaration;
   downloadJsonHref: SafeUrl;
-  theme: Theme = defaultTheme;
+  theme: AngularTheme = defaultAngularTheme;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private convertTheme: ConvertThemeService) {}
 
   generateDownloadJsonUri(): void {
     // const theJSON = JSON.stringify(themeToAngularScss(defaultTheme));
@@ -23,18 +21,13 @@ export class NavComponent implements OnInit, OnChanges {
     // const url = window.URL.createObjectURL(blob);
     // const uri: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(url);
     // this.downloadJsonHref = uri;
-    console.log(themeToAngularSass(defaultTheme));
+    // console.log(themeToAngularSass(defaultAngularTheme));
   }
 
   ngOnInit(): void {
     this.isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.setTheme();
-    this.bodyStyles = window.getComputedStyle(document.body);
-    applyStyles(this.theme);
-  }
-
-  ngOnChanges(): void {
-    applyStyles(this.theme);
+    this.convertTheme.applyTheme(this.theme);
   }
 
   toggleTheme(): void {

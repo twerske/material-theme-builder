@@ -1,14 +1,19 @@
-@import "src/styles.scss";
+@use '~@angular/material' as mat;
+@import 'src/styles.scss';
+@import 'src/utils.scss';
 
 .mat-theme-creator {
     height: 100vh;
-    overflow: auto;
+    overflow: none;
 }
 
 .mat-theme-drawer {
     width: clamp(400px, 30%, 500px);
     
     .mat-theme-header {
+        @include space-and-center($width: 0%);
+        // display: flex;
+        // justify-content: space-between;
         padding: 24px;
 
         h1 {
@@ -49,15 +54,16 @@
         }
 
         .theme-line {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include space-and-center;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-between;
             font-family: Roboto, sans-serif;
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
-            font-size: 0.75rem;
             line-height: 1.25rem;
-            font-weight: 400;
+            // font-size: 0.75rem;
+            // font-weight: 400;
             letter-spacing: 0.03333em;
             text-decoration: inherit;
             text-transform: inherit;
@@ -65,13 +71,15 @@
 
             .code {
                 background: none;
-                font-family: 'Roboto mono';
+                font-family: Roboto, mono;
                 margin: 0;
                 display: flex;
                 flex-wrap: wrap;
+                // font-size: 0.75rem;
+                font-weight: 400;
                 
                 span {
-                    font-weight: 600;
+                    font-weight: 500;
                     margin-left: 0.25rem;
                 }
             }
@@ -90,48 +98,6 @@
         border: 1px solid #bdbdbd;
         border-radius: 50%;
         margin: 0;
-        
-        @each $key in $mat-color-keys {
-            &.primary-#{$key} {
-                background-color: mat-color($mat-theme-primary, $key);
-            }
-
-            &.primary-#{$key}-contrast {
-                background-color: mat-color($mat-theme-primary, #{$key}-contrast);
-            }
-        }
-
-        @each $key in $mat-color-keys {
-            &.accent-#{$key} {
-                background-color: mat-color($mat-theme-accent, $key);
-            }
-
-            &.accent-#{$key}-contrast {
-                background-color: mat-color($mat-theme-accent, #{$key}-contrast);
-            }
-        }
-
-        @each $key in $mat-color-keys {
-            &.warn-#{$key} {
-                background-color: mat-color($mat-theme-warn, $key);
-            }  
-
-            &.warn-#{$key}-contrast {
-                background-color: mat-color($mat-theme-warn, #{$key}-contrast);
-            }
-        }
-
-        @each $key in $mat-foreground-keys {
-            &.foreground-#{$key} {
-                background-color: mat-color($mat-light-theme-foreground, $key);
-            }  
-        }
-
-        @each $key in $mat-background-keys {
-            &.background-#{$key} {
-                background-color: mat-color($mat-light-theme-background, $key);
-            }  
-        }
     } 
 }
 
@@ -142,48 +108,6 @@
         border: 1px solid #585858;
         border-radius: 50%;
         margin: 0;
-        
-        @each $key in $mat-color-keys {
-            &.primary-#{$key} {
-                background-color: mat-color($mat-dark-theme-primary, $key);;
-            }  
-
-            &.primary-#{$key}-contrast {
-                background-color: mat-color($mat-dark-theme-primary, #{$key}-contrast);
-            }
-        }
-
-        @each $key in $mat-color-keys {
-            &.accent-#{$key} {
-                background-color: mat-color($mat-dark-theme-accent, $key);;
-            }  
-
-            &.accent-#{$key}-contrast {
-                background-color: mat-color($mat-dark-theme-accent, #{$key}-contrast);
-            }
-        }
-
-        @each $key in $mat-color-keys {
-            &.warn-#{$key} {
-                background-color: mat-color($mat-dark-theme-warn, $key);;
-            }  
-
-            &.warm-#{$key}-contrast {
-                background-color: mat-color($mat-dark-theme-accent, #{$key}-contrast);
-            }
-        }
-
-        @each $key in $mat-foreground-keys {
-            &.foreground-#{$key} {
-                background-color: mat-color($mat-dark-theme-foreground, $key);;
-            }  
-        }
-
-        @each $key in $mat-background-keys {
-            &.background-#{$key} {
-                background-color: mat-color($mat-dark-theme-background, $key);;
-            }  
-        }
     } 
 }
 
@@ -196,7 +120,7 @@
         flex: 0 1 30%;
         display: flex;
         flex-direction: column;
-        width: 420px;
+        width: 500px;
     }
 
     .component-section {
@@ -204,8 +128,7 @@
         // outline: #0009 solid 1px;
 
         &.two-column {
-            display: flex;
-            justify-content: space-between;
+            @include space-and-center;
         }
 
         .example-spacer {
@@ -213,10 +136,6 @@
         }
 
         .component-wrapper {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            align-items: center;
             margin: 16px 0;
             
             .sidenav-example {

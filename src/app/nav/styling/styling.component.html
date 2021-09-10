@@ -1,2 +1,7 @@
-<app-example-header [title]="'Generated Sass'"><mat-icon>palette</mat-icon></app-example-header>
-<p>Sass will be here...</p>
+<app-example-header [title]="'styles.scss'"><mat-icon>palette</mat-icon></app-example-header>
+<div>
+  <button class="copy-button" mat-icon-button [cdkCopyToClipboard]="this.getSCSS()" aria-label="Copy generate theme Sass to clipboard">
+    <mat-icon>content_copy</mat-icon>
+  </button>
+  <p class="format-text">{{this.getSCSS()}}</p>
+</div>

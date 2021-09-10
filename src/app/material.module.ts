@@ -37,6 +37,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 // *************** POPUPS & MODALS ***************
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -54,6 +55,7 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule
   ],
   exports: [
+    ClipboardModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,

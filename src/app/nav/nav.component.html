@@ -1,7 +1,7 @@
 <div class="mat-theme-header">
   <div>
     <h1>Build an Angular Material Theme</h1>
-    <h2>@twerske</h2>
+    <a class="twitter" target="_blank" href="https://twitter.com/twerske">@twerske</a>
   </div>
   <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme" class="theme-button dark-mode">
     <mat-icon>
@@ -32,33 +32,35 @@
   </button> -->
 </div>
 <mat-tab-group mat-stretch-tabs>
-  <!-- <mat-tab label="Instructions" class="drawer-content">
+  <mat-tab label="Theme" class="drawer-content">
     <div class="drawer-content">
       <h4 class="section-header">HOW TO BUILD A THEME</h4>
-      <p>Build your own custom Material theme by remixing and styling these themeable components.</p>
-      <p>Modify the variables in the variables tabs, then use download your theme file in the Sass tab.</p>
-      <p>Use your custom theme by running 'ng add @angular/material' and select the custom theme.</p>
-      <p>Replace your app's styles.scss file with the downloaded Sass file to see your new custom theme!</p>
+      <p>Create a custom Angular Material theme by remixing and styling these themeable Angular Material components.</p>
+      <p>Modify the variables in the Color, Typography and [soon] Density tabs.</p>
+      <p>Use your custom theme by running 'ng add @angular/material' and select the 'Custom theme' option.</p>
+      <p>Replace your app's styles.scss file with the SCSS under 'GENERATED THEME' below to see your custom theme!</p>
+      <mat-divider></mat-divider>
+      <h4 class="section-header">GENERATED THEME</h4>
+      <app-styling [theme]="theme"></app-styling>
     </div>
-  </mat-tab> -->
+  </mat-tab>
   <mat-tab label="Color">
     <div class="drawer-content">
-      <app-color [isDark]="isDark" [bodyStyles]="bodyStyles" [theme]="theme"></app-color>
+      <app-color [isDark]="isDark" [theme]="theme"></app-color>
     </div>
   </mat-tab>
   <mat-tab label="Typography">
     <div class="drawer-content">
-      <app-typography [bodyStyles]="bodyStyles"></app-typography>  
+      <app-typography [theme]="theme" (updateTheme)="theme=$event"></app-typography>  
     </div>
   </mat-tab>
-  <mat-tab label="Density">
+  <!-- <mat-tab label="Density">
     <div class="drawer-content">
-      <app-density [bodyStyles]="bodyStyles"></app-density>
+      <app-density [theme]="theme"></app-density>
     </div>
-  </mat-tab>
-  <mat-tab label="Sass" class="drawer-content">
+  </mat-tab> -->
+  <!-- <mat-tab label="Theme" class="drawer-content">
     <div class="drawer-content">
-      <app-styling></app-styling>
     </div>
-  </mat-tab>
+  </mat-tab> -->
 </mat-tab-group>

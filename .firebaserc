@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "theme-builder-1623190217839": {
+      "hosting": {
+        "material-theme-creator": [
+          "theme-builder-1623190217839"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "theme-builder-1623190217839"
+  }
+}
