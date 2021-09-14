@@ -143,6 +143,8 @@ const componentColors = (theme: string): string => {
   @include mat.input-color(${theme});
   @include mat.list-color(${theme});
   @include mat.menu-color(${theme});
+  @include mat.option-color(${theme});
+  @include mat.pseudo-checkbox-color(${theme});
   @include mat.paginator-color(${theme});
   @include mat.progress-bar-color(${theme});
   @include mat.progress-spinner-color(${theme});
@@ -217,6 +219,7 @@ const componentTypographies = (theme: string): string => {
   @include mat.input-typography(${theme});
   @include mat.list-typography(${theme});
   @include mat.menu-typography(${theme});
+  @include mat.option-typography(${theme});
   @include mat.paginator-typography(${theme});
   @include mat.progress-bar-typography(${theme});
   @include mat.progress-spinner-typography(${theme});
