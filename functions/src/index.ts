@@ -8,7 +8,7 @@ export const convertSCSSToCSS = functions.https.onCall((data: {scss: string}) =>
     data: themeSCSS,
     outputStyle: "compressed",
     includePaths: [
-      "node_modules",
+      "node_modules/@angular/material",
     ],
   });
   const css = result.css.toString();
